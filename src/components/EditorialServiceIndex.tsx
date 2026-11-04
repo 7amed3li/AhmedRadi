@@ -46,7 +46,7 @@ export default function EditorialServiceIndex() {
                     <h3 className="text-lg sm:text-2xl font-black text-[#070B14] leading-tight group-hover:text-[#C5A059] transition-colors">
                       {service.title}
                     </h3>
-                    <span className="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full">
+                    <span className="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-md">
                       {service.categoryName}
                     </span>
                   </div>
@@ -61,7 +61,7 @@ export default function EditorialServiceIndex() {
                   {isExpanded ? "إغلاق التفاصيل" : "عرض التفاصيل"}
                 </span>
                 <span
-                  className={`w-9 h-9 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 transition-transform duration-200 ${
+                  className={`w-9 h-9 rounded-md bg-white border border-slate-200 flex items-center justify-center text-slate-600 transition-transform duration-200 ${
                     isExpanded ? "rotate-180 bg-[#070B14] text-white border-[#070B14]" : ""
                   }`}
                 >
@@ -105,7 +105,7 @@ export default function EditorialServiceIndex() {
                     <ul className="space-y-1.5 text-xs text-slate-600 font-normal">
                       {service.preliminaryDocs.slice(0, 3).map((doc, dIdx) => (
                         <li key={dIdx} className="flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059]" />
+                          <CheckIcon size={14} className="text-[#C5A059] shrink-0" />
                           <span className="line-clamp-1">{doc}</span>
                         </li>
                       ))}

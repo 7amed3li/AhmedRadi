@@ -11,7 +11,7 @@ import {
   CivilDefenseVisual,
 } from "@/components/EngineeringVisuals";
 import { buildWhatsAppLink } from "@/config/officeConfig";
-import { ArrowLeftIcon, WhatsAppIcon, CheckIcon } from "@/components/Icons";
+import { ArrowLeftIcon, WhatsAppIcon, CheckIcon, CheckCircleIcon } from "@/components/Icons";
 
 interface ShowcaseTab {
   id: string;
@@ -157,9 +157,7 @@ export default function ServiceShowcase() {
             <span className="text-xs font-bold text-[#070B14] block">المخرجات والخدمات المشمولة:</span>
             {activeTab.deliverables.map((item, idx) => (
               <div key={idx} className="flex items-start gap-3 text-xs text-slate-700">
-                <div className="w-5 h-5 rounded-full bg-[#070B14] text-[#C5A059] flex items-center justify-center shrink-0 mt-0.5">
-                  <CheckIcon size={12} />
-                </div>
+                <CheckCircleIcon size={16} className="text-[#C5A059] shrink-0 mt-0.5" />
                 <span className="font-medium leading-relaxed">{item}</span>
               </div>
             ))}

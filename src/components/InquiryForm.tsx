@@ -64,7 +64,7 @@ export default function InquiryForm({ defaultServiceSlug = "" }: InquiryFormProp
 
       {submitted ? (
         <div className="bg-slate-50 border border-slate-200 rounded-xl p-8 text-center space-y-3">
-          <div className="w-12 h-12 mx-auto rounded-full bg-[#070B14] flex items-center justify-center text-[#C5A059]">
+          <div className="w-12 h-12 mx-auto rounded-xl bg-[#070B14] flex items-center justify-center text-[#C5A059]">
             <CheckCircleIcon size={24} />
           </div>
           <h4 className="text-lg font-bold text-[#070B14]">تم استلام استفسارك بنجاح</h4>

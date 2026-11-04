@@ -197,13 +197,12 @@ export default function Footer() {
             <p>
               جميع الحقوق محفوظة © {currentYear} مكتب {officeConfig.engineerName} للاستشارات الهندسية.
             </p>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 divide-x divide-x-reverse divide-slate-800">
               <Link href="/services" className="hover:text-slate-200">
                 فهرس الخدمات
               </Link>
-              <span>•</span>
-              <a href="#contact-form" className="hover:text-slate-200">
-                سياسة جمع البيانات
+              <a href="#contact-form" className="pr-4 hover:text-slate-200">
+                سياسة الاستخدام والاستشارة
               </a>
             </div>
           </div>
