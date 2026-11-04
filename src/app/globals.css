@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+:root {
+  --font-cairo: "Cairo", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  /* 60-30-10 Color Engineering System for Saudi Architecture & Consulting */
+  /* 60% Canvas / Neutral Base */
+  --bg-page: #F8FAFC;
+  --bg-card: #FFFFFF;
+  --bg-subtle: #F1F5F9;
+  --border-light: #E2E8F0;
+  
+  /* 30% Structural Deep Corporate Tones */
+  --corporate-navy: #0F2038;
+  --corporate-navy-dark: #0A1628;
+  --corporate-navy-light: #1A365D;
+  --text-heading: #0A1628;
+  --text-body: #334155;
+  --text-muted: #64748B;
+  
+  /* 10% Accent (Architectural Gold & Precision Blue) */
+  --accent-gold: #B8860B;
+  --accent-gold-light: #C5A059;
+  --accent-gold-hover: #996F07;
+  --accent-blue: #1E40AF;
+  --action-green: #15803D;
+}
+
+body {
+  font-family: var(--font-cairo), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-body);
+  direction: rtl;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-cairo {
+  font-family: var(--font-cairo), sans-serif;
+}
+
+/* Engineering blueprint grid - light, subtle and corporate */
+.engineering-grid {
+  background-image: 
+    linear-gradient(to right, rgba(15, 32, 56, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 32, 56, 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.hero-navy-gradient {
+  background: linear-gradient(135deg, #0A1628 0%, #0F2038 50%, #162846 100%);
+}
+
+/* Card hover elevations */
+.card-engineering {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  transition: all 0.25s ease-in-out;
+}
+
+.card-engineering:hover {
+  border-color: #CBD5E1;
+  box-shadow: 0 10px 25px -5px rgba(15, 32, 56, 0.08), 0 8px 10px -6px rgba(15, 32, 56, 0.04);
+  transform: translateY(-2px);
+}
+
+/* Smooth custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0F2038;
+}
