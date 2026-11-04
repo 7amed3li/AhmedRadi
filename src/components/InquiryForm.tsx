@@ -49,49 +49,49 @@ export default function InquiryForm({ defaultServiceSlug = "" }: InquiryFormProp
   };
 
   return (
-    <div id="contact-form" className="bg-white rounded-xl p-6 sm:p-8 shadow-sm border border-slate-200">
-      <div className="mb-6 space-y-1">
-        <span className="text-[11px] font-bold text-[#C5A059] uppercase tracking-wider block">
+    <div id="contact-form" className="bg-white rounded-2xl p-8 sm:p-12 border border-slate-200/90 shadow-xs">
+      <div className="mb-8 space-y-2 text-right">
+        <span className="text-xs font-bold text-[#C5A059] uppercase tracking-wider block">
           استفسار مباشر
         </span>
-        <h3 className="text-xl font-bold text-[#0F172A]">
+        <h3 className="text-2xl sm:text-3xl font-black text-[#070B14]">
           طلب مراجعة معاملة هندسية
         </h3>
-        <p className="text-xs text-slate-500 font-normal">
+        <p className="text-xs sm:text-sm text-slate-500 font-light">
           أدخل بيانات العقار وسيقوم المهندس أحمد راضي بالرد وتوضيح المتطلبات الفنية.
         </p>
       </div>
 
       {submitted ? (
-        <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-6 text-center space-y-3">
-          <div className="w-10 h-10 mx-auto rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700">
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-8 text-center space-y-3">
+          <div className="w-12 h-12 mx-auto rounded-full bg-[#070B14] flex items-center justify-center text-[#C5A059]">
             <CheckCircleIcon size={24} />
           </div>
-          <h4 className="text-base font-bold text-emerald-900">تم استلام استفسارك بنجاح</h4>
-          <p className="text-xs text-emerald-800 leading-relaxed font-normal">
+          <h4 className="text-lg font-bold text-[#070B14]">تم استلام استفسارك بنجاح</h4>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
             شكراً لتواصلك يا أستاذ {formData.fullName}. جاري فتح محادثة واتساب لتأكيد الاستفسار وإرفاق صورة الصك.
           </p>
           <div className="pt-2">
             <button
               type="button"
               onClick={() => setSubmitted(false)}
-              className="text-xs text-emerald-800 underline hover:text-emerald-900"
+              className="text-xs text-slate-800 underline hover:text-[#070B14]"
             >
               إرسال استفسار آخر
             </button>
           </div>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-5 text-right">
           {errorMsg && (
-            <div className="flex items-center gap-2 p-3 bg-red-50 text-red-700 text-xs rounded-lg border border-red-200">
+            <div className="flex items-center gap-2.5 p-3.5 bg-red-50 text-red-700 text-xs rounded-md border border-red-200">
               <AlertCircleIcon size={16} className="shrink-0 text-red-500" />
               <span>{errorMsg}</span>
             </div>
           )}
 
           <div>
-            <label htmlFor="fullName" className="block text-xs font-semibold text-slate-700 mb-1">
+            <label htmlFor="fullName" className="block text-xs font-bold text-slate-700 mb-2">
               الاسم الكريم <span className="text-red-500">*</span>
             </label>
             <input
@@ -101,12 +101,12 @@ export default function InquiryForm({ defaultServiceSlug = "" }: InquiryFormProp
               placeholder="الاسم الثلاثي"
               value={formData.fullName}
               onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-xs text-slate-900 focus:outline-none focus:ring-1 focus:ring-[#C5A059] focus:border-[#C5A059]"
+              className="w-full px-4 py-3 rounded-md border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-[#070B14] transition-colors"
             />
           </div>
 
           <div>
-            <label htmlFor="phone" className="block text-xs font-semibold text-slate-700 mb-1">
+            <label htmlFor="phone" className="block text-xs font-bold text-slate-700 mb-2">
               رقم الجوال <span className="text-red-500">*</span>
             </label>
             <input
@@ -117,12 +117,12 @@ export default function InquiryForm({ defaultServiceSlug = "" }: InquiryFormProp
               placeholder="05xxxxxxxx"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-xs text-slate-900 focus:outline-none focus:ring-1 focus:ring-[#C5A059] focus:border-[#C5A059] text-right"
+              className="w-full px-4 py-3 rounded-md border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-[#070B14] transition-colors text-right"
             />
           </div>
 
           <div>
-            <label htmlFor="city" className="block text-xs font-semibold text-slate-700 mb-1">
+            <label htmlFor="city" className="block text-xs font-bold text-slate-700 mb-2">
               المدينة أو المحافظة
             </label>
             <input
@@ -131,19 +131,19 @@ export default function InquiryForm({ defaultServiceSlug = "" }: InquiryFormProp
               placeholder="مثال: الرياض"
               value={formData.city}
               onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-xs text-slate-900 focus:outline-none focus:ring-1 focus:ring-[#C5A059] focus:border-[#C5A059]"
+              className="w-full px-4 py-3 rounded-md border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-[#070B14] transition-colors"
             />
           </div>
 
           <div>
-            <label htmlFor="serviceSlug" className="block text-xs font-semibold text-slate-700 mb-1">
+            <label htmlFor="serviceSlug" className="block text-xs font-bold text-slate-700 mb-2">
               نوع الخدمة المطلوبة
             </label>
             <select
               id="serviceSlug"
               value={formData.serviceSlug}
               onChange={(e) => setFormData({ ...formData, serviceSlug: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-xs text-slate-900 bg-white focus:outline-none focus:ring-1 focus:ring-[#C5A059] focus:border-[#C5A059]"
+              className="w-full px-4 py-3 rounded-md border border-slate-200 text-sm text-slate-900 bg-white focus:outline-none focus:border-[#070B14] transition-colors"
             >
               <option value="">-- اختر الخدمة أو استشارة عامة --</option>
               {services.map((svc) => (
@@ -155,7 +155,7 @@ export default function InquiryForm({ defaultServiceSlug = "" }: InquiryFormProp
           </div>
 
           <div>
-            <label htmlFor="notes" className="block text-xs font-semibold text-slate-700 mb-1">
+            <label htmlFor="notes" className="block text-xs font-bold text-slate-700 mb-2">
               تفاصيل إضافية عن المعاملة (اختياري)
             </label>
             <textarea
@@ -164,35 +164,20 @@ export default function InquiryForm({ defaultServiceSlug = "" }: InquiryFormProp
               placeholder="مثال: لدي رخصة بناء منتهية وأرغب في تجديدها..."
               value={formData.notes}
               onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-xs text-slate-900 focus:outline-none focus:ring-1 focus:ring-[#C5A059] focus:border-[#C5A059]"
+              className="w-full px-4 py-3 rounded-md border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-[#070B14] transition-colors"
             ></textarea>
           </div>
 
-          <p className="text-[11px] text-slate-400 font-normal">
+          <p className="text-xs text-slate-400 font-light">
             تُستخدم هذه البيانات للتواصل معك بخصوص طلبك فقط دون أي مشاركة مع أطراف أخرى.
           </p>
 
           <button
             type="submit"
-            className="w-full py-3 px-4 rounded-lg font-bold text-xs bg-[#050811] text-white hover:bg-slate-800 transition-colors shadow-xs"
+            className="w-full py-4 px-6 rounded-md font-bold text-sm bg-[#070B14] text-white hover:bg-slate-800 transition-colors shadow-sm"
           >
             إرسال ومتابعة عبر واتساب
           </button>
-
-          <div className="pt-2 text-center">
-            <span className="text-[11px] text-slate-400">أو تواصل مباشرة دون تعبئة النموذج:</span>
-            <div className="mt-1.5">
-              <a
-                href={buildWhatsAppLink()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-1.5 py-2 px-3.5 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-bold hover:bg-emerald-100 transition-colors"
-              >
-                <WhatsAppIcon size={15} />
-                <span>محادثة واتساب مباشرة</span>
-              </a>
-            </div>
-          </div>
         </form>
       )}
     </div>

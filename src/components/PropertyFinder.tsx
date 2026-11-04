@@ -76,16 +76,16 @@ export default function PropertyFinder() {
   const [selectedCase, setSelectedCase] = useState(cases[0]);
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-sm space-y-8">
+    <div className="bg-slate-50/70 rounded-2xl border border-slate-200/80 p-8 sm:p-12 space-y-8">
       
-      <div className="max-w-2xl text-right space-y-1.5">
+      <div className="max-w-2xl text-right space-y-2">
         <span className="text-xs font-bold text-[#C5A059] uppercase tracking-wider block">
           مساعد توجيه المعاملة الهندسية
         </span>
-        <h3 className="text-xl sm:text-2xl font-black text-[#0A1628]">
+        <h3 className="text-2xl sm:text-3xl font-black text-[#070B14]">
           حدد حالة عقارك لمعرفة المسار الفني الصحيح
         </h3>
-        <p className="text-xs sm:text-sm text-slate-500 font-normal">
+        <p className="text-xs sm:text-sm text-slate-500 font-light">
           اختر الوضع الحالي لعقارك ليظهر لك المسار الهندسي والخطوة الأولى للتنفيذ.
         </p>
       </div>
@@ -100,14 +100,14 @@ export default function PropertyFinder() {
               key={c.id}
               type="button"
               onClick={() => setSelectedCase(c)}
-              className={`p-4 rounded-xl text-right border transition-all text-xs font-bold flex items-center gap-3 focus:outline-none ${
+              className={`p-5 rounded-xl text-right border transition-all text-xs font-bold flex items-center gap-3.5 focus:outline-none ${
                 isSelected
-                  ? "bg-[#0A1628] border-[#0A1628] text-white shadow-md"
-                  : "bg-slate-50 border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-100"
+                  ? "bg-[#070B14] border-[#070B14] text-white shadow-md"
+                  : "bg-white border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50"
               }`}
             >
               <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
-                isSelected ? "bg-[#C5A059] text-[#0A1628]" : "bg-white border border-slate-200 text-slate-600"
+                isSelected ? "bg-[#C5A059] text-[#070B14]" : "bg-slate-100 text-slate-600"
               }`}>
                 <Icon size={16} />
               </div>
@@ -118,43 +118,43 @@ export default function PropertyFinder() {
       </div>
 
       {/* Selected Result Box */}
-      <div className="bg-slate-50 rounded-xl p-6 border border-slate-200 space-y-4 text-right">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 pb-3">
+      <div className="bg-white rounded-xl p-6 sm:p-8 border border-slate-200 space-y-4 text-right shadow-xs">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
           <div>
-            <span className="text-[11px] text-slate-500 block font-normal">الخدمة الهندسية الموصى بها:</span>
-            <h4 className="text-base sm:text-lg font-bold text-[#0A1628]">
+            <span className="text-xs text-slate-400 block font-light">الخدمة الهندسية الموصى بها:</span>
+            <h4 className="text-lg sm:text-xl font-bold text-[#070B14] mt-0.5">
               {selectedCase.recommendedService}
             </h4>
           </div>
           <Link
             href={`/services/${selectedCase.slug}`}
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-md text-xs font-bold bg-[#0A1628] text-white hover:bg-slate-800 transition"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-md text-xs font-bold bg-[#070B14] text-white hover:bg-slate-800 transition"
           >
             <span>صفحة تفاصيل الخدمة</span>
             <ArrowLeftIcon size={13} />
           </Link>
         </div>
 
-        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
           {selectedCase.summary}
         </p>
 
-        <div className="p-3.5 bg-white rounded-lg border border-slate-200 flex items-start gap-2.5 text-xs text-slate-700">
+        <div className="p-4 bg-slate-50 rounded-lg border border-slate-200/80 flex items-start gap-3 text-xs text-slate-700">
           <CheckIcon size={16} className="text-[#C5A059] shrink-0 mt-0.5" />
           <div>
-            <strong className="text-[#0A1628] font-semibold">الخطوة الأولى المقترحة: </strong>
-            <span>{selectedCase.firstStep}</span>
+            <strong className="text-[#070B14] font-semibold">الخطوة الأولى المقترحة: </strong>
+            <span className="font-light">{selectedCase.firstStep}</span>
           </div>
         </div>
 
-        <div className="pt-2 flex flex-wrap items-center gap-3">
+        <div className="pt-2">
           <a
             href={buildWhatsAppLink(`السلام عليكم مهندس أحمد، لدي حالة: (${selectedCase.situation}) وأرغب في استشارة عن ${selectedCase.recommendedService}.`)}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs font-bold bg-[#C5A059] text-[#0A1628] hover:bg-[#D4AF37] transition shadow-xs"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-md text-xs font-bold bg-[#070B14] text-white hover:bg-slate-800 transition shadow-xs"
           >
-            <WhatsAppIcon size={16} />
+            <WhatsAppIcon size={16} className="text-[#C5A059]" />
             <span>بدء المحادثة عن هذه الحالة عبر واتساب</span>
           </a>
         </div>

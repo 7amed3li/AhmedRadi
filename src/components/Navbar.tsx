@@ -10,74 +10,74 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-[#0A1628] border-b border-slate-800 text-white shadow-md transition-all">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 text-slate-900 transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-20 sm:h-24">
           
-          {/* Logo & Office Title */}
-          <Link href="/" className="flex items-center gap-3.5 group focus:outline-none">
-            <div className="relative w-12 h-12 rounded-lg bg-black border border-slate-700/80 p-0.5 overflow-hidden shrink-0 group-hover:border-[#C5A059] transition-colors shadow-sm">
+          {/* Logo & Brand Identity */}
+          <Link href="/" className="flex items-center gap-4 group focus:outline-none">
+            <div className="relative w-12 h-12 sm:w-14 sm:h-14 bg-black rounded-lg p-0.5 overflow-hidden shrink-0 border border-slate-800/80 shadow-xs group-hover:scale-102 transition-transform">
               <Image
                 src="/logo.webp"
-                alt="شعار مكتب أحمد راضي للاستشارات الهندسية"
-                width={48}
-                height={48}
+                alt="شعار أحمد راضي للاستشارات الهندسية"
+                width={56}
+                height={56}
                 className="object-contain"
                 priority
               />
             </div>
             <div className="flex flex-col text-right">
-              <span className="font-extrabold text-lg sm:text-xl text-white tracking-tight leading-tight group-hover:text-[#E2C285] transition-colors">
+              <span className="font-black text-xl sm:text-2xl text-[#070B14] tracking-tight leading-none">
                 أحمد راضي
               </span>
-              <span className="text-[11px] text-[#C5A059] font-medium tracking-wide">
+              <span className="text-xs text-slate-500 font-medium tracking-wide mt-1">
                 استشارات هندسية ومساحية
               </span>
             </div>
           </Link>
 
-          {/* Corporate Navigation */}
-          <nav className="hidden lg:flex items-center gap-8 text-sm font-semibold">
+          {/* Editorial Navigation Links */}
+          <nav className="hidden lg:flex items-center gap-10 text-sm font-semibold tracking-wide">
             <Link 
               href="/" 
-              className="text-slate-100 hover:text-[#C5A059] transition-colors py-2 focus:outline-none"
+              className="text-[#070B14] hover:text-[#C5A059] transition-colors py-2 focus:outline-none"
             >
               الرئيسية
             </Link>
             <Link 
-              href="/services" 
-              className="text-slate-200 hover:text-[#C5A059] transition-colors py-2 focus:outline-none"
+              href="/#services-index" 
+              className="text-slate-600 hover:text-[#070B14] transition-colors py-2 focus:outline-none"
             >
-              دليل الخدمات
+              فهرس الخدمات
             </Link>
             <Link 
               href="/#process" 
-              className="text-slate-200 hover:text-[#C5A059] transition-colors py-2 focus:outline-none"
+              className="text-slate-600 hover:text-[#070B14] transition-colors py-2 focus:outline-none"
             >
-              آلية العمل
+              المسار الهندسي
             </Link>
             <Link 
               href="/#trust" 
-              className="text-slate-200 hover:text-[#C5A059] transition-colors py-2 focus:outline-none"
+              className="text-slate-600 hover:text-[#070B14] transition-colors py-2 focus:outline-none"
             >
-              المعايير الهندسية
+              المعايير والاشتراطات
             </Link>
             <Link 
               href="/#faq" 
-              className="text-slate-200 hover:text-[#C5A059] transition-colors py-2 focus:outline-none"
+              className="text-slate-600 hover:text-[#070B14] transition-colors py-2 focus:outline-none"
             >
               الأسئلة الشائعة
             </Link>
           </nav>
 
-          {/* Corporate Direct Actions */}
-          <div className="hidden sm:flex items-center gap-3">
+          {/* Minimalist Action Buttons */}
+          <div className="hidden sm:flex items-center gap-4">
             <a
               href={getPhoneLink()}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-bold text-white bg-slate-900/90 hover:bg-slate-800 border border-slate-700 transition-colors focus:outline-none"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-md text-xs font-bold text-slate-800 hover:text-[#070B14] bg-slate-50 hover:bg-slate-100 border border-slate-200/90 transition-all focus:outline-none"
               title={`اتصال بـ ${officeConfig.phone.display}`}
             >
-              <PhoneIcon size={15} className="text-[#C5A059]" />
+              <PhoneIcon size={14} className="text-[#C5A059]" />
               <span dir="ltr">{officeConfig.phone.display}</span>
             </a>
 
@@ -85,9 +85,9 @@ export default function Navbar() {
               href={buildWhatsAppLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-bold bg-[#C5A059] text-[#0A1628] hover:bg-[#D4AF37] transition-all shadow-sm focus:outline-none"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md text-xs font-bold bg-[#070B14] text-white hover:bg-slate-800 transition-all shadow-xs focus:outline-none"
             >
-              <WhatsAppIcon size={16} />
+              <WhatsAppIcon size={15} className="text-[#C5A059]" />
               <span>محادثة واتساب</span>
             </a>
           </div>
@@ -98,16 +98,16 @@ export default function Navbar() {
               href={buildWhatsAppLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-lg bg-[#C5A059] text-[#0A1628]"
+              className="p-2.5 rounded-md bg-[#070B14] text-white shadow-xs"
               aria-label="محادثة واتساب"
             >
-              <WhatsAppIcon size={18} />
+              <WhatsAppIcon size={18} className="text-[#C5A059]" />
             </a>
 
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2.5 rounded-lg text-slate-300 hover:text-white bg-slate-900 border border-slate-800 focus:outline-none"
+              className="p-2.5 rounded-md text-slate-700 hover:text-slate-900 bg-slate-50 border border-slate-200 focus:outline-none"
               aria-label="القائمة"
             >
               {mobileMenuOpen ? <CloseIcon size={20} /> : <MenuIcon size={20} />}
@@ -119,60 +119,60 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-slate-800 bg-[#0A1628] px-4 pt-3 pb-6 space-y-3">
-          <nav className="flex flex-col space-y-1.5 text-sm font-semibold">
+        <div className="lg:hidden border-t border-slate-200 bg-white px-6 pt-4 pb-8 space-y-4">
+          <nav className="flex flex-col space-y-2 text-base font-bold text-slate-800">
             <Link
               href="/"
               onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2.5 rounded-md text-slate-200 hover:bg-slate-900 hover:text-[#C5A059]"
+              className="py-2 hover:text-[#C5A059]"
             >
               الرئيسية
             </Link>
             <Link
-              href="/services"
+              href="/#services-index"
               onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2.5 rounded-md text-slate-200 hover:bg-slate-900 hover:text-[#C5A059]"
+              className="py-2 hover:text-[#C5A059]"
             >
-              دليل الخدمات (12 خدمة)
+              فهرس الخدمات الـ 12
             </Link>
             <Link
               href="/#process"
               onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2.5 rounded-md text-slate-200 hover:bg-slate-900 hover:text-[#C5A059]"
+              className="py-2 hover:text-[#C5A059]"
             >
-              آلية العمل
+              المسار الهندسي
             </Link>
             <Link
               href="/#trust"
               onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2.5 rounded-md text-slate-200 hover:bg-slate-900 hover:text-[#C5A059]"
+              className="py-2 hover:text-[#C5A059]"
             >
-              المعايير الهندسية
+              المعايير والاشتراطات
             </Link>
             <Link
               href="/#faq"
               onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2.5 rounded-md text-slate-200 hover:bg-slate-900 hover:text-[#C5A059]"
+              className="py-2 hover:text-[#C5A059]"
             >
               الأسئلة الشائعة
             </Link>
           </nav>
 
-          <div className="pt-3 border-t border-slate-800 flex flex-col gap-2">
+          <div className="pt-4 border-t border-slate-100 flex flex-col gap-2.5">
             <a
               href={getPhoneLink()}
-              className="flex items-center justify-center gap-2 w-full py-3 rounded-lg text-xs font-bold bg-slate-900 text-white border border-slate-700"
+              className="flex items-center justify-center gap-2 w-full py-3 rounded-md text-xs font-bold bg-slate-100 text-slate-900"
             >
-              <PhoneIcon size={16} className="text-[#C5A059]" />
+              <PhoneIcon size={15} className="text-[#C5A059]" />
               <span>اتصال هاتفي ({officeConfig.phone.display})</span>
             </a>
             <a
               href={buildWhatsAppLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full py-3 rounded-lg text-xs font-bold bg-[#C5A059] text-[#0A1628]"
+              className="flex items-center justify-center gap-2 w-full py-3 rounded-md text-xs font-bold bg-[#070B14] text-white"
             >
-              <WhatsAppIcon size={16} />
+              <WhatsAppIcon size={16} className="text-[#C5A059]" />
               <span>محادثة واتساب فورية</span>
             </a>
           </div>

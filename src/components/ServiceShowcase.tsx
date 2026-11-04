@@ -108,10 +108,10 @@ export default function ServiceShowcase() {
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-8">
+    <div className="bg-white rounded-2xl border border-slate-200/90 shadow-xs p-6 sm:p-10 space-y-10">
       
       {/* Category Tab Selector Buttons */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-100 scrollbar-none">
+      <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-200 scrollbar-none">
         {tabs.map((tab) => {
           const isActive = tab.id === activeTab.id;
           return (
@@ -119,9 +119,9 @@ export default function ServiceShowcase() {
               key={tab.id}
               type="button"
               onClick={() => setActiveTab(tab)}
-              className={`px-4 py-2.5 rounded-lg text-xs sm:text-sm font-bold whitespace-nowrap transition-all focus:outline-none ${
+              className={`px-5 py-3 rounded-md text-xs sm:text-sm font-bold whitespace-nowrap transition-all focus:outline-none ${
                 isActive
-                  ? "bg-[#050811] text-[#C5A059] shadow-sm"
+                  ? "bg-[#070B14] text-white shadow-xs"
                   : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900"
               }`}
             >
@@ -132,34 +132,32 @@ export default function ServiceShowcase() {
       </div>
 
       {/* Dynamic Interactive Split Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
         
-        {/* Left Side: Interactive Architectural CAD Illustration */}
+        {/* Visual Architectural CAD Illustration */}
         <div className="lg:col-span-6 order-2 lg:order-1">
-          <div className="card-hover">
-            {activeTab.visualComponent}
-          </div>
+          {activeTab.visualComponent}
         </div>
 
-        {/* Right Side: Detailed Technical Specifications & Direct CTA */}
-        <div className="lg:col-span-6 space-y-5 order-1 lg:order-2 text-right">
+        {/* Technical Specifications & Direct CTA */}
+        <div className="lg:col-span-6 space-y-6 order-1 lg:order-2 text-right">
           <span className="text-[11px] font-bold text-[#C5A059] uppercase tracking-wider block">
             المواصفات الفنية والمخرجات
           </span>
 
-          <h3 className="text-xl sm:text-2xl font-black text-[#0F172A] leading-snug">
+          <h3 className="text-2xl sm:text-3xl font-black text-[#070B14] leading-snug">
             {activeTab.title}
           </h3>
 
-          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
             {activeTab.description}
           </p>
 
-          <div className="space-y-2.5 pt-2">
-            <span className="text-xs font-bold text-slate-700 block">المخرجات والخدمات المشمولة:</span>
+          <div className="space-y-3 pt-2">
+            <span className="text-xs font-bold text-[#070B14] block">المخرجات والخدمات المشمولة:</span>
             {activeTab.deliverables.map((item, idx) => (
-              <div key={idx} className="flex items-start gap-2.5 text-xs text-slate-700">
-                <div className="w-5 h-5 rounded-full bg-[#050811] text-[#C5A059] flex items-center justify-center shrink-0 mt-0.5">
+              <div key={idx} className="flex items-start gap-3 text-xs text-slate-700">
+                <div className="w-5 h-5 rounded-full bg-[#070B14] text-[#C5A059] flex items-center justify-center shrink-0 mt-0.5">
                   <CheckIcon size={12} />
                 </div>
                 <span className="font-medium leading-relaxed">{item}</span>
@@ -170,20 +168,20 @@ export default function ServiceShowcase() {
           <div className="pt-4 flex flex-wrap items-center gap-3">
             <Link
               href={`/services/${activeTab.slug}`}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs font-bold bg-[#050811] text-white hover:bg-slate-800 transition shadow-xs"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-md text-xs font-bold bg-[#070B14] text-white hover:bg-slate-800 transition"
             >
               <span>تفاصيل الخدمة والاشتراطات</span>
-              <ArrowLeftIcon size={14} />
+              <ArrowLeftIcon size={13} />
             </Link>
 
             <a
               href={buildWhatsAppLink(`السلام عليكم مهندس أحمد، أود الاستفسار عن ${activeTab.title}.`)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 transition"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-md text-xs font-bold bg-slate-100 text-slate-900 hover:bg-slate-200 transition"
             >
-              <WhatsAppIcon size={16} />
-              <span>استفسار واتساب فوري</span>
+              <WhatsAppIcon size={15} className="text-[#C5A059]" />
+              <span>استفسار واتساب</span>
             </a>
           </div>
 
@@ -194,4 +192,3 @@ export default function ServiceShowcase() {
     </div>
   );
 }
-

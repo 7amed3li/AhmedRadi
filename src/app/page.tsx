@@ -1,27 +1,24 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { serviceCategories, getAllServices } from "@/data/servicesData";
 import { officeConfig, buildWhatsAppLink, getPhoneLink } from "@/config/officeConfig";
-import ServiceCard from "@/components/ServiceCard";
+import EditorialServiceIndex from "@/components/EditorialServiceIndex";
 import ServiceShowcase from "@/components/ServiceShowcase";
 import PropertyFinder from "@/components/PropertyFinder";
-import StepsSection from "@/components/StepsSection";
-import TrustSection from "@/components/TrustSection";
 import FaqAccordion from "@/components/FaqAccordion";
 import InquiryForm from "@/components/InquiryForm";
 import {
   PhoneIcon,
   WhatsAppIcon,
-  BuildingIcon,
-  RulerIcon,
-  ShieldCheckIcon,
   CheckIcon,
+  ArrowLeftIcon,
+  ShieldCheckIcon,
+  CheckCircleIcon,
+  AlertCircleIcon,
+  ExternalLinkIcon,
 } from "@/components/Icons";
 
 export default function HomePage() {
-  const allServices = getAllServices();
-
   const generalFaqs = [
     {
       question: "ما هي أول خطوة يجب اتخاذها قبل بدء أي معاملة رخصة أو مساحة؟",
@@ -42,137 +39,153 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="bg-[#F8FAFC]">
+    <div className="bg-white min-h-screen">
       
       {/* ========================================================
-          1. HERO SECTION (Corporate Saudi Engineering Deep Navy)
+          1. EDITORIAL HERO SECTION (Breathtaking Typography & Air)
       ======================================================== */}
-      <section className="relative bg-gradient-to-br from-[#0A1628] via-[#0F2038] to-[#162846] text-white pt-12 pb-20 lg:pt-20 lg:pb-28 border-b border-slate-800 overflow-hidden">
+      <section className="relative pt-16 pb-24 sm:pt-24 sm:pb-36 border-b border-slate-200/80 overflow-hidden">
         
-        {/* Subtle engineering line grid */}
-        <div className="absolute inset-0 engineering-grid opacity-20 pointer-events-none" />
+        {/* Subtle architectural grid lines in background */}
+        <div className="absolute inset-0 engineering-grid opacity-30 pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
-            {/* Right Column: High Authority Copy */}
-            <div className="lg:col-span-7 space-y-6 text-right">
+            {/* Right: Master Editorial Headline & Narrative */}
+            <div className="lg:col-span-8 space-y-8 text-right">
               
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-[#0A1628] border border-slate-700 text-slate-200 text-xs font-semibold">
+              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700">
                 <span className="w-2 h-2 rounded-full bg-[#C5A059]" />
-                <span>مكتب أحمد راضي للاستشارات الهندسية والمساحية</span>
+                <span>مكتب معتمد للاستشارات الهندسية والمساحية في السعودية</span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight">
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-[#070B14] leading-[1.12] tracking-tight">
                 رخص البناء والمخططات <br />
-                <span className="text-[#C5A059]">والرفع والتقارير المساحية</span>
+                <span className="text-[#C5A059]">والرفع المساحي المعتمد</span>
               </h1>
 
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl font-normal">
-                بإشراف المهندس <strong className="text-white font-bold">{officeConfig.engineerName}</strong>. نوفر دراسات هندسية متكاملة وأعمال مساحة ميدانية دقيقة لإصدار وتجديد رخص الإنشاء والتسوير، شهادات إتمام البناء، وتحديث الصكوك وفق اشتراطات كود البناء السعودي ومنصة بلدي.
+              <p className="text-base sm:text-xl text-slate-600 leading-relaxed max-w-3xl font-light">
+                بإشراف المهندس <strong className="text-[#070B14] font-bold">{officeConfig.engineerName}</strong>. خبرة متخصصة في إعداد وتدقيق المخططات الإنشائية والمعمارية، إصدار رخص الإنشاء والتسوير، شهادات إتمام البناء، وتحديث الصكوك عبر منصة بلدي وفق كود البناء السعودي.
               </p>
 
-              {/* Action Buttons */}
-              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              {/* Minimalist Action Rail */}
+              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <a
                   href={buildWhatsAppLink()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg text-sm font-bold bg-[#C5A059] text-[#0A1628] hover:bg-[#D4AF37] shadow-lg transition-all focus:outline-none"
+                  className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-md text-sm font-bold bg-[#070B14] text-white hover:bg-slate-800 transition-all shadow-sm"
                 >
-                  <WhatsAppIcon size={18} />
-                  <span>تواصل عبر واتساب</span>
+                  <WhatsAppIcon size={18} className="text-[#C5A059]" />
+                  <span>تواصل فوري عبر واتساب</span>
                 </a>
 
                 <a
                   href={getPhoneLink()}
-                  className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg text-sm font-bold bg-[#0A1628] text-white hover:bg-slate-900 border border-slate-700 transition-all focus:outline-none"
+                  className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-md text-sm font-bold bg-white text-slate-900 hover:bg-slate-50 border border-slate-300 transition-all"
                 >
                   <PhoneIcon size={16} className="text-[#C5A059]" />
                   <span>اتصال مباشر ({officeConfig.phone.display})</span>
                 </a>
               </div>
 
-              {/* Technical Facts */}
-              <div className="pt-6 border-t border-slate-700/60 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-300">
-                <div className="flex items-center gap-2">
-                  <span className="text-[#C5A059] font-bold">/</span>
-                  <span>مطابقة كود البناء السعودي SBC</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-[#C5A059] font-bold">/</span>
-                  <span>أجهزة مساحة RTK ورصد متطور</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-[#C5A059] font-bold">/</span>
-                  <span>إجراءات منصة بلدي المعتمدة</span>
-                </div>
-              </div>
-
             </div>
 
-            {/* Left Column: Official Logo Emblem Presentation */}
-            <div className="lg:col-span-5 flex justify-center">
-              <div className="relative w-full max-w-sm bg-[#050C17] rounded-2xl border border-slate-700/80 p-8 shadow-2xl flex flex-col items-center text-center space-y-6">
+            {/* Left: Luxury Emblem Plinth */}
+            <div className="lg:col-span-4 flex justify-center lg:justify-end">
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 bg-black rounded-2xl border border-slate-800 p-8 shadow-2xl flex flex-col items-center justify-center text-center group">
                 
-                <div className="relative w-56 h-56 sm:w-64 sm:h-64 flex items-center justify-center">
+                <div className="relative w-44 h-44 sm:w-56 sm:h-56 flex items-center justify-center">
                   <Image
                     src="/logo.webp"
                     alt="شعار أحمد راضي للاستشارات الهندسية AR Surveying"
-                    width={256}
-                    height={256}
-                    className="object-contain drop-shadow-xl"
+                    width={224}
+                    height={224}
+                    className="object-contain group-hover:scale-102 transition-transform duration-300"
                     priority
                   />
                 </div>
 
-                <div className="border-t border-slate-800 pt-4 w-full">
-                  <h2 className="text-base font-bold text-white tracking-wide">
+                <div className="border-t border-slate-800 pt-3 w-full">
+                  <span className="text-sm font-bold text-white tracking-wide block">
                     {officeConfig.engineerName}
-                  </h2>
-                  <p className="text-xs text-[#C5A059] font-medium mt-0.5">
-                    {officeConfig.engineerTitle} • استشارات هندسية ومساحية
-                  </p>
-                </div>
-
-                <div className="w-full grid grid-cols-2 gap-2 text-[11px] text-slate-300">
-                  <div className="p-2.5 bg-slate-900 rounded-lg border border-slate-800 text-center">
-                    <span className="block text-slate-400 text-[10px]">الخدمات الفنية</span>
-                    <span className="font-bold text-white">12 خدمة بلدية</span>
-                  </div>
-                  <div className="p-2.5 bg-slate-900 rounded-lg border border-slate-800 text-center">
-                    <span className="block text-slate-400 text-[10px]">نطاق العمل</span>
-                    <span className="font-bold text-white">السوق السعودي</span>
-                  </div>
+                  </span>
+                  <span className="text-xs text-[#C5A059] font-medium block mt-0.5">
+                    {officeConfig.engineerTitle}
+                  </span>
                 </div>
 
               </div>
             </div>
 
           </div>
+
+          {/* Editorial Hairline Stats Rail */}
+          <div className="mt-20 pt-10 border-t border-slate-200 grid grid-cols-2 lg:grid-cols-4 gap-8 text-right">
+            <div>
+              <span className="num-editorial text-3xl sm:text-4xl font-extrabold text-[#070B14] block">12</span>
+              <span className="text-xs sm:text-sm text-slate-500 font-medium mt-1 block">خدمة بلدية ومساحية متخصصة</span>
+            </div>
+            <div>
+              <span className="num-editorial text-3xl sm:text-4xl font-extrabold text-[#C5A059] block">SBC</span>
+              <span className="text-xs sm:text-sm text-slate-500 font-medium mt-1 block">مطابقة كاملة لكود البناء السعودي</span>
+            </div>
+            <div>
+              <span className="num-editorial text-3xl sm:text-4xl font-extrabold text-[#070B14] block">RTK</span>
+              <span className="text-xs sm:text-sm text-slate-500 font-medium mt-1 block">أحدث أجهزة الرفع والمسح بالمليمتر</span>
+            </div>
+            <div>
+              <span className="num-editorial text-3xl sm:text-4xl font-extrabold text-[#070B14] block">بلدي</span>
+              <span className="text-xs sm:text-sm text-slate-500 font-medium mt-1 block">إجراءات إلكترونية معتمدة بالأمانات</span>
+            </div>
+          </div>
+
         </div>
 
       </section>
 
       {/* ========================================================
-          2. INTERACTIVE PROPERTY SITUATION FINDER (مساعد توجيه المعاملة)
+          2. INTERACTIVE PROPERTY FINDER (مساعد توجيه المعاملة)
       ======================================================== */}
-      <section className="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6">
+      <section className="py-20 lg:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <PropertyFinder />
       </section>
 
       {/* ========================================================
-          3. VISUAL CAD & ENGINEERING SHOWCASE (نماذج المخرجات الهندسية)
+          3. EDITORIAL SERVICE INDEX (الفهرس التحريري الموسع)
       ======================================================== */}
-      <section className="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center mb-10 space-y-2">
-          <span className="text-xs font-bold text-[#C5A059] tracking-wider uppercase">
+      <section className="py-20 lg:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div className="max-w-3xl mb-12 space-y-3 text-right">
+          <span className="text-xs font-bold text-[#C5A059] tracking-wider uppercase block">
+            دليل الخدمات الهندسية والمساحية
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#070B14] tracking-tight">
+            فهرس المعاملات البلدية والمساحية
+          </h2>
+          <p className="text-sm sm:text-base text-slate-500 leading-relaxed font-light">
+            اضغط على أي خدمة لاستعراض نطاق العمل الفني، المستندات المبدئية، ومسار التقديم عبر المنصات الحكومية.
+          </p>
+        </div>
+
+        <EditorialServiceIndex />
+
+      </section>
+
+      {/* ========================================================
+          4. VISUAL CAD & ENGINEERING SPECIFICATIONS
+      ======================================================== */}
+      <section className="py-20 lg:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-200">
+        <div className="max-w-3xl mb-12 space-y-3 text-right">
+          <span className="text-xs font-bold text-[#C5A059] tracking-wider uppercase block">
             المخططات والمواصفات التنفيذية
           </span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0A1628]">
+          <h2 className="text-3xl sm:text-4xl font-black text-[#070B14] tracking-tight">
             نماذج المخرجات الهندسية والمساحية
           </h2>
-          <p className="text-xs sm:text-sm text-slate-500 font-normal">
+          <p className="text-sm sm:text-base text-slate-500 leading-relaxed font-light">
             تصفح نماذج المخططات والاشتراطات الفنية المعتمدة لكل نوع من أنواع المعاملات.
           </p>
         </div>
@@ -181,124 +194,161 @@ export default function HomePage() {
       </section>
 
       {/* ========================================================
-          4. ALL 12 SERVICES CATALOG
+          5. THE 4-PHASE ARCHITECTURAL PROCESS (المسار الهندسي)
       ======================================================== */}
-      <section id="services" className="py-16 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-200">
+      <section id="process" className="py-20 lg:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-200">
         
-        <div className="max-w-3xl mx-auto text-center mb-16 space-y-2">
-          <span className="text-xs font-bold text-[#C5A059] tracking-wider uppercase">
-            دليل الخدمات الهندسية والمساحية
+        <div className="max-w-3xl mb-16 space-y-3 text-right">
+          <span className="text-xs font-bold text-[#C5A059] tracking-wider uppercase block">
+            آلية تنفيذ المعاملات
           </span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0A1628] tracking-tight">
-            الخدمات البلدية والمساحية للمشاريع والعقارات
+          <h2 className="text-3xl sm:text-4xl font-black text-[#070B14] tracking-tight">
+            مسار إنجاز المعاملة من الصك إلى الاعتماد
           </h2>
-          <p className="text-sm text-slate-600 leading-relaxed font-normal">
-            دليل منظم للخدمات الهندسية والمساحية، يوضح نطاق العمل الهندسي، المستندات الأولية، ومسار التقديم عبر المنصات الرسمية.
+          <p className="text-sm text-slate-500 font-light">
+            أربعة مراحل واضحة المعالم ومنظمة تفصّل دور العميل والمكتب الهندسي والجهة الرسمية.
           </p>
         </div>
 
-        <div className="space-y-16">
-          {serviceCategories.map((cat) => {
-            const catServices = cat.serviceSlugs
-              .map((slug) => allServices.find((s) => s.slug === slug))
-              .filter((s): s is NonNullable<typeof s> => Boolean(s));
-
-            return (
-              <div key={cat.id} className="space-y-6">
-                
-                <div className="border-r-3 border-[#C5A059] pr-4 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-[#0A1628]">
-                      {cat.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-500 mt-0.5 max-w-2xl font-normal">
-                      {cat.description}
-                    </p>
-                  </div>
-                  <span className="text-xs font-semibold text-slate-600 bg-white border border-slate-200 px-3 py-1 rounded-md shrink-0">
-                    {catServices.length} {catServices.length === 1 ? "خدمة" : "خدمات"}
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {catServices.map((service) => (
-                    <ServiceCard key={service.slug} service={service} />
-                  ))}
-                </div>
-
-              </div>
-            );
-          })}
-        </div>
-
-      </section>
-
-      {/* ========================================================
-          5. HOW THE SERVICE PROCESS WORKS (STEPS)
-      ======================================================== */}
-      <StepsSection />
-
-      {/* ========================================================
-          6. PROFESSIONAL TRUST & TRANSPARENCY
-      ======================================================== */}
-      <TrustSection />
-
-      {/* ========================================================
-          7. FAQS SECTION
-      ======================================================== */}
-      <section id="faq" className="py-16 sm:py-20 bg-white border-t border-slate-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-right">
           
-          <div className="text-center mb-12 space-y-2">
-            <span className="text-xs font-bold text-[#C5A059] tracking-wider uppercase">
-              الأسئلة الشائعة
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0A1628]">
-              إجابات فنية للملاك والمستثمرين
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-500 font-normal">
-              إيضاحات نظامية قبل بدء إجراءات رخص البناء والرفع المساحي.
+          <div className="space-y-4 pt-6 border-t-2 border-[#070B14]">
+            <span className="num-editorial text-4xl font-extrabold text-[#C5A059]">01</span>
+            <h3 className="text-lg font-bold text-[#070B14]">دراسة الصك والموقع</h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+              مراجعة الصك الإلكتروني، مطابقة بيانات الأمانة، وتحديد نوع المعاملة والمسار الفني السليم.
             </p>
           </div>
 
-          <FaqAccordion items={generalFaqs} />
+          <div className="space-y-4 pt-6 border-t-2 border-slate-300">
+            <span className="num-editorial text-4xl font-extrabold text-slate-400">02</span>
+            <h3 className="text-lg font-bold text-[#070B14]">المعاينة الميدانية والرفع</h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+              النزول الميداني بأجهزة الرصد والمساحة لرفع المناسيب والحدود، أو فحص المبنى القائم ومطابقته.
+            </p>
+          </div>
+
+          <div className="space-y-4 pt-6 border-t-2 border-slate-300">
+            <span className="num-editorial text-4xl font-extrabold text-slate-400">03</span>
+            <h3 className="text-lg font-bold text-[#070B14]">المخططات والتقارير المعتمدة</h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+              إعداد المخططات المعمارية والإنشائية أو التقرير المساحي الإلكتروني وفق كود البناء السعودي.
+            </p>
+          </div>
+
+          <div className="space-y-4 pt-6 border-t-2 border-slate-300">
+            <span className="num-editorial text-4xl font-extrabold text-slate-400">04</span>
+            <h3 className="text-lg font-bold text-[#070B14]">الرفع والاعتماد البلدي</h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+              تقديم المعاملة عبر منصة بلدي ومتابعة ملاحظات التدقيق الهندسي حتى صدور الرخصة وفاتورة السداد.
+            </p>
+          </div>
 
         </div>
+
       </section>
 
       {/* ========================================================
-          8. INQUIRY FORM & DIRECT CONTACT
+          6. TRUST & PRINCIPLES
       ======================================================== */}
-      <section className="py-16 sm:py-24 bg-slate-100 border-t border-slate-200">
+      <section id="trust" className="py-20 lg:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-200">
+        
+        <div className="max-w-3xl mb-16 space-y-3 text-right">
+          <span className="text-xs font-bold text-[#C5A059] tracking-wider uppercase block">
+            المعايير المهنية
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-black text-[#070B14] tracking-tight">
+            النزاهة الفنية والشفافية مع العميل
+          </h2>
+          <p className="text-sm text-slate-500 font-light">
+            إيضاح الواقع النظامي للمعاملة البلدية دون وعود غير واقعية أو تقديرات تخمينية.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-right">
+          
+          <div className="space-y-3">
+            <span className="text-xs font-bold text-[#C5A059] uppercase tracking-wider block">المعيار الأول</span>
+            <h3 className="text-lg font-bold text-[#070B14]">التوافق مع كود البناء السعودي SBC</h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+              إعداد وتدقيق المخططات الإنشائية والمعمارية وفق اشتراطات الكود المعتمد لتفادي الملاحظات البلدية أثناء المراجعة.
+            </p>
+          </div>
+
+          <div className="space-y-3">
+            <span className="text-xs font-bold text-[#C5A059] uppercase tracking-wider block">المعيار الثاني</span>
+            <h3 className="text-lg font-bold text-[#070B14]">شفافية الأتعاب والرسوم</h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+              تحديد الأتعاب الهندسية بوضوح مسبق، مع الفصل بين أتعاب المكتب والرسوم البلدية الحكومية التي يسددها المالك عبر سداد.
+            </p>
+          </div>
+
+          <div className="space-y-3">
+            <span className="text-xs font-bold text-[#C5A059] uppercase tracking-wider block">المعيار الثالث</span>
+            <h3 className="text-lg font-bold text-[#070B14]">التقدير الواقعي للمدد</h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+              لا نطلق وعوداً غير دقيقة بمدد إنجاز حكومية، بل نوضح المسار الفني والاشتراطات التي تؤثر على قرارات الاعتماد لدى الأمانات.
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* ========================================================
+          7. FREQUENTLY ASKED QUESTIONS
+      ======================================================== */}
+      <section id="faq" className="py-20 lg:py-28 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-200">
+        
+        <div className="text-right mb-12 space-y-2">
+          <span className="text-xs font-bold text-[#C5A059] tracking-wider uppercase block">
+            الأسئلة الشائعة
+          </span>
+          <h2 className="text-2xl sm:text-4xl font-black text-[#070B14]">
+            إجابات فنية للملاك والمستثمرين
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-500 font-light">
+            إيضاحات نظامية قبل بدء إجراءات رخص البناء والرفع المساحي.
+          </p>
+        </div>
+
+        <FaqAccordion items={generalFaqs} />
+
+      </section>
+
+      {/* ========================================================
+          8. INQUIRY & DIRECT CONTACT SECTION
+      ======================================================== */}
+      <section className="py-20 lg:py-28 bg-slate-50 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
             
-            <div className="lg:col-span-6 space-y-6">
+            <div className="lg:col-span-5 space-y-6 text-right">
               
-              <span className="text-xs font-bold text-[#C5A059] tracking-wider uppercase">
+              <span className="text-xs font-bold text-[#C5A059] tracking-wider uppercase block">
                 استفسار مباشر
               </span>
 
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0A1628] leading-tight">
+              <h2 className="text-3xl sm:text-4xl font-black text-[#070B14] leading-tight">
                 هل لديك معاملة رخصة أو أرض ترغب في رفعها مساحياً؟
               </h2>
 
-              <p className="text-sm text-slate-600 leading-relaxed font-normal">
+              <p className="text-sm text-slate-600 leading-relaxed font-light">
                 يسعدنا تقديم المشورة الهندسية والمساحية لموقعك. يمكنك الاتصال المباشر أو التحدث معنا عبر واتساب، أو إرسال تفاصيل المعاملة عبر النموذج لمراجعتها من قبل المهندس أحمد راضي.
               </p>
 
               <div className="space-y-3 pt-2">
                 <a
                   href={getPhoneLink()}
-                  className="flex items-center gap-4 p-4 rounded-xl bg-white border border-slate-200 shadow-xs hover:border-[#C5A059] transition-colors"
+                  className="flex items-center gap-4 p-4 rounded-lg bg-white border border-slate-200 shadow-xs hover:border-[#070B14] transition-colors"
                 >
-                  <div className="w-12 h-12 rounded-lg bg-[#0A1628] text-[#C5A059] flex items-center justify-center shrink-0">
-                    <PhoneIcon size={20} />
+                  <div className="w-10 h-10 rounded-md bg-[#070B14] text-[#C5A059] flex items-center justify-center shrink-0">
+                    <PhoneIcon size={18} />
                   </div>
                   <div>
                     <span className="text-xs text-slate-500 font-medium block">الاتصال الهاتفي المباشر</span>
-                    <span dir="ltr" className="text-base font-bold text-[#0A1628] block">
+                    <span dir="ltr" className="text-base font-bold text-[#070B14] block">
                       {officeConfig.phone.display}
                     </span>
                   </div>
@@ -308,10 +358,10 @@ export default function HomePage() {
                   href={buildWhatsAppLink()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 rounded-xl bg-white border border-slate-200 shadow-xs hover:border-emerald-500 transition-colors"
+                  className="flex items-center gap-4 p-4 rounded-lg bg-white border border-slate-200 shadow-xs hover:border-emerald-600 transition-colors"
                 >
-                  <div className="w-12 h-12 rounded-lg bg-emerald-600 text-white flex items-center justify-center shrink-0">
-                    <WhatsAppIcon size={22} />
+                  <div className="w-10 h-10 rounded-md bg-emerald-600 text-white flex items-center justify-center shrink-0">
+                    <WhatsAppIcon size={20} />
                   </div>
                   <div>
                     <span className="text-xs text-slate-500 font-medium block">محادثة واتساب سريعة</span>
@@ -322,54 +372,14 @@ export default function HomePage() {
                 </a>
               </div>
 
-              {officeConfig.workingHours?.showHoursOnSite && (
-                <div className="p-4 bg-white rounded-xl border border-slate-200 text-xs text-slate-600 space-y-1">
-                  <span className="font-bold text-[#0A1628] block">ساعات العمل والتواصل:</span>
-                  <p>{officeConfig.workingHours.days} من {officeConfig.workingHours.hours}</p>
-                  <p className="text-slate-500 text-[11px]">{officeConfig.workingHours.responseEstimate}</p>
-                </div>
-              )}
-
             </div>
 
-            <div className="lg:col-span-6">
+            <div className="lg:col-span-7">
               <InquiryForm />
             </div>
 
           </div>
 
-        </div>
-      </section>
-
-      {/* ========================================================
-          9. FOOTER CALLOUT
-      ======================================================== */}
-      <section className="bg-[#0A1628] text-white py-14 border-t border-slate-800">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
-            جاهز لبدء معاملتك الهندسية؟
-          </h2>
-          <p className="text-xs sm:text-sm text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            تواصل الآن مع مكتب {officeConfig.engineerName} للاستشارات الهندسية، واطلع على المتطلبات الفنية الصحيحة لمعاملتك.
-          </p>
-          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a
-              href={buildWhatsAppLink()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto px-6 py-3 rounded-lg text-xs font-bold bg-[#C5A059] text-[#0A1628] hover:bg-[#D4AF37] transition shadow-md flex items-center justify-center gap-2"
-            >
-              <WhatsAppIcon size={16} />
-              <span>تواصل عبر واتساب الآن</span>
-            </a>
-            <a
-              href={getPhoneLink()}
-              className="w-full sm:w-auto px-6 py-3 rounded-lg text-xs font-bold bg-slate-900 text-white hover:bg-slate-800 border border-slate-700 transition flex items-center justify-center gap-2"
-            >
-              <PhoneIcon size={15} className="text-[#C5A059]" />
-              <span dir="ltr">{officeConfig.phone.display}</span>
-            </a>
-          </div>
         </div>
       </section>
 

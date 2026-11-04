@@ -3,33 +3,28 @@
 :root {
   --font-cairo: "Cairo", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   
-  /* 60-30-10 Color Engineering System for Saudi Architecture & Consulting */
-  /* 60% Canvas / Neutral Base */
-  --bg-page: #F8FAFC;
-  --bg-card: #FFFFFF;
-  --bg-subtle: #F1F5F9;
-  --border-light: #E2E8F0;
+  /* Luxury Architectural Monograph Palette */
+  --ink-950: #070B14;
+  --ink-900: #0A1120;
+  --ink-800: #121F38;
   
-  /* 30% Structural Deep Corporate Tones */
-  --corporate-navy: #0F2038;
-  --corporate-navy-dark: #0A1628;
-  --corporate-navy-light: #1A365D;
-  --text-heading: #0A1628;
-  --text-body: #334155;
-  --text-muted: #64748B;
+  --brass-500: #C5A059;
+  --brass-600: #A8833B;
+  --brass-400: #D8B775;
+  --brass-100: #F7F3E9;
   
-  /* 10% Accent (Architectural Gold & Precision Blue) */
-  --accent-gold: #B8860B;
-  --accent-gold-light: #C5A059;
-  --accent-gold-hover: #996F07;
-  --accent-blue: #1E40AF;
-  --action-green: #15803D;
+  --canvas-pure: #FFFFFF;
+  --canvas-warm: #FAFBFD;
+  --canvas-muted: #F1F4F8;
+  
+  --hairline: rgba(15, 23, 42, 0.08);
+  --hairline-dark: rgba(255, 255, 255, 0.12);
 }
 
 body {
   font-family: var(--font-cairo), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background-color: var(--bg-page);
-  color: var(--text-body);
+  background-color: var(--canvas-pure);
+  color: #1E293B;
   direction: rtl;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -39,42 +34,44 @@ body {
   font-family: var(--font-cairo), sans-serif;
 }
 
-/* Engineering blueprint grid - light, subtle and corporate */
-.engineering-grid {
-  background-image: 
-    linear-gradient(to right, rgba(15, 32, 56, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 32, 56, 0.04) 1px, transparent 1px);
-  background-size: 28px 28px;
+/* Editorial Minimal Hairlines */
+.hairline-b {
+  border-bottom: 1px solid var(--hairline);
 }
 
-.hero-navy-gradient {
-  background: linear-gradient(135deg, #0A1628 0%, #0F2038 50%, #162846 100%);
+.hairline-t {
+  border-top: 1px solid var(--hairline);
 }
 
-/* Card hover elevations */
-.card-engineering {
-  background: #FFFFFF;
-  border: 1px solid #E2E8F0;
-  transition: all 0.25s ease-in-out;
+/* Architectural typography numbers */
+.num-editorial {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.05em;
 }
 
-.card-engineering:hover {
-  border-color: #CBD5E1;
-  box-shadow: 0 10px 25px -5px rgba(15, 32, 56, 0.08), 0 8px 10px -6px rgba(15, 32, 56, 0.04);
-  transform: translateY(-2px);
+/* Smooth row hover transitions */
+.editorial-row {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Smooth custom scrollbar */
+.editorial-row:hover {
+  background-color: rgba(248, 250, 252, 0.8);
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+/* Custom subtle scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #F1F5F9;
+  background: #FFFFFF;
 }
 ::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
-  border-radius: 4px;
+  background: #E2E8F0;
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #0F2038;
+  background: #94A3B8;
 }
