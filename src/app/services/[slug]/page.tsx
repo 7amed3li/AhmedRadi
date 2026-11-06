@@ -345,12 +345,22 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   </a>
 
                   <a
-                    href={getPhoneLink()}
+                    href={getPhoneLink(0)}
                     className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg text-xs font-bold bg-slate-900 text-white hover:bg-slate-800 border border-slate-800 transition shadow-xs"
                   >
                     <PhoneIcon size={15} className="text-[#C5A059]" />
                     <span dir="ltr">{officeConfig.phone.display}</span>
                   </a>
+
+                  {officeConfig.secondaryPhone && (
+                    <a
+                      href={getPhoneLink(1)}
+                      className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg text-xs font-bold bg-slate-900 text-white hover:bg-slate-800 border border-slate-800 transition shadow-xs"
+                    >
+                      <PhoneIcon size={15} className="text-[#C5A059]" />
+                      <span dir="ltr">{officeConfig.secondaryPhone.display}</span>
+                    </a>
+                  )}
                 </div>
               </div>
 

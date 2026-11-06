@@ -21,6 +21,12 @@ export interface OfficeConfig {
     international: string;
     isConfirmed: boolean; // هل تم التحقق من استقبال المكالمات والرسائل؟
   };
+  secondaryPhone?: {
+    display: string;
+    raw: string;
+    international: string;
+    isConfirmed: boolean;
+  };
   whatsapp: {
     number: string; // صيغة دولية بدون علامة + (مثال: 966563827520)
     defaultMessage: string;
@@ -77,6 +83,13 @@ export const officeConfig: OfficeConfig = {
     isConfirmed: true, // مبدئي بحسب البطاقة الواردة
   },
 
+  secondaryPhone: {
+    display: "054 605 9533",
+    raw: "0546059533",
+    international: "+966546059533",
+    isConfirmed: true,
+  },
+
   whatsapp: {
     number: "966563827520",
     defaultMessage: "السلام عليكم، أود الاستفسار عن الخدمات الهندسية والمساحية في مكتبكم الموقر.",
@@ -127,7 +140,10 @@ export function buildWhatsAppLink(customMessage?: string): string {
 /**
  * دالة مساعدة لبناء رابط الاتصال المباشر
  */
-export function getPhoneLink(): string {
+export function getPhoneLink(phoneIndex: number = 0): string {
+  if (phoneIndex === 1 && officeConfig.secondaryPhone) {
+    return `tel:${officeConfig.secondaryPhone.international}`;
+  }
   return `tel:${officeConfig.phone.international}`;
 }
 

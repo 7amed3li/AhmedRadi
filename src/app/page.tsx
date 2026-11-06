@@ -82,13 +82,25 @@ export default function HomePage() {
                   <span>تواصل فوري عبر واتساب</span>
                 </a>
 
-                <a
-                  href={getPhoneLink()}
-                  className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-md text-sm font-bold bg-white text-slate-900 hover:bg-slate-50 border border-slate-300 transition-all"
-                >
-                  <PhoneIcon size={16} className="text-[#C5A059]" />
-                  <span>اتصال مباشر ({officeConfig.phone.display})</span>
-                </a>
+                <div className="flex flex-wrap items-center gap-3">
+                  <a
+                    href={getPhoneLink(0)}
+                    className="inline-flex items-center justify-center gap-2 px-5 py-4 rounded-md text-sm font-bold bg-white text-slate-900 hover:bg-slate-50 border border-slate-300 transition-all"
+                  >
+                    <PhoneIcon size={16} className="text-[#C5A059]" />
+                    <span dir="ltr">{officeConfig.phone.display}</span>
+                  </a>
+
+                  {officeConfig.secondaryPhone && (
+                    <a
+                      href={getPhoneLink(1)}
+                      className="inline-flex items-center justify-center gap-2 px-5 py-4 rounded-md text-sm font-bold bg-white text-slate-900 hover:bg-slate-50 border border-slate-300 transition-all"
+                    >
+                      <PhoneIcon size={16} className="text-[#C5A059]" />
+                      <span dir="ltr">{officeConfig.secondaryPhone.display}</span>
+                    </a>
+                  )}
+                </div>
               </div>
 
             </div>
@@ -340,7 +352,7 @@ export default function HomePage() {
 
               <div className="space-y-3 pt-2">
                 <a
-                  href={getPhoneLink()}
+                  href={getPhoneLink(0)}
                   className="flex items-center gap-4 p-4 rounded-lg bg-white border border-slate-200 shadow-xs hover:border-[#070B14] transition-colors"
                 >
                   <div className="w-10 h-10 rounded-md bg-[#070B14] text-[#C5A059] flex items-center justify-center shrink-0">
@@ -353,6 +365,23 @@ export default function HomePage() {
                     </span>
                   </div>
                 </a>
+
+                {officeConfig.secondaryPhone && (
+                  <a
+                    href={getPhoneLink(1)}
+                    className="flex items-center gap-4 p-4 rounded-lg bg-white border border-slate-200 shadow-xs hover:border-[#070B14] transition-colors"
+                  >
+                    <div className="w-10 h-10 rounded-md bg-[#070B14] text-[#C5A059] flex items-center justify-center shrink-0">
+                      <PhoneIcon size={18} />
+                    </div>
+                    <div>
+                      <span className="text-xs text-slate-500 font-medium block">الاتصال الهاتفي (الرقم الإضافي)</span>
+                      <span dir="ltr" className="text-base font-bold text-[#070B14] block">
+                        {officeConfig.secondaryPhone.display}
+                      </span>
+                    </div>
+                  </a>
+                )}
 
                 <a
                   href={buildWhatsAppLink()}

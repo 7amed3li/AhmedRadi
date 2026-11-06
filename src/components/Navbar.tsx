@@ -71,21 +71,32 @@ export default function Navbar() {
           </nav>
 
           {/* Minimalist Action Buttons */}
-          <div className="hidden sm:flex items-center gap-4">
+          <div className="hidden sm:flex items-center gap-2">
             <a
-              href={getPhoneLink()}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-md text-xs font-bold text-slate-800 hover:text-[#070B14] bg-slate-50 hover:bg-slate-100 border border-slate-200/90 transition-all focus:outline-none"
+              href={getPhoneLink(0)}
+              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-md text-xs font-bold text-slate-800 hover:text-[#070B14] bg-slate-50 hover:bg-slate-100 border border-slate-200 transition-all focus:outline-none"
               title={`اتصال بـ ${officeConfig.phone.display}`}
             >
-              <PhoneIcon size={14} className="text-[#C5A059]" />
+              <PhoneIcon size={13} className="text-[#C5A059]" />
               <span dir="ltr">{officeConfig.phone.display}</span>
             </a>
+
+            {officeConfig.secondaryPhone && (
+              <a
+                href={getPhoneLink(1)}
+                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-md text-xs font-bold text-slate-800 hover:text-[#070B14] bg-slate-50 hover:bg-slate-100 border border-slate-200 transition-all focus:outline-none"
+                title={`اتصال بـ ${officeConfig.secondaryPhone.display}`}
+              >
+                <PhoneIcon size={13} className="text-[#C5A059]" />
+                <span dir="ltr">{officeConfig.secondaryPhone.display}</span>
+              </a>
+            )}
 
             <a
               href={buildWhatsAppLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md text-xs font-bold bg-[#070B14] text-white hover:bg-slate-800 transition-all shadow-xs focus:outline-none"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-md text-xs font-bold bg-[#070B14] text-white hover:bg-slate-800 transition-all shadow-xs focus:outline-none"
             >
               <WhatsAppIcon size={15} className="text-[#C5A059]" />
               <span>محادثة واتساب</span>
@@ -158,21 +169,30 @@ export default function Navbar() {
             </Link>
           </nav>
 
-          <div className="pt-4 border-t border-slate-100 flex flex-col gap-2.5">
+          <div className="pt-4 border-t border-slate-100 flex flex-col gap-2">
             <a
-              href={getPhoneLink()}
-              className="flex items-center justify-center gap-2 w-full py-3 rounded-md text-xs font-bold bg-slate-100 text-slate-900"
+              href={getPhoneLink(0)}
+              className="flex items-center justify-center gap-2 w-full py-2.5 rounded-md text-xs font-bold bg-slate-100 text-slate-900"
             >
-              <PhoneIcon size={15} className="text-[#C5A059]" />
-              <span>اتصال هاتفي ({officeConfig.phone.display})</span>
+              <PhoneIcon size={14} className="text-[#C5A059]" />
+              <span>اتصال ({officeConfig.phone.display})</span>
             </a>
+            {officeConfig.secondaryPhone && (
+              <a
+                href={getPhoneLink(1)}
+                className="flex items-center justify-center gap-2 w-full py-2.5 rounded-md text-xs font-bold bg-slate-100 text-slate-900"
+              >
+                <PhoneIcon size={14} className="text-[#C5A059]" />
+                <span>اتصال ({officeConfig.secondaryPhone.display})</span>
+              </a>
+            )}
             <a
               href={buildWhatsAppLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full py-3 rounded-md text-xs font-bold bg-[#070B14] text-white"
+              className="flex items-center justify-center gap-2 w-full py-2.5 rounded-md text-xs font-bold bg-[#070B14] text-white"
             >
-              <WhatsAppIcon size={16} className="text-[#C5A059]" />
+              <WhatsAppIcon size={15} className="text-[#C5A059]" />
               <span>محادثة واتساب فورية</span>
             </a>
           </div>

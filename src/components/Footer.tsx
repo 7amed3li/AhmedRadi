@@ -141,12 +141,22 @@ export default function Footer() {
             
             <div className="space-y-2 text-xs">
               <a
-                href={getPhoneLink()}
+                href={getPhoneLink(0)}
                 className="flex items-center gap-2.5 text-slate-200 hover:text-white bg-slate-900 p-2.5 rounded-lg border border-slate-700 transition-colors"
               >
                 <PhoneIcon size={15} className="text-[#C5A059]" />
                 <span dir="ltr" className="font-semibold">{officeConfig.phone.display}</span>
               </a>
+
+              {officeConfig.secondaryPhone && (
+                <a
+                  href={getPhoneLink(1)}
+                  className="flex items-center gap-2.5 text-slate-200 hover:text-white bg-slate-900 p-2.5 rounded-lg border border-slate-700 transition-colors"
+                >
+                  <PhoneIcon size={15} className="text-[#C5A059]" />
+                  <span dir="ltr" className="font-semibold">{officeConfig.secondaryPhone.display}</span>
+                </a>
+              )}
 
               <a
                 href={buildWhatsAppLink()}
