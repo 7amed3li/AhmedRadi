@@ -154,7 +154,7 @@ export default function HomePage() {
       </section>
 
       {/* ========================================================
-          3. EDITORIAL SERVICE INDEX (الفهرس التحريري الموسع)
+          3. EDITORIAL SERVICE INDEX (دليل الخدمات التحريري)
       ======================================================== */}
       <section className="py-20 lg:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -163,7 +163,7 @@ export default function HomePage() {
             دليل الخدمات الهندسية والمساحية
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#070B14] tracking-tight">
-            فهرس المعاملات البلدية والمساحية
+            المعاملات البلدية والمساحية
           </h2>
           <p className="text-sm sm:text-base text-slate-500 leading-relaxed font-light">
             اضغط على أي خدمة لاستعراض نطاق العمل الفني، المستندات المبدئية، ومسار التقديم عبر المنصات الحكومية.

@@ -48,7 +48,7 @@ export default function Navbar() {
               href="/#services-index" 
               className="text-slate-600 hover:text-[#070B14] transition-colors py-2 focus:outline-none"
             >
-              فهرس الخدمات
+              الخدمات الهندسية
             </Link>
             <Link 
               href="/#process" 
@@ -133,7 +133,7 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
               className="py-2 hover:text-[#C5A059]"
             >
-              فهرس الخدمات الـ 12
+              دليل الخدمات الـ 12
             </Link>
             <Link
               href="/#process"

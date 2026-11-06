@@ -199,7 +199,7 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-4 divide-x divide-x-reverse divide-slate-800">
               <Link href="/services" className="hover:text-slate-200">
-                فهرس الخدمات
+                دليل الخدمات
               </Link>
               <a href="#contact-form" className="pr-4 hover:text-slate-200">
                 سياسة الاستخدام والاستشارة
