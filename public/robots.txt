@@ -1,0 +1,15 @@
+# robots.txt for Ahmed Radi Engineering Consulting
+User-agent: *
+Allow: /
+
+# Googlebot and Bingbot optimizations
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemaps
+Sitemap: https://ahmed-radi-two.vercel.app/sitemap.xml
+Sitemap: https://www.ahmedradi.top/sitemap.xml
+

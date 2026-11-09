@@ -112,12 +112,12 @@ export default function EditorialServiceIndex() {
                     </ul>
                   </div>
 
-                  <div className="pt-3 border-t border-slate-100 flex flex-wrap items-center gap-3">
+                  <div className="pt-3 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     <Link
                       href={`/services/${service.slug}`}
-                      className="inline-flex items-center gap-2 px-4 py-2.5 rounded-md text-xs font-bold bg-[#070B14] text-white hover:bg-slate-800 transition"
+                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-xs font-bold bg-[#070B14] text-white hover:bg-slate-800 transition shadow-xs text-center"
                     >
-                      <span>الصفحة الرسمية للخدمة</span>
+                      <span>تفاصيل الخدمة</span>
                       <ArrowLeftIcon size={13} />
                     </Link>
 
@@ -125,7 +125,7 @@ export default function EditorialServiceIndex() {
                       href={whatsappUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-md text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 transition"
+                      className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 transition text-center"
                     >
                       <WhatsAppIcon size={15} />
                       <span>واتساب فوري</span>

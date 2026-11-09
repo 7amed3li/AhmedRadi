@@ -14,50 +14,95 @@ const cairo = Cairo({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#050811",
+  themeColor: "#0B1528",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
 };
 
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ahmed-radi-two.vercel.app";
+
 export const metadata: Metadata = {
   title: {
     template: `%s | ${officeConfig.brandName}`,
-    default: `${officeConfig.brandName} - استشارات هندسية ومساحية ورخص البناء`,
+    default: `${officeConfig.brandName} | رخص البناء والمخططات والرفع المساحي والتقارير المعتمدة`,
   },
   description:
-    "مكتب استشارات هندسية ومساحية في السعودية: إصدار وتجديد وتعديل رخص البناء، شهادات إتمام البناء والإشغال، التقارير والرفع والركائز المساحية، وتحديث الصكوك الورقية وفق كود البناء السعودي.",
+    "مكتب أحمد راضي للاستشارات الهندسية والمساحية في السعودية: إصدار رخص البناء، رخص تسوير الأراضي الفضاء، التقارير والرفوعات المساحية، تثبيت الركائز، شهادات إتمام البناء والإشغال، وتحديث الصكوك وفق كود البناء السعودي ومنصة بلدي.",
   keywords: [
+    "مكتب أحمد راضي للاستشارات الهندسية",
+    "المهندس أحمد راضي",
     "مكتب هندسي",
+    "مكتب هندسي معتمد",
+    "مكتب استشارات هندسية بالرياض",
+    "مكتب مساحة",
     "رخصة بناء",
-    "بلدي",
+    "إصدار رخصة بناء",
+    "رخصة تسوير أرض فضاء",
+    "تسوير الأراضي الفضاء",
     "تقرير مساحي",
+    "إصدار تقرير مساحي بلدي",
     "رفع مساحي",
-    "شهادة إشغال",
-    "إتمام بناء",
-    "تسوير أرض فضاء",
-    "تحديث الصكوك",
+    "رفع مساحي طبوغرافي",
     "ركائز مساحية",
+    "تثبيت ركائز الأرض",
+    "شهادة إشغال",
+    "شهادة إتمام بناء",
+    "إطلاق التيار الكهربائي",
+    "تجديد رخصة بناء منتهية",
+    "تعديل رخصة بناء",
+    "تصحيح وضع المباني القائمة",
+    "تحويل من سكني إلى تجاري",
+    "تحديث الصكوك الورقية",
     "كود البناء السعودي",
-    "أحمد راضي",
+    "منصة بلدي",
+    "منصة سلامة الدفاع المدني",
+    "البورصة العقارية ناجز",
   ],
-  authors: [{ name: officeConfig.engineerName }],
+  authors: [{ name: officeConfig.engineerName, url: baseUrl }],
   creator: officeConfig.brandName,
+  publisher: officeConfig.brandName,
   formatDetection: {
     telephone: true,
   },
-  metadataBase: new URL("https://www.ahmedradi.top"),
+  metadataBase: new URL(baseUrl),
+  alternates: {
+    canonical: baseUrl,
+  },
   openGraph: {
-    title: `${officeConfig.brandName} - استشارات هندسية ومساحية`,
+    title: `${officeConfig.brandName} | رخص البناء والمخططات والرفع المساحي`,
     description:
-      "خدمات رخص البناء، التقارير المساحية، شهادات الإشغال، وتحديث الصكوك وفق كود البناء السعودي.",
+      "من صك العقار إلى المخططات والرخصة بخطوات هندسية واضحة وموثوقة بإشراف المهندس أحمد راضي.",
+    url: baseUrl,
+    siteName: officeConfig.brandName,
     locale: "ar_SA",
     type: "website",
+    images: [
+      {
+        url: "/logo.webp",
+        width: 800,
+        height: 800,
+        alt: officeConfig.brandName,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${officeConfig.brandName} | استشارات هندسية ومساحية`,
+    description:
+      "خدمات رخص البناء والتقارير المساحية وشهادات الإشغال وفق كود البناء السعودي.",
     images: ["/logo.webp"],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 

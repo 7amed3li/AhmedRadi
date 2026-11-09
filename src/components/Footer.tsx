@@ -21,9 +21,9 @@ export default function Footer() {
           {/* Col 1: Office Profile */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-lg bg-black border border-slate-700/80 flex items-center justify-center p-1 overflow-hidden shrink-0">
+              <div className="w-12 h-12 flex items-center justify-center shrink-0">
                 <Image
-                  src="/logo.webp"
+                  src="/logo-clean.webp"
                   alt="شعار مكتب أحمد راضي للاستشارات الهندسية"
                   width={48}
                   height={48}
@@ -41,7 +41,7 @@ export default function Footer() {
             </div>
 
             <p className="text-xs text-slate-300 leading-relaxed font-normal">
-              استشارات هندسية ومساحية متخصصة في السوق السعودي، تهدف إلى إرشاد الملاك والمستثمرين لإنجاز رخص البناء والتقارير المساحية وفق الأنظمة البلدية المعتمدة وكود البناء السعودي.
+              مكتب هندسي معتمد في جميع أنحاء المملكة العربية السعودية، متخصص في إرشاد وتوجيه الملاك والمستثمرين لإنجاز رخص البناء والتقارير المساحية والمخططات وفق الأنظمة وكود البناء السعودي.
             </p>
 
             {officeConfig.workingHours?.showHoursOnSite && (
