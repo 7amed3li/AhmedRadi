@@ -32,21 +32,21 @@ export default function EditorialServiceIndex() {
             <button
               type="button"
               onClick={() => toggle(service.slug)}
-              className="w-full py-6 sm:py-8 px-4 sm:px-6 flex items-start sm:items-center justify-between gap-4 text-right focus:outline-none"
+              className="w-full py-4 sm:py-7 px-3 sm:px-6 flex items-start sm:items-center justify-between gap-3 sm:gap-4 text-right focus:outline-none"
               aria-expanded={isExpanded}
             >
-              <div className="flex items-start sm:items-center gap-6 sm:gap-10 flex-1">
+              <div className="flex items-start sm:items-center gap-3 sm:gap-8 flex-1 min-w-0">
                 {/* Large Architectural Numeral */}
-                <span className="num-editorial text-2xl sm:text-3xl font-extrabold text-slate-300 shrink-0 w-10">
+                <span className="num-editorial text-xl sm:text-3xl font-extrabold text-slate-300 shrink-0 w-7 sm:w-10 pt-0.5 sm:pt-0">
                   {numberStr}
                 </span>
 
-                <div className="space-y-1">
-                  <div className="flex flex-wrap items-center gap-3">
-                    <h3 className="text-lg sm:text-2xl font-black text-[#070B14] leading-tight group-hover:text-[#C5A059] transition-colors">
+                <div className="space-y-1 min-w-0">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                    <h3 className="text-base sm:text-2xl font-black text-[#070B14] leading-tight group-hover:text-[#C5A059] transition-colors">
                       {service.title}
                     </h3>
-                    <span className="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-md">
+                    <span className="text-[10px] sm:text-[11px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded">
                       {service.categoryName}
                     </span>
                   </div>
@@ -56,16 +56,16 @@ export default function EditorialServiceIndex() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 shrink-0 mr-4">
+              <div className="flex items-center gap-2 sm:gap-3 shrink-0 mr-2 sm:mr-4">
                 <span className="hidden md:inline-block text-xs font-semibold text-slate-400">
                   {isExpanded ? "إغلاق التفاصيل" : "عرض التفاصيل"}
                 </span>
                 <span
-                  className={`w-9 h-9 rounded-md bg-white border border-slate-200 flex items-center justify-center text-slate-600 transition-transform duration-200 ${
+                  className={`w-7 h-7 sm:w-9 sm:h-9 rounded-md bg-white border border-slate-200 flex items-center justify-center text-slate-600 transition-transform duration-200 ${
                     isExpanded ? "rotate-180 bg-[#070B14] text-white border-[#070B14]" : ""
                   }`}
                 >
-                  <ChevronDownIcon size={16} />
+                  <ChevronDownIcon size={14} />
                 </span>
               </div>
             </button>

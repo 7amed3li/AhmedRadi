@@ -58,10 +58,10 @@ export default function HomePage() {
               
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700">
                 <ShieldCheckIcon size={16} className="text-[#C5A059] shrink-0" />
-                <span>مكتب معتمد للاستشارات الهندسية والمساحية في السعودية</span>
+                <span>مكتب هندسي معتمد في جميع أنحاء المملكة العربية السعودية</span>
               </div>
 
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-[#070B14] leading-[1.12] tracking-tight">
+              <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black text-[#070B14] leading-[1.15] tracking-tight">
                 رخص البناء والمخططات <br />
                 <span className="text-[#C5A059]">والرفع المساحي المعتمد</span>
               </h1>
@@ -161,14 +161,14 @@ export default function HomePage() {
       {/* ========================================================
           2. INTERACTIVE PROPERTY FINDER (مساعد توجيه المعاملة)
       ======================================================== */}
-      <section className="py-20 lg:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-10 sm:py-20 lg:py-28 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <PropertyFinder />
       </section>
 
       {/* ========================================================
           3. EDITORIAL SERVICE INDEX (دليل الخدمات التحريري)
       ======================================================== */}
-      <section className="py-20 lg:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-10 sm:py-20 lg:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="max-w-3xl mb-12 space-y-3 text-right">
           <span className="text-xs font-bold text-[#C5A059] tracking-wider uppercase block">

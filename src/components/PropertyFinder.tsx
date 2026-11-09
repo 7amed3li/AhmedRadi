@@ -76,22 +76,22 @@ export default function PropertyFinder() {
   const [selectedCase, setSelectedCase] = useState(cases[0]);
 
   return (
-    <div className="bg-slate-50/70 rounded-2xl border border-slate-200/80 p-8 sm:p-12 space-y-8">
+    <div className="bg-slate-50/80 rounded-2xl border border-slate-200/90 p-4 sm:p-8 lg:p-12 space-y-6 sm:space-y-8">
       
       <div className="max-w-2xl text-right space-y-2">
         <span className="text-xs font-bold text-[#C5A059] uppercase tracking-wider block">
           مساعد توجيه المعاملة الهندسية
         </span>
-        <h3 className="text-2xl sm:text-3xl font-black text-[#070B14]">
+        <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-[#070B14] leading-snug">
           حدد حالة عقارك لمعرفة المسار الفني الصحيح
         </h3>
-        <p className="text-xs sm:text-sm text-slate-500 font-light">
+        <p className="text-xs sm:text-sm text-slate-500 font-light leading-relaxed">
           اختر الوضع الحالي لعقارك ليظهر لك المسار الهندسي والخطوة الأولى للتنفيذ.
         </p>
       </div>
 
       {/* Situation Selector Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3">
         {cases.map((c) => {
           const isSelected = c.id === selectedCase.id;
           const Icon = c.icon;
@@ -100,46 +100,53 @@ export default function PropertyFinder() {
               key={c.id}
               type="button"
               onClick={() => setSelectedCase(c)}
-              className={`p-5 rounded-xl text-right border transition-all text-xs font-bold flex items-center gap-3.5 focus:outline-none ${
+              className={`p-3.5 sm:p-4 rounded-xl text-right border transition-all text-xs sm:text-sm font-bold flex items-center justify-between gap-3 focus:outline-none active:scale-[0.98] ${
                 isSelected
-                  ? "bg-[#070B14] border-[#070B14] text-white shadow-md"
-                  : "bg-white border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50"
+                  ? "bg-[#070B14] border-[#070B14] text-white shadow-sm ring-1 ring-[#070B14]"
+                  : "bg-white border-slate-200 text-slate-800 hover:border-slate-300 hover:bg-slate-50"
               }`}
             >
-              <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
-                isSelected ? "bg-[#C5A059] text-[#070B14]" : "bg-slate-100 text-slate-600"
-              }`}>
-                <Icon size={16} />
+              <div className="flex items-center gap-3 min-w-0">
+                <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
+                  isSelected ? "bg-[#C5A059] text-[#070B14]" : "bg-slate-100 text-slate-600"
+                }`}>
+                  <Icon size={16} />
+                </div>
+                <span className="leading-snug text-xs sm:text-sm font-semibold">{c.situation}</span>
               </div>
-              <span className="leading-snug">{c.situation}</span>
+              <div className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 text-[10px] ${
+                isSelected ? "border-[#C5A059] bg-[#C5A059] text-[#070B14]" : "border-slate-300"
+              }`}>
+                {isSelected ? "✓" : ""}
+              </div>
             </button>
           );
         })}
       </div>
 
       {/* Selected Result Box */}
-      <div className="bg-white rounded-xl p-6 sm:p-8 border border-slate-200 space-y-4 text-right shadow-xs">
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
+      <div className="bg-white rounded-xl p-4 sm:p-7 border border-slate-200 space-y-4 text-right shadow-xs">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3.5 border-b border-slate-100 pb-4">
           <div>
-            <span className="text-xs text-slate-400 block font-light">الخدمة الهندسية الموصى بها:</span>
-            <h4 className="text-lg sm:text-xl font-bold text-[#070B14] mt-0.5">
+            <span className="text-[11px] sm:text-xs text-slate-400 block font-light">الخدمة الهندسية الموصى بها:</span>
+            <h4 className="text-base sm:text-xl font-bold text-[#070B14] mt-1 leading-snug">
               {selectedCase.recommendedService}
             </h4>
           </div>
           <Link
             href={`/services/${selectedCase.slug}`}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-md text-xs font-bold bg-[#070B14] text-white hover:bg-slate-800 transition"
+            className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-xs font-bold bg-[#070B14] text-white hover:bg-slate-800 transition w-full sm:w-auto"
           >
             <span>صفحة تفاصيل الخدمة</span>
             <ArrowLeftIcon size={13} />
           </Link>
         </div>
 
-        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
           {selectedCase.summary}
         </p>
 
-        <div className="p-4 bg-slate-50 rounded-lg border border-slate-200/80 flex items-start gap-3 text-xs text-slate-700">
+        <div className="p-3.5 sm:p-4 bg-slate-50 rounded-lg border border-slate-200/80 flex items-start gap-2.5 text-xs text-slate-700 leading-relaxed">
           <CheckIcon size={16} className="text-[#C5A059] shrink-0 mt-0.5" />
           <div>
             <strong className="text-[#070B14] font-semibold">الخطوة الأولى المقترحة: </strong>
@@ -152,7 +159,7 @@ export default function PropertyFinder() {
             href={buildWhatsAppLink(`السلام عليكم مهندس أحمد، لدي حالة: (${selectedCase.situation}) وأرغب في استشارة عن ${selectedCase.recommendedService}.`)}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-md text-xs font-bold bg-[#070B14] text-white hover:bg-slate-800 transition shadow-xs"
+            className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3.5 rounded-lg text-xs sm:text-sm font-bold bg-[#070B14] text-white hover:bg-slate-800 transition shadow-xs"
           >
             <WhatsAppIcon size={16} className="text-[#C5A059]" />
             <span>بدء المحادثة عن هذه الحالة عبر واتساب</span>

@@ -1,0 +1,1869 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مكتب أحمد راضي للاستشارات الهندسية والمساحية | رخص البناء والمخططات والرفع المساحي</title>
+  <meta name="description" content="خدمات هندسية ومساحية متخصصة بإشراف المهندس أحمد راضي. إعداد وتدقيق المخططات، رخص البناء والتسوير، التقارير المساحية، وشهادات الإشغال وفق كود البناء السعودي." />
+  <meta name="keywords" content="مكتب هندسي, استشارات هندسية, رخص بناء, تقرير مساحي, كود البناء السعودي, بلدي, رفع مساحي, تسوير أراضي, شهادة إشغال, أحمد راضي" />
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="مكتب أحمد راضي للاستشارات الهندسية والمساحية" />
+  <meta property="og:description" content="من صك العقار إلى المخططات والرخصة — بخطوات هندسية واضحة وموثوقة." />
+  <meta property="og:type" content="website" />
+  
+  <!-- Google Fonts: IBM Plex Sans Arabic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0B1528',
+              deep: '#070C16',
+              slate: '#1E293B',
+              bronze: '#C5A059',
+              'bronze-dark': '#A37F38',
+              'bronze-light': '#F4EDE0',
+              ivory: '#FAF8F5',
+              sand: '#F3EFEA',
+              muted: '#64748B',
+              charcoal: '#0F172A',
+            }
+          },
+          fontFamily: {
+            sans: ['"IBM Plex Sans Arabic"', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            'subtle': '0 2px 10px rgba(11, 21, 40, 0.04)',
+            'card': '0 4px 20px -2px rgba(11, 21, 40, 0.06)',
+            'elevated': '0 12px 30px -4px rgba(11, 21, 40, 0.1)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Architectural Blueprint & Engineering Patterns */
+    .bg-grid-blueprint {
+      background-image: 
+        linear-gradient(to right, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    .bg-grid-dark {
+      background-image: 
+        linear-gradient(to right, rgba(197, 160, 89, 0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(197, 160, 89, 0.08) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* Architectural CAD coordinate lines */
+    .cad-crosshair {
+      position: relative;
+    }
+    .cad-crosshair::before, .cad-crosshair::after {
+      content: '';
+      position: absolute;
+      background: #C5A059;
+      opacity: 0.35;
+    }
+    .cad-crosshair::before { width: 12px; height: 1px; top: -6px; right: -6px; }
+    .cad-crosshair::after { width: 1px; height: 12px; top: -6px; right: -6px; }
+
+    /* Custom Transitions & Animation */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Accessibility: Respect Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .fade-up {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+
+    /* Form and Focus accessibility */
+    input:focus-visible, select:focus-visible, textarea:focus-visible, button:focus-visible, a:focus-visible {
+      outline: 2px solid #C5A059;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body class="bg-brand-ivory text-brand-charcoal font-sans antialiased selection:bg-brand-bronze selection:text-white relative min-h-screen flex flex-col">
+
+  <!-- ========================================================
+       1. NAVIGATION HEADER
+  ======================================================== -->
+  <header id="main-header" class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200/90 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo & Brand Identity -->
+        <a href="#top" class="flex items-center gap-3.5 group focus:outline-none" aria-label="الصفحة الرئيسية - مكتب أحمد راضي">
+          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-lg bg-brand-navy p-1 flex items-center justify-center shrink-0 border border-stone-200 shadow-sm transition-transform duration-200 group-hover:scale-105">
+            <img src="logo.webp" alt="شعار أحمد راضي" class="w-full h-full object-contain" onerror="this.src='AhmedRadilogusu.jpeg'" />
+          </div>
+          <div class="flex flex-col text-right">
+            <span class="font-bold text-base sm:text-lg text-brand-navy leading-tight tracking-tight">
+              أحمد راضي
+            </span>
+            <span class="text-[11px] sm:text-xs text-brand-muted font-normal mt-0.5">
+              للاستشارات الهندسية والمساحية
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden lg:flex items-center gap-8 text-xs font-semibold text-stone-600" aria-label="القائمة الرئيسية">
+          <a href="#services" class="hover:text-brand-navy py-1 transition-colors">الخدمات</a>
+          <a href="#property-finder" class="hover:text-brand-navy py-1 transition-colors">مساعد العقار</a>
+          <a href="#deliverables" class="hover:text-brand-navy py-1 transition-colors">نماذج المخرجات</a>
+          <a href="#process" class="hover:text-brand-navy py-1 transition-colors">آلية العمل</a>
+          <a href="#faq" class="hover:text-brand-navy py-1 transition-colors">الأسئلة الشائعة</a>
+          <a href="#contact" class="hover:text-brand-navy py-1 transition-colors">تواصل معنا</a>
+        </nav>
+
+        <!-- Header Single Primary Action & Mobile Menu Toggle -->
+        <div class="flex items-center gap-3">
+          <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-4 py-2.5 rounded-lg text-xs font-bold bg-brand-navy text-white hover:bg-stone-800 active:scale-95 transition-all shadow-subtle border border-brand-navy">
+            اطلب استشارة
+          </a>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button id="mobile-menu-toggle" type="button" class="lg:hidden p-2 rounded-lg text-stone-700 hover:text-brand-navy hover:bg-stone-100 transition-colors focus:outline-none" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobile-nav">
+            <svg id="menu-icon-bars" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobile-nav" class="hidden lg:hidden border-t border-stone-200 bg-white px-4 pt-3 pb-6 space-y-3 shadow-lg">
+      <nav class="flex flex-col space-y-2 text-sm font-semibold text-stone-700">
+        <a href="#services" class="px-3 py-2 rounded-lg hover:bg-stone-50 hover:text-brand-navy mobile-nav-link">الخدمات الهندسية</a>
+        <a href="#property-finder" class="px-3 py-2 rounded-lg hover:bg-stone-50 hover:text-brand-navy mobile-nav-link">مساعد حالة العقار</a>
+        <a href="#deliverables" class="px-3 py-2 rounded-lg hover:bg-stone-50 hover:text-brand-navy mobile-nav-link">نماذج المخرجات</a>
+        <a href="#process" class="px-3 py-2 rounded-lg hover:bg-stone-50 hover:text-brand-navy mobile-nav-link">آلية العمل</a>
+        <a href="#faq" class="px-3 py-2 rounded-lg hover:bg-stone-50 hover:text-brand-navy mobile-nav-link">الأسئلة الشائعة</a>
+        <a href="#contact" class="px-3 py-2 rounded-lg hover:bg-stone-50 hover:text-brand-navy mobile-nav-link">تواصل معنا</a>
+      </nav>
+      <div class="pt-2 border-t border-stone-100 flex flex-col gap-2">
+        <a href="#contact" class="w-full py-3 text-center rounded-lg text-xs font-bold bg-brand-navy text-white hover:bg-stone-800 transition mobile-nav-link">
+          اطلب استشارة المعاملة
+        </a>
+        <a href="https://wa.me/966563827520" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 text-center rounded-lg text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center justify-center gap-2">
+          <svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.044c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+          محادثة واتساب مباشرة
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="flex-grow">
+
+    <!-- ========================================================
+         2. HERO SECTION (المقدمة الرئيسية)
+    ======================================================== -->
+    <section class="relative pt-12 pb-20 sm:pt-20 sm:pb-28 border-b border-stone-200/80 bg-grid-blueprint overflow-hidden">
+      <!-- Subtle top corner architectural markers -->
+      <div class="hidden sm:block absolute top-6 right-6 w-3 h-3 border-r-2 border-t-2 border-brand-bronze/60"></div>
+      <div class="hidden sm:block absolute top-6 left-6 w-3 h-3 border-l-2 border-t-2 border-brand-bronze/60"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+          
+          <!-- Column 1: Editorial Authority Narrative (RTL Right) -->
+          <div class="lg:col-span-7 space-y-6 text-right fade-up visible">
+            
+            <!-- Category Tag -->
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-white border border-stone-200 text-xs font-semibold text-brand-navy shadow-subtle">
+              <span class="w-2 h-2 rounded-full bg-brand-bronze"></span>
+              <span>مكتب معتمد للاستشارات الهندسية والمساحية</span>
+            </div>
+
+            <!-- Master Headline -->
+            <h1 class="text-3xl sm:text-5xl lg:text-5xl font-black text-brand-navy leading-[1.25] tracking-tight">
+              من صك العقار إلى المخططات والرخصة
+              <span class="block text-brand-bronze mt-1">— بخطوات هندسية واضحة</span>
+            </h1>
+
+            <!-- Narrative Paragraph -->
+            <p class="text-sm sm:text-base text-stone-600 leading-relaxed max-w-2xl font-normal">
+              بإشراف المهندس <strong class="font-bold text-brand-navy">أحمد راضي</strong>. خدمات هندسية ومساحية متخصصة ترتكز على إعداد ومراجعة المخططات، رخص الإنشاء والتسوير، التقارير والرفوعات المساحية، وتصحيح أوضاع المباني بحسب الاشتراطات البلدية وكود البناء السعودي.
+            </p>
+
+            <!-- Dual Clear CTA Rail -->
+            <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+              <a href="#property-finder" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg text-xs sm:text-sm font-bold bg-brand-navy text-white hover:bg-stone-800 active:scale-95 transition-all shadow-subtle border border-brand-navy">
+                <span>حدّد حالة عقارك</span>
+                <svg class="w-4 h-4 text-brand-bronze transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+              </a>
+
+              <a href="https://wa.me/966563827520" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg text-xs sm:text-sm font-bold bg-white text-brand-navy hover:bg-stone-50 border border-stone-300 transition-all shadow-subtle">
+                <svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.044c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/>
+                </svg>
+                <span>تواصل عبر واتساب</span>
+              </a>
+            </div>
+
+            <!-- Verified Direct Communication Channels -->
+            <div class="pt-4 flex flex-wrap items-center gap-4 text-xs text-stone-500 border-t border-stone-200/70">
+              <span class="font-medium text-stone-700">الاتصال المباشر:</span>
+              <a href="tel:+966563827520" class="inline-flex items-center gap-1.5 text-brand-navy hover:text-brand-bronze transition font-mono font-semibold" dir="ltr">
+                <svg class="w-3.5 h-3.5 text-brand-bronze" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                056 382 7520
+              </a>
+              <span class="text-stone-300">|</span>
+              <a href="tel:+966546059533" class="inline-flex items-center gap-1.5 text-brand-navy hover:text-brand-bronze transition font-mono font-semibold" dir="ltr">
+                <svg class="w-3.5 h-3.5 text-brand-bronze" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                054 605 9533
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Column 2: Architectural CAD Vector Graphic Scene (RTL Left) -->
+          <div class="lg:col-span-5 fade-up">
+            <div class="relative bg-brand-deep rounded-2xl p-6 sm:p-7 border border-stone-800 shadow-card overflow-hidden text-right">
+              <!-- Technical Grid in Blueprint -->
+              <div class="absolute inset-0 bg-grid-dark opacity-30 pointer-events-none"></div>
+
+              <!-- Header of Visual Card -->
+              <div class="flex items-center justify-between border-b border-stone-800 pb-3 mb-4 relative z-10 text-xs">
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  <span class="text-stone-300 font-mono text-[11px]">SBC-COMPLIANT CAD</span>
+                </div>
+                <span class="text-brand-bronze font-mono text-[11px]">نموذج توضيحي هندسي</span>
+              </div>
+
+              <!-- SVG Architectural Drawing -->
+              <div class="relative z-10 w-full aspect-[4/3] flex items-center justify-center">
+                <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-slate-200">
+                  <!-- Ground Baseline -->
+                  <line x1="20" y1="240" x2="380" y2="240" stroke="#C5A059" stroke-width="1.5" stroke-dasharray="6 3" />
+                  <text x="32" y="258" fill="#94A3B8" font-size="10" font-family="sans-serif">منسوب الصفر المعماري ±0.00</text>
+
+                  <!-- Main Building Core -->
+                  <rect x="75" y="100" width="180" height="140" stroke="#E2E8F0" stroke-width="1.8" fill="#0E1B33" fill-opacity="0.6" />
+
+                  <!-- Slabs -->
+                  <line x1="70" y1="170" x2="260" y2="170" stroke="#94A3B8" stroke-width="1.5" />
+                  <line x1="70" y1="100" x2="260" y2="100" stroke="#94A3B8" stroke-width="1.5" />
+                  <text x="85" y="135" fill="#E2E8F0" font-size="10" font-weight="bold">الدور الأول</text>
+                  <text x="85" y="205" fill="#E2E8F0" font-size="10" font-weight="bold">الدور الأرضي</text>
+
+                  <!-- Upper Penthouse (الملحق) -->
+                  <rect x="110" y="50" width="110" height="50" stroke="#C5A059" stroke-width="1.5" stroke-dasharray="4 2" fill="#0E1B33" fill-opacity="0.8" />
+                  <text x="135" y="78" fill="#C5A059" font-size="10" font-weight="bold">الملحق العلوي</text>
+
+                  <!-- Reinforced Concrete Columns -->
+                  <rect x="80" y="100" width="8" height="140" fill="#C5A059" opacity="0.9" />
+                  <rect x="160" y="100" width="8" height="140" fill="#C5A059" opacity="0.9" />
+                  <rect x="240" y="100" width="8" height="140" fill="#C5A059" opacity="0.9" />
+
+                  <!-- Dimension Lines (Width) -->
+                  <line x1="75" y1="270" x2="255" y2="270" stroke="#C5A059" stroke-width="1" />
+                  <line x1="75" y1="265" x2="75" y2="275" stroke="#C5A059" stroke-width="1" />
+                  <line x1="255" y1="265" x2="255" y2="275" stroke="#C5A059" stroke-width="1" />
+                  <text x="135" y="284" fill="#CBD5E1" font-size="10" font-family="monospace">18.00 m</text>
+
+                  <!-- Setback Area (الارتداد النظامي) -->
+                  <rect x="270" y="150" width="90" height="90" stroke="#334155" stroke-width="1" stroke-dasharray="3 3" fill="#0A1424" />
+                  <text x="282" y="185" fill="#94A3B8" font-size="9">ارتداد نظامي</text>
+                  <text x="290" y="202" fill="#C5A059" font-size="10" font-weight="bold">2.00 م</text>
+
+                  <!-- Topographic Point Elevation -->
+                  <circle cx="340" cy="80" r="4" fill="#EF4444" />
+                  <circle cx="340" cy="80" r="10" stroke="#EF4444" stroke-width="1" stroke-dasharray="2 2" />
+                  <text x="290" y="60" fill="#94A3B8" font-size="9">إحداثيات الركيزة</text>
+                  <text x="280" y="74" fill="#E2E8F0" font-size="9" font-family="monospace">WGS84 GPS</text>
+                </svg>
+              </div>
+
+              <!-- Visual Footer Bar -->
+              <div class="mt-4 pt-3 border-t border-stone-800 flex items-center justify-between text-[11px] text-stone-400">
+                <span>كود البناء السعودي SBC</span>
+                <span class="text-brand-bronze font-mono">تدقيق معماري وإنشائي</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         3. TRUST BAR (شريط الثقة المختصر - مسؤول وبلا ادعاءات)
+    ======================================================== -->
+    <section class="bg-white border-b border-stone-200 py-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-right">
+          
+          <div class="flex items-start gap-3.5 p-3 rounded-lg bg-stone-50/60 border border-stone-100">
+            <div class="w-8 h-8 rounded-lg bg-brand-navy text-brand-bronze flex items-center justify-center shrink-0">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <div>
+              <h2 class="text-xs font-bold text-brand-navy">خدمات هندسية ومساحية متكاملة</h2>
+              <p class="text-[11px] text-stone-500 mt-0.5 leading-relaxed">استشارات معمارية وإنشائية ومساحية من الصك وحتى المعاملة.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3.5 p-3 rounded-lg bg-stone-50/60 border border-stone-100">
+            <div class="w-8 h-8 rounded-lg bg-brand-navy text-brand-bronze flex items-center justify-center shrink-0">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+            </div>
+            <div>
+              <h2 class="text-xs font-bold text-brand-navy">إعداد وتدقيق المخططات وفق SBC</h2>
+              <p class="text-[11px] text-stone-500 mt-0.5 leading-relaxed">مطابقة اشتراطات كود البناء السعودي ومتطلبات العزل والسلامة.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3.5 p-3 rounded-lg bg-stone-50/60 border border-stone-100">
+            <div class="w-8 h-8 rounded-lg bg-brand-navy text-brand-bronze flex items-center justify-center shrink-0">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+            </div>
+            <div>
+              <h2 class="text-xs font-bold text-brand-navy">التعامل مع متطلبات منصة بلدي</h2>
+              <p class="text-[11px] text-stone-500 mt-0.5 leading-relaxed">متابعة الملاحظات والرفع المعتمد بحسب نطاق كل معاملة.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3.5 p-3 rounded-lg bg-stone-50/60 border border-stone-100">
+            <div class="w-8 h-8 rounded-lg bg-brand-navy text-brand-bronze flex items-center justify-center shrink-0">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+            </div>
+            <div>
+              <h2 class="text-xs font-bold text-brand-navy">تواصل مباشر مع المكتب</h2>
+              <p class="text-[11px] text-stone-500 mt-0.5 leading-relaxed">استشارة واضحة ومسؤولة دون وعود تسويقية غير مثبتة.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         4. PROPERTY CASE ASSISTANT (مساعد ما الخدمة التي أحتاجها؟)
+    ======================================================== -->
+    <section id="property-finder" class="py-16 sm:py-24 bg-brand-ivory border-b border-stone-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="max-w-2xl text-right mb-10 space-y-2">
+          <span class="text-xs font-bold text-brand-bronze tracking-wider uppercase block">
+            المساعد التفاعلي لتوجيه المعاملات
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black text-brand-navy">
+            ما الخدمة الهندسية التي تحتاجها لحالة عقارك؟
+          </h2>
+          <p class="text-xs sm:text-sm text-stone-600 font-normal">
+            اختر وضع عقارك الحالي ليظهر لك المسار الفني والخطوة المبدئية الأولى للتنفيذ.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Situations List (6 Clickable Cases) -->
+          <div class="lg:col-span-5 space-y-2.5" role="tablist" aria-label="حالات العقار">
+            
+            <button type="button" class="property-case-btn w-full p-4 rounded-xl text-right border transition-all text-xs font-bold flex items-center justify-between gap-3 focus:outline-none bg-brand-navy text-white border-brand-navy shadow-sm" data-case="vacant-build" role="tab" aria-selected="true">
+              <div class="flex items-center gap-3">
+                <span class="w-8 h-8 rounded-lg bg-brand-bronze text-brand-navy flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                </span>
+                <span class="leading-relaxed">لدي أرض فضاء وأرغب في بدء البناء</span>
+              </div>
+              <svg class="w-4 h-4 text-brand-bronze shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+
+            <button type="button" class="property-case-btn w-full p-4 rounded-xl text-right border transition-all text-xs font-bold flex items-center justify-between gap-3 focus:outline-none bg-white text-stone-700 border-stone-200 hover:border-stone-300 hover:bg-stone-50" data-case="vacant-fence" role="tab" aria-selected="false">
+              <div class="flex items-center gap-3">
+                <span class="w-8 h-8 rounded-lg bg-stone-100 text-stone-600 flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </span>
+                <span class="leading-relaxed">أحتاج إلى تسوير أرض فضاء تجنباً للغرامات</span>
+              </div>
+              <svg class="w-4 h-4 text-stone-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+
+            <button type="button" class="property-case-btn w-full p-4 rounded-xl text-right border transition-all text-xs font-bold flex items-center justify-between gap-3 focus:outline-none bg-white text-stone-700 border-stone-200 hover:border-stone-300 hover:bg-stone-50" data-case="expired-license" role="tab" aria-selected="false">
+              <div class="flex items-center gap-3">
+                <span class="w-8 h-8 rounded-lg bg-stone-100 text-stone-600 flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </span>
+                <span class="leading-relaxed">رخصة البناء منتهية أو أحتاج إلى تعديلها</span>
+              </div>
+              <svg class="w-4 h-4 text-stone-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+
+            <button type="button" class="property-case-btn w-full p-4 rounded-xl text-right border transition-all text-xs font-bold flex items-center justify-between gap-3 focus:outline-none bg-white text-stone-700 border-stone-200 hover:border-stone-300 hover:bg-stone-50" data-case="completed-occupancy" role="tab" aria-selected="false">
+              <div class="flex items-center gap-3">
+                <span class="w-8 h-8 rounded-lg bg-stone-100 text-stone-600 flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                </span>
+                <span class="leading-relaxed">المبنى مكتمل وأحتاج إلى شهادة إتمام أو إشغال</span>
+              </div>
+              <svg class="w-4 h-4 text-stone-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+
+            <button type="button" class="property-case-btn w-full p-4 rounded-xl text-right border transition-all text-xs font-bold flex items-center justify-between gap-3 focus:outline-none bg-white text-stone-700 border-stone-200 hover:border-stone-300 hover:bg-stone-50" data-case="paper-deed" role="tab" aria-selected="false">
+              <div class="flex items-center gap-3">
+                <span class="w-8 h-8 rounded-lg bg-stone-100 text-stone-600 flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                </span>
+                <span class="leading-relaxed">لدي صك ورقي وأحتاج إلى تحديثه إلكترونياً</span>
+              </div>
+              <svg class="w-4 h-4 text-stone-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+
+            <button type="button" class="property-case-btn w-full p-4 rounded-xl text-right border transition-all text-xs font-bold flex items-center justify-between gap-3 focus:outline-none bg-white text-stone-700 border-stone-200 hover:border-stone-300 hover:bg-stone-50" data-case="existing-building" role="tab" aria-selected="false">
+              <div class="flex items-center gap-3">
+                <span class="w-8 h-8 rounded-lg bg-stone-100 text-stone-600 flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                </span>
+                <span class="leading-relaxed">لدي مبنى قائم وأحتاج إلى معرفة طريقة تصحيح وضعه</span>
+              </div>
+              <svg class="w-4 h-4 text-stone-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+
+          </div>
+
+          <!-- Dynamic Result Box (Updated via JavaScript) -->
+          <div class="lg:col-span-7 bg-white rounded-2xl p-6 sm:p-8 border border-stone-200 shadow-card space-y-5 text-right">
+            
+            <div class="border-b border-stone-100 pb-4">
+              <span class="text-xs text-brand-bronze font-bold block mb-1">الخدمة الهندسية الموصى بها:</span>
+              <h3 id="finder-service-title" class="text-xl sm:text-2xl font-black text-brand-navy">
+                إصدار رخصة بناء + تقرير مساحي معتمد
+              </h3>
+            </div>
+
+            <p id="finder-service-summary" class="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal">
+              يتطلب البدء بالبناء إصدار تقرير مساحي إلكتروني معتمد للأرض أولاً، ثم إعداد المخططات الهندسية المتكاملة (معماري، إنشائي، كهروميكانيك) وتدقيقها وفق كود البناء السعودي عبر منصة بلدي.
+            </p>
+
+            <div class="p-4 bg-stone-50 rounded-xl border border-stone-200/80 flex items-start gap-3 text-xs text-stone-700">
+              <svg class="w-5 h-5 text-brand-bronze shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div>
+                <strong class="font-bold text-brand-navy">الخطوة الأولى والمستند المبدئي: </strong>
+                <span id="finder-first-step" class="font-normal text-stone-600">تزويد المكتب بصورة الصك الإلكتروني المحدث لتحديد خطوط التنظيم والبدء بالتقرير المساحي.</span>
+              </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="p-3 bg-brand-ivory rounded-lg border border-stone-200/60 text-[11px] text-stone-500 leading-relaxed">
+              <strong>ملاحظة مهنية:</strong> هذا التوجيه إرشادي مبدئي لتوضيح المسار المعتاد؛ تتحدد متطلبات المعاملة والاشتراطات البلدية والرسوم بدقة بعد فحص وثائق العقار وموقعه التنظيمي.
+            </div>
+
+            <!-- WhatsApp Action for Selected Case -->
+            <div class="pt-2 flex flex-wrap items-center gap-3">
+              <a id="finder-whatsapp-btn" href="https://wa.me/966563827520?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%85%D9%87%D9%86%D8%AF%D8%B3%20%D8%A3%D8%AD%D9%85%D8%AF%D8%8C%20%D9%84%D8%AF%D9%8A%20%D8%A3%D8%B1%D8%B6%20%D9%81%D8%B6%D8%A7%D8%A1%20%D9%88%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A8%D8%AF%D8%A1%20%D8%A7%D9%84%D8%A8%D9%86%D8%A7%D8%A1%20%D9%88%D8%A5%D8%B5%D8%AF%D8%A7%D8%B1%20%D8%B1%D8%AE%D8%B5%D8%A9%20%D8%A8%D9%86%D8%A7%D8%A1." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-xs font-bold bg-brand-navy text-white hover:bg-stone-800 transition shadow-subtle">
+                <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.044c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+                <span>استفسر عن هذه الحالة عبر واتساب</span>
+              </a>
+
+              <a href="#services" class="inline-flex items-center gap-1.5 px-4 py-3 rounded-lg text-xs font-semibold text-stone-600 hover:text-brand-navy hover:bg-stone-100 transition">
+                <span>تصفح كافة الخدمات</span>
+                <svg class="w-3.5 h-3.5 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         5. SERVICES CATALOG (الخدمات منظمة في 4 مجموعات واضحة)
+    ======================================================== -->
+    <section id="services" class="py-16 sm:py-24 bg-white border-b border-stone-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mx-auto text-center mb-12 space-y-2">
+          <span class="text-xs font-bold text-brand-bronze tracking-wider uppercase block">
+            دليل الخدمات الهندسية والمساحية
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black text-brand-navy">
+            خدمات متخصصة وفق الأنظمة واللوائح المعتمدة
+          </h2>
+          <p class="text-xs sm:text-sm text-stone-600 font-normal">
+            نظمت الخدمات في أربع مجموعات رئيسية لتسهيل وصولك للمتطلبات الهندسية الخاصة بعقارك.
+          </p>
+        </div>
+
+        <!-- Filter Tabs for Categories -->
+        <div class="flex items-center justify-center gap-2 overflow-x-auto pb-4 mb-8 text-xs font-bold" role="tablist">
+          <button type="button" class="service-cat-filter px-4 py-2.5 rounded-lg border transition-all bg-brand-navy text-white border-brand-navy" data-category="all">
+            جميع الخدمات (12)
+          </button>
+          <button type="button" class="service-cat-filter px-4 py-2.5 rounded-lg border transition-all bg-stone-50 text-stone-600 border-stone-200 hover:border-stone-300" data-category="licenses">
+            رخص البناء والتسوير
+          </button>
+          <button type="button" class="service-cat-filter px-4 py-2.5 rounded-lg border transition-all bg-stone-50 text-stone-600 border-stone-200 hover:border-stone-300" data-category="modifications">
+            التعديل والتجديد والتصحيح
+          </button>
+          <button type="button" class="service-cat-filter px-4 py-2.5 rounded-lg border transition-all bg-stone-50 text-stone-600 border-stone-200 hover:border-stone-300" data-category="surveying">
+            المساحة والتقارير والصكوك
+          </button>
+          <button type="button" class="service-cat-filter px-4 py-2.5 rounded-lg border transition-all bg-stone-50 text-stone-600 border-stone-200 hover:border-stone-300" data-category="occupancy">
+            الإشغال وخدمات السلامة
+          </button>
+        </div>
+
+        <!-- Services Grid (12 Items) -->
+        <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-right">
+          
+          <!-- 1. إصدار رخصة بناء -->
+          <div class="service-card bg-brand-ivory p-6 rounded-xl border border-stone-200 flex flex-col justify-between transition-all duration-200 hover:border-brand-bronze hover:shadow-subtle" data-group="licenses">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold text-brand-bronze bg-white px-2.5 py-1 rounded border border-stone-200">رخص البناء والتسوير</span>
+                <span class="text-xs font-mono text-stone-400">01</span>
+              </div>
+              <h3 class="text-base font-bold text-brand-navy">إصدار رخصة بناء</h3>
+              <p class="text-xs text-stone-600 leading-relaxed">
+                إعداد المخططات الهندسية المعمارية والإنشائية والكهروميكانيكية ومطابقة كود البناء السعودي ورفع الطلب في بلدي.
+              </p>
+              <div class="pt-2 text-[11px] text-stone-500 space-y-1">
+                <div><strong>المستند المبدئي:</strong> صك إلكتروني + تقرير مساحي حديث</div>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-stone-200/80 flex items-center justify-between">
+              <a href="https://wa.me/966563827520?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%85%D9%87%D9%86%D8%AF%D8%B3%20%D8%A3%D8%AD%D9%85%D8%AF%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A5%D8%B5%D8%AF%D8%A7%D8%B1%20%D8%B1%D8%AE%D8%B5%D8%A9%20%D8%A8%D9%86%D8%A7%D8%A1." target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-brand-navy hover:text-brand-bronze transition inline-flex items-center gap-1.5">
+                <span>استفسر عن الخدمة</span>
+                <svg class="w-3.5 h-3.5 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+              <span class="text-[11px] text-stone-400 font-mono">منصة بلدي</span>
+            </div>
+          </div>
+
+          <!-- 2. إصدار رخصة تسوير أرض فضاء -->
+          <div class="service-card bg-brand-ivory p-6 rounded-xl border border-stone-200 flex flex-col justify-between transition-all duration-200 hover:border-brand-bronze hover:shadow-subtle" data-group="licenses">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold text-brand-bronze bg-white px-2.5 py-1 rounded border border-stone-200">رخص البناء والتسوير</span>
+                <span class="text-xs font-mono text-stone-400">02</span>
+              </div>
+              <h3 class="text-base font-bold text-brand-navy">إصدار رخصة تسوير أرض فضاء</h3>
+              <p class="text-xs text-stone-600 leading-relaxed">
+                تجهيز مخططات التسوير والواجهات البلدية المعتمدة للأراضي الواقعة على الشوارع والمحاور الملزمة تجنباً للغرامات.
+              </p>
+              <div class="pt-2 text-[11px] text-stone-500 space-y-1">
+                <div><strong>المستند المبدئي:</strong> صك إلكتروني وموقع الأرض للتحقق من المحور</div>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-stone-200/80 flex items-center justify-between">
+              <a href="https://wa.me/966563827520?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%85%D9%87%D9%86%D8%AF%D8%B3%20%D8%A3%D8%AD%D9%85%D8%AF%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%B1%D8%AE%D8%B5%D8%A9%20%D8%AA%D8%B3%D9%88%D9%8A%D8%B1%20%D8%A3%D8%B1%D8%B6%20%D9%81%D8%B6%D8%A7%D8%A1." target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-brand-navy hover:text-brand-bronze transition inline-flex items-center gap-1.5">
+                <span>استفسر عن الخدمة</span>
+                <svg class="w-3.5 h-3.5 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+              <span class="text-[11px] text-stone-400 font-mono">حماية وتجنب غرامات</span>
+            </div>
+          </div>
+
+          <!-- 3. تجديد رخص البناء -->
+          <div class="service-card bg-brand-ivory p-6 rounded-xl border border-stone-200 flex flex-col justify-between transition-all duration-200 hover:border-brand-bronze hover:shadow-subtle" data-group="modifications">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold text-stone-600 bg-white px-2.5 py-1 rounded border border-stone-200">التعديل والتجديد</span>
+                <span class="text-xs font-mono text-stone-400">03</span>
+              </div>
+              <h3 class="text-base font-bold text-brand-navy">تجديد رخص البناء المنتهية</h3>
+              <p class="text-xs text-stone-600 leading-relaxed">
+                معاينة نسبة الإنجاز الميدانية للمباني المتوقفة ورفع طلب تمديد أو تجديد صلاحية الرخصة لاستكمال الأعمال نظامياً.
+              </p>
+              <div class="pt-2 text-[11px] text-stone-500 space-y-1">
+                <div><strong>المستند المبدئي:</strong> صورة رخصة البناء السابقة وصور حديثة للمبنى</div>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-stone-200/80 flex items-center justify-between">
+              <a href="https://wa.me/966563827520?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%85%D9%87%D9%86%D8%AF%D8%B3%20%D8%A3%D8%AD%D9%85%D8%AF%D8%8C%20%D8%B1%D8%AE%D8%B5%D8%A9%20%D8%A7%D9%84%D8%A8%D9%86%D8%A7%D8%A1%20%D9%85%D9%86%D8%AA%D9%87%D9%8A%D8%A9%20%D9%88%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%A7%D9%84%D8%AA%D8%AC%D8%AF%D9%8A%D8%AF." target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-brand-navy hover:text-brand-bronze transition inline-flex items-center gap-1.5">
+                <span>استفسر عن الخدمة</span>
+                <svg class="w-3.5 h-3.5 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+              <span class="text-[11px] text-stone-400 font-mono">تمديد الصلاحية</span>
+            </div>
+          </div>
+
+          <!-- 4. تعديل رخص البناء -->
+          <div class="service-card bg-brand-ivory p-6 rounded-xl border border-stone-200 flex flex-col justify-between transition-all duration-200 hover:border-brand-bronze hover:shadow-subtle" data-group="modifications">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold text-stone-600 bg-white px-2.5 py-1 rounded border border-stone-200">التعديل والتجديد</span>
+                <span class="text-xs font-mono text-stone-400">04</span>
+              </div>
+              <h3 class="text-base font-bold text-brand-navy">تعديل رخص البناء والمخططات</h3>
+              <p class="text-xs text-stone-600 leading-relaxed">
+                دراسة وإجراء التعديلات المعمارية والإنشائية وإضافة الملاحق أو تعديل الارتدادات بما يتوافق مع الأنظمة البلدية.
+              </p>
+              <div class="pt-2 text-[11px] text-stone-500 space-y-1">
+                <div><strong>المستند المبدئي:</strong> رخصة البناء السارية وبيان بالتعديلات المطلوبة</div>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-stone-200/80 flex items-center justify-between">
+              <a href="https://wa.me/966563827520?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%85%D9%87%D9%86%D8%AF%D8%B3%20%D8%A3%D8%AD%D9%85%D8%AF%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AA%D8%B9%D8%AF%D9%8A%D9%84%20%D8%B1%D8%AE%D8%B5%D8%A9%20%D8%A8%D9%86%D8%A7%D8%A1." target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-brand-navy hover:text-brand-bronze transition inline-flex items-center gap-1.5">
+                <span>استفسر عن الخدمة</span>
+                <svg class="w-3.5 h-3.5 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+              <span class="text-[11px] text-stone-400 font-mono">تعديل معماري وإنشائي</span>
+            </div>
+          </div>
+
+          <!-- 5. شهادة إتمام بناء / إشغال -->
+          <div class="service-card bg-brand-ivory p-6 rounded-xl border border-stone-200 flex flex-col justify-between transition-all duration-200 hover:border-brand-bronze hover:shadow-subtle" data-group="occupancy">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold text-stone-600 bg-white px-2.5 py-1 rounded border border-stone-200">الإشغال والسلامة</span>
+                <span class="text-xs font-mono text-stone-400">05</span>
+              </div>
+              <h3 class="text-base font-bold text-brand-navy">إصدار شهادة إتمام بناء (شهادة إشغال)</h3>
+              <p class="text-xs text-stone-600 leading-relaxed">
+                الكشف الميداني والتأكد من مطابقة المنفذ للرخصة واشتراطات العزل الحراري لإشعار شركة الكهرباء بإطلاق التيار.
+              </p>
+              <div class="pt-2 text-[11px] text-stone-500 space-y-1">
+                <div><strong>المستند المبدئي:</strong> رخصة البناء وشهادة تركيب العزل المعتمدة</div>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-stone-200/80 flex items-center justify-between">
+              <a href="https://wa.me/966563827520?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%85%D9%87%D9%86%D8%AF%D8%B3%20%D8%A3%D8%AD%D9%85%D8%AF%D8%8C%20%D8%A7%D9%83%D8%AA%D9%85%D9%84%20%D8%A7%D9%84%D8%A8%D9%86%D8%A7%D8%A1%20%D9%88%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%A5%D8%B5%D8%AF%D8%A7%D8%B1%20%D8%B4%D9%87%D8%A7%D8%AF%D8%A9%20%D8%A5%D8%B4%D8%BA%D8%A7%D9%84." target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-brand-navy hover:text-brand-bronze transition inline-flex items-center gap-1.5">
+                <span>استفسر عن الخدمة</span>
+                <svg class="w-3.5 h-3.5 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+              <span class="text-[11px] text-stone-400 font-mono">إطلاق الكهرباء</span>
+            </div>
+          </div>
+
+          <!-- 6. تحويل من سكني إلى سكني تجاري -->
+          <div class="service-card bg-brand-ivory p-6 rounded-xl border border-stone-200 flex flex-col justify-between transition-all duration-200 hover:border-brand-bronze hover:shadow-subtle" data-group="modifications">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold text-stone-600 bg-white px-2.5 py-1 rounded border border-stone-200">التعديل والتجديد</span>
+                <span class="text-xs font-mono text-stone-400">06</span>
+              </div>
+              <h3 class="text-base font-bold text-brand-navy">تحويل رخصة من سكني إلى سكني تجاري</h3>
+              <p class="text-xs text-stone-600 leading-relaxed">
+                دراسة اشتراطات عرض الشارع والمواقف ومخارج الطوارئ وتعديل المخططات لتحويل الاستخدام نظامياً.
+              </p>
+              <div class="pt-2 text-[11px] text-stone-500 space-y-1">
+                <div><strong>المستند المبدئي:</strong> الصك ورخصة البناء القائمة وموقع العقار</div>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-stone-200/80 flex items-center justify-between">
+              <a href="https://wa.me/966563827520?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%85%D9%87%D9%86%D8%AF%D8%B3%20%D8%A3%D8%AD%D9%85%D8%AF%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AA%D8%AD%D9%88%D9%8A%D9%84%20%D8%B1%D8%AE%D8%B5%D8%A9%20%D9%85%D9%86%20%D8%B3%D9%83%D9%86%D9%8A%20%D8%A5%D9%84%D9%89%20%D8%B3%D9%83%D9%86%D9%8A%20%D8%AA%D8%AC%D8%A7%D8%B1%D9%8A." target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-brand-navy hover:text-brand-bronze transition inline-flex items-center gap-1.5">
+                <span>استفسر عن الخدمة</span>
+                <svg class="w-3.5 h-3.5 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+              <span class="text-[11px] text-stone-400 font-mono">تغيير الاستخدام</span>
+            </div>
+          </div>
+
+          <!-- 7. تصحيح وضع المباني القائمة -->
+          <div class="service-card bg-brand-ivory p-6 rounded-xl border border-stone-200 flex flex-col justify-between transition-all duration-200 hover:border-brand-bronze hover:shadow-subtle" data-group="modifications">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold text-stone-600 bg-white px-2.5 py-1 rounded border border-stone-200">التعديل والتصحيح</span>
+                <span class="text-xs font-mono text-stone-400">07</span>
+              </div>
+              <h3 class="text-base font-bold text-brand-navy">تصحيح وضع المباني القائمة</h3>
+              <p class="text-xs text-stone-600 leading-relaxed">
+                الرفع الهندسي وفحص السلامة الإنشائية وإعداد التقارير الفنية لتسوية أوضاع المباني القديمة أو غير المرخصة.
+              </p>
+              <div class="pt-2 text-[11px] text-stone-500 space-y-1">
+                <div><strong>المستند المبدئي:</strong> صك الملكية وأي مخططات أو فواتير قديمة</div>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-stone-200/80 flex items-center justify-between">
+              <a href="https://wa.me/966563827520?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%85%D9%87%D9%86%D8%AF%D8%B3%20%D8%A3%D8%AD%D9%85%D8%AF%D8%8C%20%D9%84%D8%AF%D9%8A%20%D9%85%D8%A8%D9%86%D9%89%20%D9%82%D8%A7%D8%A6%D9%85%20%D9%88%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%AA%D8%B5%D8%AD%D9%8A%D8%AD%20%D9%88%D8%B6%D8%B9%D9%87." target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-brand-navy hover:text-brand-bronze transition inline-flex items-center gap-1.5">
+                <span>استفسر عن الخدمة</span>
+                <svg class="w-3.5 h-3.5 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+              <span class="text-[11px] text-stone-400 font-mono">سلامة إنشائية</span>
+            </div>
+          </div>
+
+          <!-- 8. إصدار تقرير مساحي -->
+          <div class="service-card bg-brand-ivory p-6 rounded-xl border border-stone-200 flex flex-col justify-between transition-all duration-200 hover:border-brand-bronze hover:shadow-subtle" data-group="surveying">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold text-brand-bronze bg-white px-2.5 py-1 rounded border border-stone-200">المساحة والتقارير</span>
+                <span class="text-xs font-mono text-stone-400">08</span>
+              </div>
+              <h3 class="text-base font-bold text-brand-navy">إصدار تقرير مساحي معتمد (بلدي)</h3>
+              <p class="text-xs text-stone-600 leading-relaxed">
+                الرفع المساحي الميداني وتوثيق الإحداثيات والحدود وعروض الشوارع وإصدار التقرير المساحي الإلكتروني المعتمد.
+              </p>
+              <div class="pt-2 text-[11px] text-stone-500 space-y-1">
+                <div><strong>المستند المبدئي:</strong> صك إلكتروني وتفويض عبر منصة بلدي</div>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-stone-200/80 flex items-center justify-between">
+              <a href="https://wa.me/966563827520?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%85%D9%87%D9%86%D8%AF%D8%B3%20%D8%A3%D8%AD%D9%85%D8%AF%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%A5%D8%B5%D8%AF%D8%A7%D8%B1%20%D8%AA%D9%82%D8%B1%D9%8A%D8%B1%20%D9%85%D8%B3%D8%A7%D8%AD%D9%8A%20%D9%85%D8%B9%D8%AA%D9%85%D8%AF%20%D8%B9%D8%A8%D8%B1%20%D8%A8%D9%84%D8%AF%D9%8A." target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-brand-navy hover:text-brand-bronze transition inline-flex items-center gap-1.5">
+                <span>استفسر عن الخدمة</span>
+                <svg class="w-3.5 h-3.5 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+              <span class="text-[11px] text-stone-400 font-mono">إلكتروني معتمد</span>
+            </div>
+          </div>
+
+          <!-- 9. تحديث الصكوك الورقية -->
+          <div class="service-card bg-brand-ivory p-6 rounded-xl border border-stone-200 flex flex-col justify-between transition-all duration-200 hover:border-brand-bronze hover:shadow-subtle" data-group="surveying">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold text-stone-600 bg-white px-2.5 py-1 rounded border border-stone-200">الصكوك والملكية</span>
+                <span class="text-xs font-mono text-stone-400">09</span>
+              </div>
+              <h3 class="text-base font-bold text-brand-navy">تحديث الصكوك الورقية مساحياً</h3>
+              <p class="text-xs text-stone-600 leading-relaxed">
+                مطابقة الأطوال والأبعاد وإعداد التقرير المساحي اللازم لتحويل الصك الورقي إلى صك إلكتروني عبر البورصة العقارية.
+              </p>
+              <div class="pt-2 text-[11px] text-stone-500 space-y-1">
+                <div><strong>المستند المبدئي:</strong> صورة واضحة من الصك الورقي القديم وموقع الأرض</div>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-stone-200/80 flex items-center justify-between">
+              <a href="https://wa.me/966563827520?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%85%D9%87%D9%86%D8%AF%D8%B3%20%D8%A3%D8%AD%D9%85%D8%AF%D8%8C%20%D9%84%D8%AF%D9%8A%20%D8%B5%D9%83%20%D9%88%D8%B1%D9%82%D9%8A%20%D9%82%D8%AF%D9%8A%D9%85%20%D9%88%D8%A3%D8%AD%D8%AA%D8%A7%D8%AC%20%D9%85%D8%B7%D8%A7%D8%A8%D9%82%D8%AA%D9%87%20%D9%85%D8%B3%D8%A7%D8%AD%D9%8A%D8%A7%D9%8B%20%D9%84%D8%AA%D8%AD%D8%AF%D9%8A%D8%AB%D9%87." target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-brand-navy hover:text-brand-bronze transition inline-flex items-center gap-1.5">
+                <span>استفسر عن الخدمة</span>
+                <svg class="w-3.5 h-3.5 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+              <span class="text-[11px] text-stone-400 font-mono">ناجز والبورصة العقارية</span>
+            </div>
+          </div>
+
+          <!-- 10. خدمات الرفع المساحي بمختلف أنواعها -->
+          <div class="service-card bg-brand-ivory p-6 rounded-xl border border-stone-200 flex flex-col justify-between transition-all duration-200 hover:border-brand-bronze hover:shadow-subtle" data-group="surveying">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold text-brand-bronze bg-white px-2.5 py-1 rounded border border-stone-200">المساحة والتقارير</span>
+                <span class="text-xs font-mono text-stone-400">10</span>
+              </div>
+              <h3 class="text-base font-bold text-brand-navy">خدمات الرفع المساحي الطبوغرافي</h3>
+              <p class="text-xs text-stone-600 leading-relaxed">
+                أعمال المسح الطبوغرافي الشامل وتحديد المناسيب وخطوط الكنتور وتجهيز ملفات CAD وGIS بدقة RTK وأجهزة Total Station.
+              </p>
+              <div class="pt-2 text-[11px] text-stone-500 space-y-1">
+                <div><strong>المستند المبدئي:</strong> الصك أو الكروكي التوجيهي وموقع الأرض</div>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-stone-200/80 flex items-center justify-between">
+              <a href="https://wa.me/966563827520?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%85%D9%87%D9%86%D8%AF%D8%B3%20%D8%A3%D8%AD%D9%85%D8%AF%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A3%D8%B9%D9%85%D8%A7%D9%84%20%D8%A7%D9%84%D8%B1%D9%81%D8%B9%20%D8%A7%D9%84%D9%85%D8%B3%D8%A7%D8%AD%D9%8A%20%D8%A7%D9%84%D8%B7%D8%A8%D9%88%D8%BA%D8%B1%D8%A7%D9%81%D9%8A." target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-brand-navy hover:text-brand-bronze transition inline-flex items-center gap-1.5">
+                <span>استفسر عن الخدمة</span>
+                <svg class="w-3.5 h-3.5 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+              <span class="text-[11px] text-stone-400 font-mono">أجهزة GPS / Total Station</span>
+            </div>
+          </div>
+
+          <!-- 11. الركائز المساحية -->
+          <div class="service-card bg-brand-ivory p-6 rounded-xl border border-stone-200 flex flex-col justify-between transition-all duration-200 hover:border-brand-bronze hover:shadow-subtle" data-group="surveying">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold text-brand-bronze bg-white px-2.5 py-1 rounded border border-stone-200">المساحة والتقارير</span>
+                <span class="text-xs font-mono text-stone-400">11</span>
+              </div>
+              <h3 class="text-base font-bold text-brand-navy">تثبيت وتحديد الركائز المساحية</h3>
+              <p class="text-xs text-stone-600 leading-relaxed">
+                توقيع وتثبيت زوايا وأركان الأرض بركائز معتمدة لمنع التداخل والنزاعات مع المجاورين وضمان دقة الارتدادات قبل البناء.
+              </p>
+              <div class="pt-2 text-[11px] text-stone-500 space-y-1">
+                <div><strong>المستند المبدئي:</strong> الصك الإلكتروني والمخطط المعتمد ورقم القطعة</div>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-stone-200/80 flex items-center justify-between">
+              <a href="https://wa.me/966563827520?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%85%D9%87%D9%86%D8%AF%D8%B3%20%D8%A3%D8%AD%D9%85%D8%AF%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%AA%D8%AB%D8%A8%D9%8A%D8%AA%20%D8%A7%D9%84%D8%B1%D9%83%D8%A7%D8%A6%D8%B2%20%D8%A7%D9%84%D9%85%D8%B3%D8%A7%D8%AD%D9%8A%D8%A9%20%D9%84%D8%A3%D8%B1%D8%B6%D9%8A." target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-brand-navy hover:text-brand-bronze transition inline-flex items-center gap-1.5">
+                <span>استفسر عن الخدمة</span>
+                <svg class="w-3.5 h-3.5 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+              <span class="text-[11px] text-stone-400 font-mono">حفظ حدود الملكية</span>
+            </div>
+          </div>
+
+          <!-- 12. خدمات الدفاع المدني -->
+          <div class="service-card bg-brand-ivory p-6 rounded-xl border border-stone-200 flex flex-col justify-between transition-all duration-200 hover:border-brand-bronze hover:shadow-subtle" data-group="occupancy">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold text-stone-600 bg-white px-2.5 py-1 rounded border border-stone-200">الإشغال والسلامة</span>
+                <span class="text-xs font-mono text-stone-400">12</span>
+              </div>
+              <h3 class="text-base font-bold text-brand-navy">خدمات واستشارات الدفاع المدني</h3>
+              <p class="text-xs text-stone-600 leading-relaxed">
+                مراجعة مخططات السلامة ومسارات الهروب ومكافحة الحريق للمنشآت والمباني وفق كود الحريق وتنسيق المتطلبات مع الجهات المعتمدة.
+              </p>
+              <div class="pt-2 text-[11px] text-stone-500 space-y-1">
+                <div><strong>المستند المبدئي:</strong> المخططات المعمارية ونوع النشاط ومساحة المنشأة</div>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-stone-200/80 flex items-center justify-between">
+              <a href="https://wa.me/966563827520?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%85%D9%87%D9%86%D8%AF%D8%B3%20%D8%A3%D8%AD%D9%85%D8%AF%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AF%D9%81%D8%A7%D8%B9%20%D8%A7%D9%84%D9%85%D8%AF%D9%86%D9%8A%20%D9%88%D9%85%D8%AE%D8%B7%D8%B7%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%A9." target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-brand-navy hover:text-brand-bronze transition inline-flex items-center gap-1.5">
+                <span>استفسر عن الخدمة</span>
+                <svg class="w-3.5 h-3.5 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+              <span class="text-[11px] text-stone-400 font-mono">منصة سلامة</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         6. ENGINEERING DELIVERABLES (نماذج المخرجات الهندسية والمساحية)
+    ======================================================== -->
+    <section id="deliverables" class="py-16 sm:py-24 bg-brand-ivory border-b border-stone-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mx-auto text-center mb-12 space-y-2">
+          <span class="text-xs font-bold text-brand-bronze tracking-wider uppercase block">
+            المواصفات والنماذج الفنية
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black text-brand-navy">
+            نماذج المخرجات الهندسية والمساحية
+          </h2>
+          <p class="text-xs sm:text-sm text-stone-600 font-normal">
+            رسومات توضيحية لنماذج الوثائق والمخططات الفنية التي يعدها المكتب لتقديمها للجهات المعنية.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white p-6 sm:p-10 rounded-2xl border border-stone-200 shadow-card">
+          
+          <!-- Deliverables Technical Tabs (Right) -->
+          <div class="lg:col-span-5 space-y-3 text-right" role="tablist">
+            
+            <button type="button" class="deliverable-tab-btn w-full p-4 rounded-xl text-right border transition-all text-xs font-bold flex items-start gap-3 bg-brand-navy text-white border-brand-navy" data-tab="plans">
+              <span class="w-7 h-7 rounded-lg bg-brand-bronze text-brand-navy flex items-center justify-center shrink-0 text-xs">01</span>
+              <div>
+                <span class="block text-sm">المخططات الهندسية التنفيذية</span>
+                <span class="text-[11px] font-normal text-stone-300 block mt-0.5">معماري، إنشائي، كهروميكانيك وفق كود البناء SBC.</span>
+              </div>
+            </button>
+
+            <button type="button" class="deliverable-tab-btn w-full p-4 rounded-xl text-right border transition-all text-xs font-bold flex items-start gap-3 bg-stone-50 text-stone-700 border-stone-200 hover:bg-stone-100" data-tab="report">
+              <span class="w-7 h-7 rounded-lg bg-stone-200 text-stone-700 flex items-center justify-center shrink-0 text-xs">02</span>
+              <div>
+                <span class="block text-sm">التقرير المساحي الإلكتروني</span>
+                <span class="text-[11px] font-normal text-stone-500 block mt-0.5">موثق بإحداثيات الرفع ومرتبط إلكترونياً بمنصة بلدي.</span>
+              </div>
+            </button>
+
+            <button type="button" class="deliverable-tab-btn w-full p-4 rounded-xl text-right border transition-all text-xs font-bold flex items-start gap-3 bg-stone-50 text-stone-700 border-stone-200 hover:bg-stone-100" data-tab="benchmarks">
+              <span class="w-7 h-7 rounded-lg bg-stone-200 text-stone-700 flex items-center justify-center shrink-0 text-xs">03</span>
+              <div>
+                <span class="block text-sm">مخطط تثبيت الركائز المساحية</span>
+                <span class="text-[11px] font-normal text-stone-500 block mt-0.5">كروكي يحدد أركان القطعة والإحداثيات الجغرافية على الواقع.</span>
+              </div>
+            </button>
+
+            <button type="button" class="deliverable-tab-btn w-full p-4 rounded-xl text-right border transition-all text-xs font-bold flex items-start gap-3 bg-stone-50 text-stone-700 border-stone-200 hover:bg-stone-100" data-tab="occupancy">
+              <span class="w-7 h-7 rounded-lg bg-stone-200 text-stone-700 flex items-center justify-center shrink-0 text-xs">04</span>
+              <div>
+                <span class="block text-sm">تقرير الكشف وشهادة الإشغال</span>
+                <span class="text-[11px] font-normal text-stone-500 block mt-0.5">مطابقة الواجهات والعزل وتجهيز إشعار إطلاق التيار.</span>
+              </div>
+            </button>
+
+          </div>
+
+          <!-- Deliverables Illustration Frame (Left) -->
+          <div class="lg:col-span-7 bg-brand-deep rounded-xl p-6 sm:p-8 border border-stone-800 text-right relative overflow-hidden">
+            <div class="absolute inset-0 bg-grid-dark opacity-35 pointer-events-none"></div>
+
+            <div class="relative z-10 space-y-4">
+              <div class="flex items-center justify-between text-xs border-b border-stone-800 pb-3">
+                <span id="deliverable-badge" class="text-brand-bronze font-mono font-bold">نموذج توضيحي • المخططات الإنشائية والمعمارية</span>
+                <span class="text-stone-400 font-mono text-[11px]">AUTOCAD / PDF</span>
+              </div>
+
+              <!-- Deliverable Dynamic CAD Graphic Preview -->
+              <div id="deliverable-preview-container" class="aspect-[16/9] flex items-center justify-center border border-stone-800 rounded-lg p-2 bg-[#060A13]">
+                
+                <!-- Default: Plans Graphic -->
+                <svg id="graphic-plans" class="w-full h-full" viewBox="0 0 500 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Drawing Board Background Grid -->
+                  <line x1="20" y1="230" x2="480" y2="230" stroke="#334155" stroke-width="1.5" stroke-dasharray="8 4" />
+                  <!-- Column Grids -->
+                  <line x1="80" y1="30" x2="80" y2="240" stroke="#1E293B" stroke-width="1" stroke-dasharray="4 4" />
+                  <line x1="200" y1="30" x2="200" y2="240" stroke="#1E293B" stroke-width="1" stroke-dasharray="4 4" />
+                  <line x1="320" y1="30" x2="320" y2="240" stroke="#1E293B" stroke-width="1" stroke-dasharray="4 4" />
+                  <line x1="440" y1="30" x2="440" y2="240" stroke="#1E293B" stroke-width="1" stroke-dasharray="4 4" />
+                  <!-- Building Structure Elements -->
+                  <rect x="80" y="60" width="360" height="170" stroke="#E2E8F0" stroke-width="2" fill="#0B1528" fill-opacity="0.7" />
+                  <!-- Floor Dividers -->
+                  <line x1="80" y1="145" x2="440" y2="145" stroke="#94A3B8" stroke-width="1.5" />
+                  <!-- Structural Columns in CAD gold -->
+                  <rect x="76" y="60" width="8" height="170" fill="#C5A059" />
+                  <rect x="196" y="60" width="8" height="170" fill="#C5A059" />
+                  <rect x="316" y="60" width="8" height="170" fill="#C5A059" />
+                  <rect x="436" y="60" width="8" height="170" fill="#C5A059" />
+                  <!-- Text Annotations in CAD -->
+                  <text x="100" y="105" fill="#E2E8F0" font-size="11" font-weight="bold">مخطط الواجهة والتوزيع المعماري</text>
+                  <text x="100" y="190" fill="#94A3B8" font-size="10">مطابقة كود البناء السعودي والعزل الحراري</text>
+                  <!-- Dimension -->
+                  <line x1="80" y1="260" x2="440" y2="260" stroke="#C5A059" stroke-width="1" />
+                  <text x="235" y="272" fill="#C5A059" font-size="10" font-family="monospace">L = 24.00 m</text>
+                </svg>
+
+                <!-- Report Graphic (hidden initially) -->
+                <svg id="graphic-report" class="w-full h-full hidden" viewBox="0 0 500 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="50" y="20" width="400" height="240" rx="4" fill="#0B1528" stroke="#C5A059" stroke-width="1.5" />
+                  <text x="75" y="55" fill="#C5A059" font-size="13" font-weight="bold">تقرير مساحي إلكتروني معتمد - منصة بلدي</text>
+                  <line x1="75" y1="68" x2="425" y2="68" stroke="#334155" stroke-width="1" />
+                  <!-- Polygon Plot -->
+                  <polygon points="120,95 380,90 350,210 90,200" fill="#1E293B" stroke="#38BDF8" stroke-width="2" />
+                  <text x="210" y="145" fill="#FFFFFF" font-size="11" font-weight="bold">قطعة رقم 84</text>
+                  <text x="195" y="165" fill="#94A3B8" font-size="9">المساحة: 675.00 م²</text>
+                  <circle cx="120" cy="95" r="4" fill="#EF4444" />
+                  <circle cx="380" cy="90" r="4" fill="#EF4444" />
+                  <circle cx="350" cy="210" r="4" fill="#EF4444" />
+                  <circle cx="90" cy="200" r="4" fill="#EF4444" />
+                  <text x="75" y="240" fill="#10B981" font-size="10" font-family="monospace">مربوط بنظام بلدي ومطابق للصك الشرعي</text>
+                </svg>
+
+                <!-- Benchmarks Graphic (hidden initially) -->
+                <svg id="graphic-benchmarks" class="w-full h-full hidden" viewBox="0 0 500 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Ground and Street -->
+                  <rect x="40" y="180" width="420" height="60" fill="#1E293B" stroke="#475569" stroke-width="1" />
+                  <text x="210" y="215" fill="#94A3B8" font-size="11">شارع تنظيمي 20 م</text>
+                  <!-- Survey Benchmarks (الأركان) -->
+                  <g transform="translate(100, 60)">
+                    <line x1="20" y1="20" x2="20" y2="120" stroke="#C5A059" stroke-width="2.5" />
+                    <polygon points="10,20 30,20 20,5" fill="#EF4444" />
+                    <circle cx="20" cy="120" r="4" fill="#C5A059" />
+                    <text x="-25" y="145" fill="#E2E8F0" font-size="10" font-weight="bold">ركيزة الركن الشمالي</text>
+                  </g>
+                  <g transform="translate(320, 60)">
+                    <line x1="20" y1="20" x2="20" y2="120" stroke="#C5A059" stroke-width="2.5" />
+                    <polygon points="10,20 30,20 20,5" fill="#EF4444" />
+                    <circle cx="20" cy="120" r="4" fill="#C5A059" />
+                    <text x="-25" y="145" fill="#E2E8F0" font-size="10" font-weight="bold">ركيزة الركن الشرقي</text>
+                  </g>
+                  <line x1="120" y1="80" x2="340" y2="80" stroke="#C5A059" stroke-width="1" stroke-dasharray="4 2" />
+                  <text x="200" y="72" fill="#C5A059" font-size="10" font-family="monospace">ضلع الواجهة 22.50 م</text>
+                </svg>
+
+                <!-- Occupancy Graphic (hidden initially) -->
+                <svg id="graphic-occupancy" class="w-full h-full hidden" viewBox="0 0 500 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="60" y="30" width="380" height="220" rx="6" fill="#0B1528" stroke="#C5A059" stroke-width="1.5" />
+                  <text x="90" y="65" fill="#C5A059" font-size="13" font-weight="bold">شهادة إتمام بناء / إشغال</text>
+                  <line x1="90" y1="78" x2="410" y2="78" stroke="#334155" stroke-width="1" />
+                  <g transform="translate(90, 100)">
+                    <text x="0" y="15" fill="#E2E8F0" font-size="11">فحص مطابقة الواجهات والارتدادات</text>
+                    <circle cx="270" cy="10" r="6" fill="#10B981" />
+                    <text x="0" y="45" fill="#E2E8F0" font-size="11">اعتماد تقرير العزل الحراري (شركة الكهرباء)</text>
+                    <circle cx="270" cy="40" r="6" fill="#10B981" />
+                    <text x="0" y="75" fill="#E2E8F0" font-size="11">مطابقة كود البناء والتقرير الفني النهائي</text>
+                    <circle cx="270" cy="70" r="6" fill="#10B981" />
+                  </g>
+                  <rect x="90" y="195" width="320" height="30" rx="4" fill="#10B981" fill-opacity="0.15" stroke="#10B981" stroke-width="1" />
+                  <text x="135" y="215" fill="#10B981" font-size="11" font-weight="bold">جاهز لإشعار شركة الكهرباء لإطلاق التيار</text>
+                </svg>
+
+              </div>
+
+              <p id="deliverable-desc" class="text-xs text-stone-400 leading-relaxed font-normal">
+                تسليم ملفات ومخططات متكاملة بصيغ قابلة للطباعة (PDF) ورقمية (DWG/CAD) ومطابقة لمتطلبات التدقيق في منصة بلدي.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         7. WORKFLOW / PROCESS (آلية العمل - تسلسل من 4 مراحل)
+    ======================================================== -->
+    <section id="process" class="py-16 sm:py-24 bg-white border-b border-stone-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mx-auto text-center mb-14 space-y-2">
+          <span class="text-xs font-bold text-brand-bronze tracking-wider uppercase block">
+            مسار العمل الهندسي
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black text-brand-navy">
+            آلية تنفيذ المعاملات الهندسية والمساحية
+          </h2>
+          <p class="text-xs sm:text-sm text-stone-600 font-normal">
+            خطوات واضحة ومنظمة تبدأ من فحص الصك وتنتهي بالاعتماد الرسمي دون وعود بمواعيد تخمينية.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-right">
+          
+          <!-- Stage 1 -->
+          <div class="relative bg-brand-ivory p-6 rounded-xl border border-stone-200 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-brand-bronze">المرحلة 01</span>
+                <span class="w-8 h-8 rounded-lg bg-white border border-stone-200 flex items-center justify-center text-stone-700">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                </span>
+              </div>
+              <h3 class="text-base font-bold text-brand-navy">دراسة الصك والموقع</h3>
+              <p class="text-xs text-stone-600 leading-relaxed font-normal">
+                مراجعة صك الملكية الإلكتروني، والتأكد من مطابقة اشتراطات الأمانة التابع لها العقار، وتحديد المسار الفني والبلدي الدقيق.
+              </p>
+            </div>
+            <div class="mt-6 pt-3 border-t border-stone-200/80 text-[11px] text-stone-500 font-medium">
+              دور العميل: تزويد صورة الصك والموقع
+            </div>
+          </div>
+
+          <!-- Stage 2 -->
+          <div class="relative bg-brand-ivory p-6 rounded-xl border border-stone-200 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-brand-bronze">المرحلة 02</span>
+                <span class="w-8 h-8 rounded-lg bg-white border border-stone-200 flex items-center justify-center text-stone-700">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                </span>
+              </div>
+              <h3 class="text-base font-bold text-brand-navy">المعاينة الميدانية والرفع</h3>
+              <p class="text-xs text-stone-600 leading-relaxed font-normal">
+                النزول الميداني بأجهزة الرصد المساحي (GPS/Total Station) لرفع الإحداثيات والمناسيب، أو معاينة المبنى القائم وفحصه إنشائياً.
+              </p>
+            </div>
+            <div class="mt-6 pt-3 border-t border-stone-200/80 text-[11px] text-stone-500 font-medium">
+              دور المكتب: العمل الميداني الدقيق
+            </div>
+          </div>
+
+          <!-- Stage 3 -->
+          <div class="relative bg-brand-ivory p-6 rounded-xl border border-stone-200 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-brand-bronze">المرحلة 03</span>
+                <span class="w-8 h-8 rounded-lg bg-white border border-stone-200 flex items-center justify-center text-stone-700">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/></svg>
+                </span>
+              </div>
+              <h3 class="text-base font-bold text-brand-navy">إعداد المخططات والتقارير</h3>
+              <p class="text-xs text-stone-600 leading-relaxed font-normal">
+                إعداد وتدقيق المخططات الإنشائية والمعمارية وكروكيات الرفع طبقاً لكود البناء السعودي ومتطلبات السلامة والعزل.
+              </p>
+            </div>
+            <div class="mt-6 pt-3 border-t border-stone-200/80 text-[11px] text-stone-500 font-medium">
+              دور المكتب: التصميم والتدقيق الفني
+            </div>
+          </div>
+
+          <!-- Stage 4 -->
+          <div class="relative bg-brand-ivory p-6 rounded-xl border border-stone-200 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-brand-bronze">المرحلة 04</span>
+                <span class="w-8 h-8 rounded-lg bg-white border border-stone-200 flex items-center justify-center text-stone-700">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </span>
+              </div>
+              <h3 class="text-base font-bold text-brand-navy">رفع المعاملة والمتابعة</h3>
+              <p class="text-xs text-stone-600 leading-relaxed font-normal">
+                رفع المعاملة عبر منصة بلدي أو المنصة المعنية ومتابعة ملاحظات التدقيق الهندسي مع العميل حتى صدور الفاتورة وسداد الرسوم.
+              </p>
+            </div>
+            <div class="mt-6 pt-3 border-t border-stone-200/80 text-[11px] text-stone-500 font-medium">
+              دور مشترك: سداد الرسوم والطباعة
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mt-10 p-4 bg-brand-ivory rounded-xl border border-stone-200 text-center max-w-2xl mx-auto text-xs text-stone-500 leading-relaxed">
+          <strong>توضيح مسؤول:</strong> تتبع المعاملات مسار المراجعة والتدقيق لدى الأمانات والبلديات المعنية، وتصدر الموافقات النهائية والرسوم الحكومية وفق الأنظمة واللوائح الرسمية.
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         8. PROFESSIONAL STANDARDS (المعايير المهنية)
+    ======================================================== -->
+    <section class="py-16 sm:py-24 bg-brand-ivory border-b border-stone-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mx-auto text-center mb-12 space-y-2">
+          <span class="text-xs font-bold text-brand-bronze tracking-wider uppercase block">
+            المسؤولية المهنية والشفافية
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black text-brand-navy">
+            معايير العمل والالتزام الفني
+          </h2>
+          <p class="text-xs sm:text-sm text-stone-600 font-normal">
+            نرتكز على الشفافية التامة مع المالك في الإجراءات والأتعاب والاشتراطات البلدية.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-right">
+          
+          <div class="bg-white p-6 rounded-xl border border-stone-200 shadow-subtle space-y-2.5">
+            <div class="w-9 h-9 rounded-lg bg-brand-navy text-brand-bronze flex items-center justify-center mb-2">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <h3 class="text-sm font-bold text-brand-navy">الالتزام بكود البناء السعودي (SBC)</h3>
+            <p class="text-xs text-stone-600 leading-relaxed font-normal">
+              إعداد وتدقيق المخططات المعمارية والإنشائية ومطابقة العزل الحراري والسلامة لتفادي الملاحظات أثناء التدقيق البلدي.
+            </p>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl border border-stone-200 shadow-subtle space-y-2.5">
+            <div class="w-9 h-9 rounded-lg bg-brand-navy text-brand-bronze flex items-center justify-center mb-2">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3 class="text-sm font-bold text-brand-navy">فصل الأتعاب عن الرسوم الحكومية</h3>
+            <p class="text-xs text-stone-600 leading-relaxed font-normal">
+              توضيح أتعاب الاستشارة الهندسية للمكتب بوضوح مسبق، مع بيان أن الرسوم البلدية الرسمية تصدر بفاتورة سداد حكومية مستقلة يسددها المالك.
+            </p>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl border border-stone-200 shadow-subtle space-y-2.5">
+            <div class="w-9 h-9 rounded-lg bg-brand-navy text-brand-bronze flex items-center justify-center mb-2">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3 class="text-sm font-bold text-brand-navy">شرح المتطلبات قبل البدء</h3>
+            <p class="text-xs text-stone-600 leading-relaxed font-normal">
+              إيضاح الوثائق والمستندات ونطاق العمل الميداني المتوقع للعميل قبل التعاقد، لتكون كافة الإجراءات واضحة ومنطقية.
+            </p>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl border border-stone-200 shadow-subtle space-y-2.5">
+            <div class="w-9 h-9 rounded-lg bg-brand-navy text-brand-bronze flex items-center justify-center mb-2">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+            </div>
+            <h3 class="text-sm font-bold text-brand-navy">عدم تقديم وعود غير واقعية</h3>
+            <p class="text-xs text-stone-600 leading-relaxed font-normal">
+              لا نطلق وعوداً غير مسؤولة بالقبول الفوري أو بمدد إنجاز حكومية ثابتة خارج نطاق صلاحيات المكتب الهندسي؛ نلتزم بالدقة والمتابعة المهنية.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         9. FAQS (الأسئلة الشائعة - أكورديون تفاعلي حقيقي)
+    ======================================================== -->
+    <section id="faq" class="py-16 sm:py-24 bg-white border-b border-stone-200">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-12 space-y-2">
+          <span class="text-xs font-bold text-brand-bronze tracking-wider uppercase block">
+            إجابات واضحة ومسؤولة
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black text-brand-navy">
+            الأسئلة الشائعة حول المعاملات الهندسية
+          </h2>
+          <p class="text-xs sm:text-sm text-stone-600 font-normal">
+            أبرز الاستفسارات التي تهم ملاك الأراضي والمباني قبل بدء المعاملة.
+          </p>
+        </div>
+
+        <!-- Accordion Container -->
+        <div class="space-y-3 text-right" id="faq-accordion">
+          
+          <!-- Q1 -->
+          <div class="faq-item border border-stone-200 rounded-xl bg-brand-ivory overflow-hidden transition-colors">
+            <button type="button" class="faq-toggle w-full p-5 flex items-center justify-between text-right font-bold text-xs sm:text-sm text-brand-navy focus:outline-none" aria-expanded="true">
+              <span>ما أول خطوة يجب اتخاذها قبل البدء في أي معاملة هندسية؟</span>
+              <svg class="faq-icon w-4 h-4 text-brand-bronze transform rotate-180 transition-transform duration-200 shrink-0 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="faq-content px-5 pb-5 pt-1 text-xs sm:text-sm text-stone-600 leading-relaxed border-t border-stone-200/60 font-normal">
+              الخطوة الأولى هي التأكد من وجود صك ملكية إلكتروني ساري، ومشاركة صورة الصك أو موقعه الجغرافي مع المكتب الهندسي. نقوم بمطابقته أولاً مع المخطط التنظيمي المعتمد ونظام الأمانة لتحديد المسار الفني والبلدي الصحيح قبل اتخاذ أي إجراء تنفيذي.
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="faq-item border border-stone-200 rounded-xl bg-brand-ivory overflow-hidden transition-colors">
+            <button type="button" class="faq-toggle w-full p-5 flex items-center justify-between text-right font-bold text-xs sm:text-sm text-brand-navy focus:outline-none" aria-expanded="false">
+              <span>ما المستندات الأساسية التي قد أحتاجها مبدئياً؟</span>
+              <svg class="faq-icon w-4 h-4 text-stone-400 transition-transform duration-200 shrink-0 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-stone-600 leading-relaxed border-t border-stone-200/60 font-normal">
+              المستندات تختلف بحسب نوع الخدمة، لكن المستندات الأولية المشتركة تشمل عادة: صورة الصك الإلكتروني المحدث، صورة هوية المالك أو الوكالة الشرعية، كروكي الموقع، ورخصة البناء والمخططات المعتمدة السابقة (في حال كانت المعاملة تجديداً أو تعديلاً أو شهادة إشغال).
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="faq-item border border-stone-200 rounded-xl bg-brand-ivory overflow-hidden transition-colors">
+            <button type="button" class="faq-toggle w-full p-5 flex items-center justify-between text-right font-bold text-xs sm:text-sm text-brand-navy focus:outline-none" aria-expanded="false">
+              <span>هل يضمن المكتب قبول المعاملة في منصة بلدي أو مدة إنجاز حكومية محددة؟</span>
+              <svg class="faq-icon w-4 h-4 text-stone-400 transition-transform duration-200 shrink-0 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-stone-600 leading-relaxed border-t border-stone-200/60 font-normal">
+              يقوم المكتب بالتدقيق الهندسي الدقيق وإعداد المخططات والتقارير وفق الاشتراطات والأنظمة البلدية وكود البناء السعودي لتفادي أي ملاحظات. اعتماد المعاملة النهائي وتحديد رسومها يخضعان لصلاحيات الجهة البلدية الرسمية ولا يمكن لأي مكتب ضمان مدة أو قرار حكومي خارج نطاق اختصاصه المهني.
+            </div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="faq-item border border-stone-200 rounded-xl bg-brand-ivory overflow-hidden transition-colors">
+            <button type="button" class="faq-toggle w-full p-5 flex items-center justify-between text-right font-bold text-xs sm:text-sm text-brand-navy focus:outline-none" aria-expanded="false">
+              <span>كيف يتم تحديد الأتعاب الهندسية؟</span>
+              <svg class="faq-icon w-4 h-4 text-stone-400 transition-transform duration-200 shrink-0 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-stone-600 leading-relaxed border-t border-stone-200/60 font-normal">
+              يتم احتساب الأتعاب الهندسية بشفافية تامة وفق مساحة الأرض أو البناء، نوع المعاملة (إصدار رخصة، تسوير، تقرير مساحي، شهادة إتمام)، ونطاق العمل الميداني والمكتبي المطلوب، بعد مراجعة بيانات العقار وتوضيح كافة البنود للعميل قبل البدء.
+            </div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="faq-item border border-stone-200 rounded-xl bg-brand-ivory overflow-hidden transition-colors">
+            <button type="button" class="faq-toggle w-full p-5 flex items-center justify-between text-right font-bold text-xs sm:text-sm text-brand-navy focus:outline-none" aria-expanded="false">
+              <span>هل تختلف الاشتراطات والمتطلبات باختلاف المدينة أو الأمانة؟</span>
+              <svg class="faq-icon w-4 h-4 text-stone-400 transition-transform duration-200 shrink-0 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-stone-600 leading-relaxed border-t border-stone-200/60 font-normal">
+              نعم، على الرغم من أن كود البناء السعودي موحد وطنياً، إلا أن لكل أمانة وبلدية اشتراطات تنظيمية محلية خاصة بها من حيث الارتدادات، نسب البناء، واجهات التسوير، والمحاور الإلزامية. نحرص دائماً على مراجعة ضوابط الأمانة المختصة بكل موقع بدقة.
+            </div>
+          </div>
+
+          <!-- Q6 -->
+          <div class="faq-item border border-stone-200 rounded-xl bg-brand-ivory overflow-hidden transition-colors">
+            <button type="button" class="faq-toggle w-full p-5 flex items-center justify-between text-right font-bold text-xs sm:text-sm text-brand-navy focus:outline-none" aria-expanded="false">
+              <span>هل تغطي خدماتكم كافة مناطق ومدن المملكة؟</span>
+              <svg class="faq-icon w-4 h-4 text-stone-400 transition-transform duration-200 shrink-0 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-stone-600 leading-relaxed border-t border-stone-200/60 font-normal">
+              نقدم الخدمات الهندسية والاستشارية والرفع عبر المنصات الإلكترونية لمختلف مدن المملكة، وتتم أعمال المعاينة والنزول الميداني المساحي بالتنسيق المباشر بحسب موقع العقار ونطاق العمل المطلوب.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         10. CONTACT & INQUIRY FORM (التواصل والنموذج الفوري)
+    ======================================================== -->
+    <section id="contact" class="py-16 sm:py-24 bg-brand-ivory">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          
+          <!-- Contact Channels & Information (Right in RTL) -->
+          <div class="lg:col-span-5 space-y-6 text-right">
+            <span class="text-xs font-bold text-brand-bronze tracking-wider uppercase block">
+              قنوات التواصل المباشرة
+            </span>
+            
+            <h2 class="text-2xl sm:text-3xl font-black text-brand-navy leading-snug">
+              أرسل تفاصيل معاملتك لنرشدك إلى الخطوة التالية
+            </h2>
+            
+            <p class="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal">
+              يسعدنا استقبال استفساراتكم ومراجعة وثائق عقاراتكم لتقديم التوجيه الهندسي والمساحي السليم. واتساب هو القناة الأسرع لمشاركة صور الصكوك والمخططات.
+            </p>
+
+            <!-- WhatsApp Primary Highlight Box -->
+            <div class="p-5 rounded-xl bg-white border border-stone-200 shadow-subtle space-y-3">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 shrink-0">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.044c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+                </div>
+                <div>
+                  <span class="text-[11px] font-bold text-emerald-800 block">القناة الرئيسية والمباشرة</span>
+                  <span class="text-sm font-bold text-brand-navy">محادثة واتساب فورية</span>
+                </div>
+              </div>
+              <p class="text-xs text-stone-500 font-normal">
+                أرسل صورة الصك أو الاستفسار وسيقوم المهندس بالرد ومراجعة المتطلبات.
+              </p>
+              <a href="https://wa.me/966563827520" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-lg text-xs font-bold bg-emerald-600 text-white hover:bg-emerald-700 active:scale-95 transition flex items-center justify-center gap-2">
+                <span>فتح المحادثة في واتساب</span>
+                <svg class="w-3.5 h-3.5 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+            </div>
+
+            <!-- Verified Direct Phones -->
+            <div class="space-y-3">
+              <span class="text-xs font-bold text-brand-navy block">الاتصال الهاتفي المباشر:</span>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <a href="tel:+966563827520" class="p-3.5 rounded-lg bg-white border border-stone-200 hover:border-brand-bronze transition flex items-center justify-between group">
+                  <span class="font-bold text-brand-navy group-hover:text-brand-bronze" dir="ltr">056 382 7520</span>
+                  <svg class="w-4 h-4 text-stone-400 group-hover:text-brand-bronze" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                </a>
+                <a href="tel:+966546059533" class="p-3.5 rounded-lg bg-white border border-stone-200 hover:border-brand-bronze transition flex items-center justify-between group">
+                  <span class="font-bold text-brand-navy group-hover:text-brand-bronze" dir="ltr">054 605 9533</span>
+                  <svg class="w-4 h-4 text-stone-400 group-hover:text-brand-bronze" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Working Hours -->
+            <div class="p-4 rounded-lg bg-stone-100/70 border border-stone-200/80 text-xs text-stone-600 space-y-1">
+              <div class="flex items-center gap-2 font-bold text-brand-navy">
+                <svg class="w-4 h-4 text-brand-bronze" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span>أوقات التواصل والاستقبال:</span>
+              </div>
+              <p class="font-normal">السبت - الخميس: من الساعة 9:00 صباحاً وحتى 9:00 مساءً.</p>
+              <p class="text-[11px] text-stone-500">يتم الرد على استفسارات واتساب والاتصال خلال ساعات العمل الرسمية.</p>
+            </div>
+
+          </div>
+
+          <!-- Interactive Form (Left in RTL) -->
+          <div class="lg:col-span-7 bg-white p-6 sm:p-10 rounded-2xl border border-stone-200 shadow-card text-right">
+            
+            <div class="mb-6 space-y-1">
+              <h3 class="text-xl font-bold text-brand-navy">نموذج طلب استشارة ومراجعة معاملة</h3>
+              <p class="text-xs text-stone-500 font-normal">
+                أدخل بيانات العقار وسيتم تكوين رسالة واتساب مفصلة لإرسالها مباشرة للمهندس.
+              </p>
+            </div>
+
+            <form id="inquiry-form" class="space-y-4">
+              
+              <!-- Validation Alert Message (hidden by default) -->
+              <div id="form-error-alert" class="hidden p-3 bg-red-50 text-red-700 text-xs rounded-lg border border-red-200 flex items-center gap-2">
+                <svg class="w-4 h-4 text-red-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span id="form-error-text">يرجى تعبئة الحقول المطلوبة بشكل صحيح.</span>
+              </div>
+
+              <!-- Success Alert (shows upon submission) -->
+              <div id="form-success-alert" class="hidden p-4 bg-emerald-50 text-emerald-900 text-xs rounded-lg border border-emerald-200 space-y-2">
+                <div class="flex items-center gap-2 font-bold text-emerald-800">
+                  <svg class="w-5 h-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span>تم تجهيز الطلب بنجاح!</span>
+                </div>
+                <p class="text-stone-600">جاري فتح محادثة واتساب الآن لتأكيد الاستفسار ومشاركة صورة الصك مع المهندس...</p>
+              </div>
+
+              <!-- Field 1: Full Name -->
+              <div>
+                <label for="form-name" class="block text-xs font-bold text-stone-700 mb-1.5">
+                  الاسم الكريم <span class="text-red-500">*</span>
+                </label>
+                <input type="text" id="form-name" name="name" required placeholder="الاسم الثلاثي أو اللقب" class="w-full px-4 py-2.5 rounded-lg border border-stone-300 text-xs sm:text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none transition-colors" />
+              </div>
+
+              <!-- Field 2: Phone Number -->
+              <div>
+                <label for="form-phone" class="block text-xs font-bold text-stone-700 mb-1.5">
+                  رقم الجوال <span class="text-red-500">*</span>
+                </label>
+                <input type="tel" id="form-phone" name="phone" required placeholder="05xxxxxxxx" dir="ltr" class="w-full px-4 py-2.5 rounded-lg border border-stone-300 text-xs sm:text-sm text-stone-900 placeholder:text-stone-400 text-right focus:outline-none transition-colors" />
+              </div>
+
+              <!-- Field 3: City / Region -->
+              <div>
+                <label for="form-city" class="block text-xs font-bold text-stone-700 mb-1.5">
+                  المدينة أو المنطقة
+                </label>
+                <input type="text" id="form-city" name="city" placeholder="مثال: الرياض، الخرج، الشرقية..." class="w-full px-4 py-2.5 rounded-lg border border-stone-300 text-xs sm:text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none transition-colors" />
+              </div>
+
+              <!-- Field 4: Service Type -->
+              <div>
+                <label for="form-service" class="block text-xs font-bold text-stone-700 mb-1.5">
+                  نوع الخدمة الهندسية المطلوبة
+                </label>
+                <select id="form-service" name="service" class="w-full px-4 py-2.5 rounded-lg border border-stone-300 text-xs sm:text-sm text-stone-900 bg-white focus:outline-none transition-colors">
+                  <option value="استشارة هندسية عامة">-- اختر الخدمة أو استشارة عامة --</option>
+                  <option value="إصدار رخصة بناء">إصدار رخصة بناء</option>
+                  <option value="إصدار رخصة تسوير أرض فضاء">إصدار رخصة تسوير أرض فضاء</option>
+                  <option value="تجديد رخص البناء">تجديد رخص البناء</option>
+                  <option value="تعديل رخص البناء والمخططات">تعديل رخص البناء والمخططات</option>
+                  <option value="إصدار شهادة إتمام بناء / إشغال">إصدار شهادة إتمام بناء أو إشغال</option>
+                  <option value="تحويل رخصة من سكني إلى سكني تجاري">تحويل رخصة من سكني إلى سكني تجاري</option>
+                  <option value="تصحيح وضع المباني القائمة">تصحيح وضع المباني القائمة</option>
+                  <option value="إصدار تقرير مساحي معتمد (بلدي)">إصدار تقرير مساحي معتمد (بلدي)</option>
+                  <option value="تحديث الصكوك الورقية مساحياً">تحديث الصكوك الورقية مساحياً</option>
+                  <option value="خدمات الرفع المساحي الطبوغرافي">خدمات الرفع المساحي الطبوغرافي</option>
+                  <option value="تثبيت الركائز المساحية">تثبيت الركائز المساحية</option>
+                  <option value="خدمات واستشارات الدفاع المدني">خدمات واستشارات الدفاع المدني</option>
+                </select>
+              </div>
+
+              <!-- Field 5: Details / Notes (Optional) -->
+              <div>
+                <label for="form-notes" class="block text-xs font-bold text-stone-700 mb-1.5">
+                  تفاصيل إضافية عن المعاملة (اختياري)
+                </label>
+                <textarea id="form-notes" name="notes" rows="3" placeholder="مساحة الأرض، ملاحظات الرخصة، أو أي تفاصيل تفيد في فهم المعاملة..." class="w-full px-4 py-2.5 rounded-lg border border-stone-300 text-xs sm:text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none transition-colors"></textarea>
+              </div>
+
+              <!-- Privacy Notice -->
+              <p class="text-[11px] text-stone-500 font-normal leading-relaxed">
+                <strong>حماية الخصوصية:</strong> تُستخدم بياناتك للتواصل المباشر بشأن استفسارك الهندسي فقط، ولن يتم مشاركتها مع أي جهة.
+              </p>
+
+              <!-- Submit Button -->
+              <button type="submit" class="w-full py-3.5 px-6 rounded-lg text-xs sm:text-sm font-bold bg-brand-navy text-white hover:bg-stone-800 active:scale-95 transition-all shadow-subtle border border-brand-navy flex items-center justify-center gap-2">
+                <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.044c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+                <span>إرسال الطلب والتواصل عبر واتساب</span>
+              </button>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================
+       11. FOOTER (الفوتر المهني)
+  ======================================================== -->
+  <footer class="bg-brand-deep text-white border-t border-stone-800 pt-16 pb-12 text-right">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-stone-800">
+        
+        <!-- Col 1: Identity -->
+        <div class="lg:col-span-5 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-stone-900 border border-stone-700 flex items-center justify-center p-1">
+              <img src="logo.webp" alt="شعار أحمد راضي" class="w-full h-full object-contain" onerror="this.src='AhmedRadilogusu.jpeg'" />
+            </div>
+            <div>
+              <span class="font-bold text-base text-white block">مكتب أحمد راضي</span>
+              <span class="text-xs text-brand-bronze block">للاستشارات الهندسية والمساحية</span>
+            </div>
+          </div>
+          <p class="text-xs text-stone-400 leading-relaxed font-normal max-w-sm">
+            مكتب معتمد للاستشارات الهندسية والمساحية في المملكة العربية السعودية. إعداد المخططات، رخص البناء والتسوير، التقارير المساحية، وشهادات الإشغال وفق كود البناء السعودي.
+          </p>
+          <div class="pt-1 text-[11px] text-stone-500">
+            أوقات العمل: السبت - الخميس (9:00 ص - 9:00 م)
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation Links -->
+        <div class="lg:col-span-3 space-y-3">
+          <h4 class="text-xs font-bold text-brand-bronze uppercase tracking-wider">روابط الوصول السريع</h4>
+          <ul class="space-y-2 text-xs text-stone-300">
+            <li><a href="#services" class="hover:text-brand-bronze transition">دليل الخدمات الهندسية</a></li>
+            <li><a href="#property-finder" class="hover:text-brand-bronze transition">مساعد حالة العقار</a></li>
+            <li><a href="#deliverables" class="hover:text-brand-bronze transition">نماذج المخرجات الفنية</a></li>
+            <li><a href="#process" class="hover:text-brand-bronze transition">مراحل وآلية العمل</a></li>
+            <li><a href="#faq" class="hover:text-brand-bronze transition">الأسئلة الشائعة</a></li>
+            <li><a href="#contact" class="hover:text-brand-bronze transition">طلب استشارة</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Contact & Channels -->
+        <div class="lg:col-span-4 space-y-3">
+          <h4 class="text-xs font-bold text-brand-bronze uppercase tracking-wider">الاتصال والتواصل المباشر</h4>
+          <p class="text-xs text-stone-400 font-normal">
+            للاستفسار عن المعاملات ومراجعة الصكوك:
+          </p>
+          <div class="space-y-2 pt-1 text-xs">
+            <div class="flex items-center gap-2 text-stone-300">
+              <span class="text-brand-bronze">واتساب:</span>
+              <a href="https://wa.me/966563827520" target="_blank" rel="noopener noreferrer" class="hover:text-brand-bronze transition font-mono font-bold" dir="ltr">+966 56 382 7520</a>
+            </div>
+            <div class="flex items-center gap-2 text-stone-300">
+              <span class="text-brand-bronze">هاتف رئيسي:</span>
+              <a href="tel:+966563827520" class="hover:text-brand-bronze transition font-mono" dir="ltr">056 382 7520</a>
+            </div>
+            <div class="flex items-center gap-2 text-stone-300">
+              <span class="text-brand-bronze">هاتف إضافي:</span>
+              <a href="tel:+966546059533" class="hover:text-brand-bronze transition font-mono" dir="ltr">054 605 9533</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Legal Bottom Notice -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-stone-500 text-center sm:text-right">
+        <div>
+          جميع الحقوق محفوظة &copy; <span id="year-span">2026</span> مكتب أحمد راضي للاستشارات الهندسية والمساحية.
+        </div>
+        <div class="text-stone-500">
+          تعتمد المعاملات ورسومها الرسمية وفق منصة بلدي والأنظمة البلدية ذات العلاقة.
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Floating Mobile WhatsApp Quick Button -->
+  <a href="https://wa.me/966563827520" target="_blank" rel="noopener noreferrer" class="sm:hidden fixed bottom-5 left-5 z-40 bg-emerald-600 text-white p-3.5 rounded-full shadow-elevated border border-emerald-500 hover:bg-emerald-700 transition flex items-center justify-center focus:outline-none" aria-label="تواصل فوري عبر واتساب">
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.044c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+  </a>
+
+  <!-- ========================================================
+       JAVASCRIPT INTERACTIONS (LIGHTWEIGHT, ROBUST & ACCESSIBLE)
+  ======================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      
+      // 1. Dynamic Year
+      const yearSpan = document.getElementById('year-span');
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+
+      // 2. Mobile Menu Toggle
+      const mobileToggle = document.getElementById('mobile-menu-toggle');
+      const mobileNav = document.getElementById('mobile-nav');
+      const menuBars = document.getElementById('menu-icon-bars');
+      const menuClose = document.getElementById('menu-icon-close');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+      if (mobileToggle && mobileNav) {
+        mobileToggle.addEventListener('click', function () {
+          const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+          mobileToggle.setAttribute('aria-expanded', !isExpanded);
+          mobileNav.classList.toggle('hidden');
+          menuBars.classList.toggle('hidden');
+          menuClose.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileNav.classList.add('hidden');
+            menuBars.classList.remove('hidden');
+            menuClose.classList.add('hidden');
+            mobileToggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      // 3. Property Case Assistant Logic
+      const caseData = {
+        'vacant-build': {
+          title: 'إصدار رخصة بناء + تقرير مساحي معتمد',
+          summary: 'يتطلب البدء بالبناء إصدار تقرير مساحي إلكتروني معتمد للأرض أولاً، ثم إعداد المخططات الهندسية المتكاملة (معماري، إنشائي، كهروميكانيك) وتدقيقها وفق كود البناء السعودي عبر منصة بلدي.',
+          step: 'تزويد المكتب بصورة الصك الإلكتروني المحدث لتحديد خطوط التنظيم والبدء بالتقرير المساحي.',
+          waText: 'السلام عليكم مهندس أحمد، لدي أرض فضاء وأرغب في بدء البناء وإصدار رخصة بناء مع تقرير مساحي.'
+        },
+        'vacant-fence': {
+          title: 'إصدار رخصة تسوير أرض فضاء + تثبيت ركائز',
+          summary: 'تسوير الأرض بنموذج الأمانة والبلدية المعتمد للمحاور المستهدفة، مع تثبيت زوايا وأركان الأرض لمنع أي تعدي على الشارع أو المجاورين وتجنب الغرامات البلدية.',
+          step: 'تحديد موقع الأرض والتحقق من وقوعها ضمن المحاور والشوارع الملزمة بالتسوير في منطقتك.',
+          waText: 'السلام عليكم مهندس أحمد، لدي أرض فضاء وأحتاج إلى إصدار رخصة تسوير أرض فضاء تجنباً للغرامات.'
+        },
+        'expired-license': {
+          title: 'تجديد وتعديل رخص البناء',
+          summary: 'معاينة نسبة الإنجاز القائمة على أرض الواقع ورفع طلب تمديد أو تجديد صلاحية الرخصة أو تعديل المخططات لاستكمال الأعمال الإنشائية والتشطيبات نظامياً.',
+          step: 'تزويد المكتب بنسخة من رخصة البناء السابقة وصور حديثة للمبنى لتحديد نسبة الإنجاز.',
+          waText: 'السلام عليكم مهندس أحمد، رخصة البناء الخاصة بعقاري منتهية وأرغب في تجديدها نظامياً.'
+        },
+        'completed-occupancy': {
+          title: 'إصدار شهادة إتمام بناء (شهادة إشغال)',
+          summary: 'الكشف الميداني الهندسي للتحقق من مطابقة الواجهات والارتدادات المنفذة للرخصة، وتدقيق شهادة تركيب العزل الحراري لاعتماد شهادة الإشغال وإشعار الكهرباء.',
+          step: 'توفير رخصة البناء المعتمدة وشهادة تركيب العزل الحراري الصادرة من مقاول العزل المعتمد.',
+          waText: 'السلام عليكم مهندس أحمد، اكتمل بناء العقار وأرغب في الكشف وإصدار شهادة إتمام بناء / إشغال لإطلاق التيار.'
+        },
+        'paper-deed': {
+          title: 'تحديث الصكوك الورقية + رفع مساحي',
+          summary: 'إجراء الرفع المساحي الميداني لمطابقة أطوال وحدود الصك بالواقع واستخراج التقرير المساحي المعتمد للبورصة العقارية وبوابة ناجز.',
+          step: 'إرسال صورة واضحة من الصك الورقي القديم من الوجهين وموقع الأرض التقريبي.',
+          waText: 'السلام عليكم مهندس أحمد، لدي صك ورقي قديم وأحتاج إلى مساندة مساحية لإصدار تقرير وتحديثه إلكترونياً.'
+        },
+        'existing-building': {
+          title: 'تصحيح وضع المباني القائمة وفحص السلامة',
+          summary: 'إجراء الفحص الإنشائي ورفع المخططات للواقع المنفذ وإعداد تقرير السلامة الإنشائية لتسوية وضع المبنى لدى الأمانة نظامياً.',
+          step: 'معاينة المبنى وفحص السلامة الإنشائية وعدم تعديه على خطوط التنظيم والشوارع المعتمدة.',
+          waText: 'السلام عليكم مهندس أحمد، لدي مبنى قائم وأرغب بالاستفسار عن خطوات تصحيح وضعه الهندسي.'
+        }
+      };
+
+      const caseButtons = document.querySelectorAll('.property-case-btn');
+      const finderTitle = document.getElementById('finder-service-title');
+      const finderSummary = document.getElementById('finder-service-summary');
+      const finderStep = document.getElementById('finder-first-step');
+      const finderWaBtn = document.getElementById('finder-whatsapp-btn');
+
+      caseButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+          const caseKey = this.getAttribute('data-case');
+          const data = caseData[caseKey];
+
+          if (!data) return;
+
+          // Update active styles
+          caseButtons.forEach(b => {
+            b.classList.remove('bg-brand-navy', 'text-white', 'border-brand-navy', 'shadow-sm');
+            b.classList.add('bg-white', 'text-stone-700', 'border-stone-200');
+            b.setAttribute('aria-selected', 'false');
+            const iconBg = b.querySelector('.w-8');
+            if (iconBg) {
+              iconBg.classList.remove('bg-brand-bronze', 'text-brand-navy');
+              iconBg.classList.add('bg-stone-100', 'text-stone-600');
+            }
+          });
+
+          this.classList.remove('bg-white', 'text-stone-700', 'border-stone-200');
+          this.classList.add('bg-brand-navy', 'text-white', 'border-brand-navy', 'shadow-sm');
+          this.setAttribute('aria-selected', 'true');
+          const activeIconBg = this.querySelector('.w-8');
+          if (activeIconBg) {
+            activeIconBg.classList.remove('bg-stone-100', 'text-stone-600');
+            activeIconBg.classList.add('bg-brand-bronze', 'text-brand-navy');
+          }
+
+          // Update Content
+          finderTitle.textContent = data.title;
+          finderSummary.textContent = data.summary;
+          finderStep.textContent = data.step;
+          finderWaBtn.href = `https://wa.me/966563827520?text=${encodeURIComponent(data.waText)}`;
+        });
+      });
+
+      // 4. Services Filter Tabs
+      const filterBtns = document.querySelectorAll('.service-cat-filter');
+      const serviceCards = document.querySelectorAll('.service-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+          const category = this.getAttribute('data-category');
+
+          filterBtns.forEach(b => {
+            b.classList.remove('bg-brand-navy', 'text-white', 'border-brand-navy');
+            b.classList.add('bg-stone-50', 'text-stone-600', 'border-stone-200');
+          });
+
+          this.classList.remove('bg-stone-50', 'text-stone-600', 'border-stone-200');
+          this.classList.add('bg-brand-navy', 'text-white', 'border-brand-navy');
+
+          serviceCards.forEach(card => {
+            const group = card.getAttribute('data-group');
+            if (category === 'all' || group === category) {
+              card.classList.remove('hidden');
+            } else {
+              card.classList.add('hidden');
+            }
+          });
+        });
+      });
+
+      // 5. Deliverables Tabs
+      const deliverableBtns = document.querySelectorAll('.deliverable-tab-btn');
+      const deliverableBadge = document.getElementById('deliverable-badge');
+      const deliverableDesc = document.getElementById('deliverable-desc');
+      
+      const graphics = {
+        plans: document.getElementById('graphic-plans'),
+        report: document.getElementById('graphic-report'),
+        benchmarks: document.getElementById('graphic-benchmarks'),
+        occupancy: document.getElementById('graphic-occupancy')
+      };
+
+      const deliverableTexts = {
+        plans: {
+          badge: 'نموذج توضيحي • المخططات الإنشائية والمعمارية التنفيذية',
+          desc: 'تسليم ملفات ومخططات متكاملة بصيغ قابلة للطباعة (PDF) ورقمية (DWG/CAD) ومطابقة لمتطلبات التدقيق في منصة بلدي.'
+        },
+        report: {
+          badge: 'نموذج توضيحي • التقرير المساحي الإلكتروني المعتمد',
+          desc: 'تقرير مساحي رسمي إلكتروني عبر منصة بلدي موثق بأطوال الأضلاع والمساحات والإحداثيات الجغرافية WGS84.'
+        },
+        benchmarks: {
+          badge: 'نموذج توضيحي • كروكي تثبيت الركائز المساحية والحدود',
+          desc: 'توثيق وتوقيع أركان وزوايا الأرض بركائز مساحية ثابتة مع جدول إحداثيات رسمي لتسليمه للمقاول قبل بدء الحفر والتسوير.'
+        },
+        occupancy: {
+          badge: 'نموذج توضيحي • تقرير فحص ومطابقة شهادة الإشغال',
+          desc: 'تقرير التدقيق الميداني على الارتدادات والواجهات والعزل الحراري لإشعار شركة الكهرباء باعتماد إطلاق الخدمة.'
+        }
+      };
+
+      deliverableBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+          const tab = this.getAttribute('data-tab');
+
+          deliverableBtns.forEach(b => {
+            b.classList.remove('bg-brand-navy', 'text-white', 'border-brand-navy');
+            b.classList.add('bg-stone-50', 'text-stone-700', 'border-stone-200');
+            const numSpan = b.querySelector('.w-7');
+            if (numSpan) {
+              numSpan.classList.remove('bg-brand-bronze', 'text-brand-navy');
+              numSpan.classList.add('bg-stone-200', 'text-stone-700');
+            }
+          });
+
+          this.classList.remove('bg-stone-50', 'text-stone-700', 'border-stone-200');
+          this.classList.add('bg-brand-navy', 'text-white', 'border-brand-navy');
+          const activeNum = this.querySelector('.w-7');
+          if (activeNum) {
+            activeNum.classList.remove('bg-stone-200', 'text-stone-700');
+            activeNum.classList.add('bg-brand-bronze', 'text-brand-navy');
+          }
+
+          // Hide all SVGs, show active
+          Object.keys(graphics).forEach(k => {
+            if (graphics[k]) graphics[k].classList.add('hidden');
+          });
+          if (graphics[tab]) {
+            graphics[tab].classList.remove('hidden');
+          }
+
+          // Update texts
+          if (deliverableTexts[tab]) {
+            deliverableBadge.textContent = deliverableTexts[tab].badge;
+            deliverableDesc.textContent = deliverableTexts[tab].desc;
+          }
+        });
+      });
+
+      // 6. FAQ Accordion Toggle
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const toggleBtn = item.querySelector('.faq-toggle');
+        const content = item.querySelector('.faq-content');
+        const icon = item.querySelector('.faq-icon');
+
+        toggleBtn.addEventListener('click', () => {
+          const isOpen = toggleBtn.getAttribute('aria-expanded') === 'true';
+
+          // Close other items
+          faqItems.forEach(otherItem => {
+            if (otherItem !== item) {
+              const otherBtn = otherItem.querySelector('.faq-toggle');
+              const otherContent = otherItem.querySelector('.faq-content');
+              const otherIcon = otherItem.querySelector('.faq-icon');
+              otherBtn.setAttribute('aria-expanded', 'false');
+              otherContent.classList.add('hidden');
+              otherIcon.classList.remove('rotate-180', 'text-brand-bronze');
+              otherIcon.classList.add('text-stone-400');
+            }
+          });
+
+          // Toggle current
+          if (isOpen) {
+            toggleBtn.setAttribute('aria-expanded', 'false');
+            content.classList.add('hidden');
+            icon.classList.remove('rotate-180', 'text-brand-bronze');
+            icon.classList.add('text-stone-400');
+          } else {
+            toggleBtn.setAttribute('aria-expanded', 'true');
+            content.classList.remove('hidden');
+            icon.classList.add('rotate-180', 'text-brand-bronze');
+            icon.classList.remove('text-stone-400');
+          }
+        });
+      });
+
+      // 7. Inquiry Form -> WhatsApp Redirect
+      const inquiryForm = document.getElementById('inquiry-form');
+      const formErrorAlert = document.getElementById('form-error-alert');
+      const formErrorText = document.getElementById('form-error-text');
+      const formSuccessAlert = document.getElementById('form-success-alert');
+
+      if (inquiryForm) {
+        inquiryForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          formErrorAlert.classList.add('hidden');
+
+          const name = document.getElementById('form-name').value.trim();
+          const phone = document.getElementById('form-phone').value.trim();
+          const city = document.getElementById('form-city').value.trim();
+          const service = document.getElementById('form-service').value;
+          const notes = document.getElementById('form-notes').value.trim();
+
+          // Validation
+          if (!name) {
+            formErrorText.textContent = 'يرجى إدخال الاسم الكريم.';
+            formErrorAlert.classList.remove('hidden');
+            return;
+          }
+
+          if (!phone || phone.length < 9) {
+            formErrorText.textContent = 'يرجى إدخال رقم جوال صحيح (مثال: 05xxxxxxxx).';
+            formErrorAlert.classList.remove('hidden');
+            return;
+          }
+
+          // Build Clean WhatsApp Text
+          const waMessage = 
+            `طلب استشارة هندسية جديدة:\n` +
+            `• الاسم: ${name}\n` +
+            `• رقم الجوال: ${phone}\n` +
+            `• المدينة / المنطقة: ${city || 'غير محددة'}\n` +
+            `• نوع الخدمة: ${service}\n` +
+            (notes ? `• تفاصيل إضافية: ${notes}\n` : '') +
+            `\n(مرسل عبر نموذج موقع مكتب أحمد راضي للاستشارات الهندسية)`;
+
+          formSuccessAlert.classList.remove('hidden');
+
+          const targetUrl = `https://wa.me/966563827520?text=${encodeURIComponent(waMessage)}`;
+
+          // Redirect after a brief moment for user clarity
+          setTimeout(() => {
+            window.open(targetUrl, '_blank');
+          }, 800);
+        });
+      }
+
+      // 8. Sticky Header Shadow on Scroll
+      const header = document.getElementById('main-header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) {
+          header.classList.add('shadow-subtle');
+        } else {
+          header.classList.remove('shadow-subtle');
+        }
+      });
+
+      // 9. Simple IntersectionObserver for Fade-Up Animations
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+      }
+
+    });
+  </script>
+
+</body>
+</html>

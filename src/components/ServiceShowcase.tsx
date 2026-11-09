@@ -108,7 +108,7 @@ export default function ServiceShowcase() {
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200/90 shadow-xs p-6 sm:p-10 space-y-10">
+    <div className="bg-white rounded-2xl border border-slate-200/90 shadow-xs p-4 sm:p-8 lg:p-10 space-y-6 sm:space-y-10">
       
       {/* Category Tab Selector Buttons */}
       <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-200 scrollbar-none">
@@ -119,7 +119,7 @@ export default function ServiceShowcase() {
               key={tab.id}
               type="button"
               onClick={() => setActiveTab(tab)}
-              className={`px-5 py-3 rounded-md text-xs sm:text-sm font-bold whitespace-nowrap transition-all focus:outline-none ${
+              className={`px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-md text-xs sm:text-sm font-bold whitespace-nowrap transition-all focus:outline-none ${
                 isActive
                   ? "bg-[#070B14] text-white shadow-xs"
                   : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900"

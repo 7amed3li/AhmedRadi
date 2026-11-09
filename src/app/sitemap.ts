@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { getAllServices } from "@/data/servicesData";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://ahmed-radi-engineering.sa";
+  const baseUrl = "https://www.ahmedradi.top";
   const services = getAllServices();
 
   const serviceUrls = services.map((service) => ({

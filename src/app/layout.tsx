@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   formatDetection: {
     telephone: true,
   },
-  metadataBase: new URL("https://ahmed-radi-engineering.sa"),
+  metadataBase: new URL("https://www.ahmedradi.top"),
   openGraph: {
     title: `${officeConfig.brandName} - استشارات هندسية ومساحية`,
     description:
