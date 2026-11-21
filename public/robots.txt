@@ -1,15 +1,25 @@
 # robots.txt for Ahmed Radi Engineering Consulting
+# Domain: https://www.ahmedradi.top
+
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /_next/
 
-# Googlebot and Bingbot optimizations
+# Googlebot optimizations
 User-agent: Googlebot
 Allow: /
 
+# Bingbot optimizations
 User-agent: Bingbot
 Allow: /
 
-# Sitemaps
-Sitemap: https://ahmed-radi-two.vercel.app/sitemap.xml
-Sitemap: https://www.ahmedradi.top/sitemap.xml
+# Applebot optimizations
+User-agent: Applebot
+Allow: /
 
+# Host
+Host: https://www.ahmedradi.top
+
+# Official XML Sitemap
+Sitemap: https://www.ahmedradi.top/sitemap.xml

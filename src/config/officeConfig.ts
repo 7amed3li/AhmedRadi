@@ -8,6 +8,9 @@
  */
 
 export interface OfficeConfig {
+  // الرابط الرسمي للموقع
+  siteUrl: string;
+  
   // البيانات الأساسية
   engineerName: string;
   engineerTitle: string;
@@ -70,6 +73,7 @@ export interface OfficeConfig {
 }
 
 export const officeConfig: OfficeConfig = {
+  siteUrl: "https://www.ahmedradi.top",
   engineerName: "أحمد راضي",
   engineerTitle: "مهندس استشاري",
   brandName: "مكتب أحمد راضي للاستشارات الهندسية",
@@ -127,6 +131,8 @@ export const officeConfig: OfficeConfig = {
 
   verifiedQrDestinationUrl: "", // يترك فارغاً حتى فحص وجهة الرمز الأصلي
 };
+
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || officeConfig.siteUrl;
 
 /**
  * دالة مساعدة لبناء رابط واتساب مباشر برسالة مخصصة

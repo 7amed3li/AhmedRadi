@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getAllServices, getServiceBySlug } from "@/data/servicesData";
-import { officeConfig, buildWhatsAppLink, getPhoneLink } from "@/config/officeConfig";
+import { officeConfig, buildWhatsAppLink, getPhoneLink, SITE_URL } from "@/config/officeConfig";
 import InquiryForm from "@/components/InquiryForm";
 import FaqAccordion from "@/components/FaqAccordion";
 import ServiceCard from "@/components/ServiceCard";
@@ -41,15 +41,19 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
     };
   }
 
+  const baseUrl = SITE_URL.replace(/\/+$/, "");
+
   return {
     title: service.metaTitle,
     description: service.metaDescription,
     alternates: {
-      canonical: `https://ahmed-radi-engineering.sa/services/${service.slug}`,
+      canonical: `${baseUrl}/services/${service.slug}`,
     },
     openGraph: {
       title: service.metaTitle,
       description: service.metaDescription,
+      url: `${baseUrl}/services/${service.slug}`,
+      siteName: officeConfig.brandName,
       locale: "ar_SA",
       type: "article",
     },
@@ -70,9 +74,69 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
     .filter((s): s is NonNullable<typeof s> => Boolean(s));
 
   const serviceWhatsAppLink = buildWhatsAppLink(service.whatsappMessage);
+  const baseUrl = SITE_URL.replace(/\/+$/, "");
+
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "الرئيسية",
+            "item": `${baseUrl}/`
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "الخدمات",
+            "item": `${baseUrl}/services`
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": service.title,
+            "item": `${baseUrl}/services/${service.slug}`
+          }
+        ]
+      },
+      {
+        "@type": "Service",
+        "@id": `${baseUrl}/services/${service.slug}#service`,
+        "name": service.title,
+        "description": service.shortDescription,
+        "provider": {
+          "@type": "ProfessionalService",
+          "name": officeConfig.brandName,
+          "url": baseUrl
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Saudi Arabia"
+        }
+      },
+      ...(service.faqs && service.faqs.length > 0 ? [{
+        "@type": "FAQPage",
+        "mainEntity": service.faqs.map(faq => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
+          }
+        }))
+      }] : [])
+    ]
+  };
 
   return (
     <div className="bg-[#F8FAFC] min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       
       {/* Header */}
       <section className="bg-gradient-to-br from-[#0A1628] via-[#0F2038] to-[#162846] text-white pt-10 pb-16 border-b border-slate-800">

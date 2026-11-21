@@ -4,11 +4,11 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MobileStickyBar from "@/components/MobileStickyBar";
-import { officeConfig } from "@/config/officeConfig";
+import { officeConfig, SITE_URL } from "@/config/officeConfig";
 
 const cairo = Cairo({
   subsets: ["arabic", "latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-cairo",
   display: "swap",
 });
@@ -20,12 +20,12 @@ export const viewport: Viewport = {
   maximumScale: 5,
 };
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ahmed-radi-two.vercel.app";
+const baseUrl = SITE_URL.replace(/\/+$/, "");
 
 export const metadata: Metadata = {
   title: {
     template: `%s | ${officeConfig.brandName}`,
-    default: `${officeConfig.brandName} | رخص البناء والمخططات والرفع المساحي والتقارير المعتمدة`,
+    default: `${officeConfig.brandName} | رخص البناء والمخططات والرفع المساحي المعتمد في السعودية`,
   },
   description:
     "مكتب أحمد راضي للاستشارات الهندسية والمساحية في السعودية: إصدار رخص البناء، رخص تسوير الأراضي الفضاء، التقارير والرفوعات المساحية، تثبيت الركائز، شهادات إتمام البناء والإشغال، وتحديث الصكوك وفق كود البناء السعودي ومنصة بلدي.",
@@ -35,7 +35,8 @@ export const metadata: Metadata = {
     "مكتب هندسي",
     "مكتب هندسي معتمد",
     "مكتب استشارات هندسية بالرياض",
-    "مكتب مساحة",
+    "مكتب هندسي معتمد في جميع أنحاء المملكة العربية السعودية",
+    "مكتب مساحة معتمد",
     "رخصة بناء",
     "إصدار رخصة بناء",
     "رخصة تسوير أرض فضاء",
@@ -70,7 +71,7 @@ export const metadata: Metadata = {
     canonical: baseUrl,
   },
   openGraph: {
-    title: `${officeConfig.brandName} | رخص البناء والمخططات والرفع المساحي`,
+    title: `${officeConfig.brandName} | مكتب هندسي معتمد في جميع أنحاء المملكة العربية السعودية`,
     description:
       "من صك العقار إلى المخططات والرخصة بخطوات هندسية واضحة وموثوقة بإشراف المهندس أحمد راضي.",
     url: baseUrl,
@@ -79,7 +80,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/logo.webp",
+        url: `${baseUrl}/logo-clean.webp`,
         width: 800,
         height: 800,
         alt: officeConfig.brandName,
@@ -88,10 +89,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${officeConfig.brandName} | استشارات هندسية ومساحية`,
+    title: `${officeConfig.brandName} | استشارات هندسية ومساحية معتمدة`,
     description:
       "خدمات رخص البناء والتقارير المساحية وشهادات الإشغال وفق كود البناء السعودي.",
-    images: ["/logo.webp"],
+    images: [`${baseUrl}/logo-clean.webp`],
   },
   robots: {
     index: true,
@@ -104,6 +105,10 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  other: {
+    "geo.region": "SA",
+    "geo.placename": "Saudi Arabia",
+  },
 };
 
 export default function RootLayout({
@@ -111,8 +116,75 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": `${baseUrl}/#office`,
+        "name": officeConfig.brandName,
+        "alternateName": [
+          "مكتب أحمد راضي",
+          "مكتب أحمد راضي للمساحة",
+          "Ahmed Radi Engineering Consulting"
+        ],
+        "url": baseUrl,
+        "logo": `${baseUrl}/logo-clean.webp`,
+        "image": `${baseUrl}/logo-clean.webp`,
+        "telephone": [
+          officeConfig.phone.international,
+          officeConfig.secondaryPhone?.international || ""
+        ].filter(Boolean),
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "SA",
+          "addressRegion": "الرياض ومناطق المملكة"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "24.7136",
+          "longitude": "46.6753"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Saudi Arabia"
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Saturday",
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday"
+          ],
+          "opens": "09:00",
+          "closes": "21:00"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${baseUrl}/#website`,
+        "url": baseUrl,
+        "name": officeConfig.brandName,
+        "publisher": {
+          "@id": `${baseUrl}/#office`
+        },
+        "inLanguage": "ar"
+      }
+    ]
+  };
+
   return (
     <html lang="ar" dir="rtl" className={`scroll-smooth ${cairo.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="font-cairo min-h-screen flex flex-col bg-[#F8FAFC] text-[#0F172A] antialiased selection:bg-[#C5A059]/20 selection:text-[#050811]">
         <Navbar />
         <main className="flex-1 pb-16 md:pb-0">{children}</main>

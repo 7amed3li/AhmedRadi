@@ -2,16 +2,26 @@ import React from "react";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { serviceCategories, getAllServices } from "@/data/servicesData";
-import { officeConfig, buildWhatsAppLink } from "@/config/officeConfig";
+import { officeConfig, buildWhatsAppLink, SITE_URL } from "@/config/officeConfig";
 import ServiceCard from "@/components/ServiceCard";
 import { WhatsAppIcon } from "@/components/Icons";
 
+const baseUrl = SITE_URL.replace(/\/+$/, "");
+
 export const metadata: Metadata = {
-  title: "دليل الخدمات الهندسية والمساحية",
+  title: "دليل الخدمات الهندسية والمساحية في السعودية",
   description:
-    "دليل كامل لخدمات مكتب أحمد راضي للاستشارات الهندسية: رخص البناء، تسوير الأراضي، شهادات الإشغال، التقارير المساحية، والرفع وتحديث الصكوك.",
+    "دليل شامل لخدمات مكتب أحمد راضي للاستشارات الهندسية: رخص البناء، تسوير الأراضي الفضاء، شهادات الإشغال، التقارير المساحية، والرفع وتحديث الصكوك وفق كود البناء السعودي.",
   alternates: {
-    canonical: "https://ahmed-radi-engineering.sa/services",
+    canonical: `${baseUrl}/services`,
+  },
+  openGraph: {
+    title: "دليل الخدمات الهندسية والمساحية في السعودية | مكتب أحمد راضي",
+    description: "دليل شامل لخدمات رخص البناء والتسوير والتقارير المساحية وشهادات الإشغال.",
+    url: `${baseUrl}/services`,
+    siteName: officeConfig.brandName,
+    locale: "ar_SA",
+    type: "website",
   },
 };
 
