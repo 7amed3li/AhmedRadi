@@ -70,6 +70,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: baseUrl,
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  manifest: "/manifest.webmanifest",
   openGraph: {
     title: `${officeConfig.brandName} | مكتب هندسي معتمد في جميع أنحاء المملكة العربية السعودية`,
     description:
@@ -80,9 +90,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${baseUrl}/logo-clean.webp`,
-        width: 800,
-        height: 800,
+        url: `${baseUrl}/og-image.jpg`,
+        width: 1200,
+        height: 630,
         alt: officeConfig.brandName,
       },
     ],
@@ -92,7 +102,7 @@ export const metadata: Metadata = {
     title: `${officeConfig.brandName} | استشارات هندسية ومساحية معتمدة`,
     description:
       "خدمات رخص البناء والتقارير المساحية وشهادات الإشغال وفق كود البناء السعودي.",
-    images: [`${baseUrl}/logo-clean.webp`],
+    images: [`${baseUrl}/og-image.jpg`],
   },
   robots: {
     index: true,
