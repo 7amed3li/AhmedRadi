@@ -4,6 +4,28 @@ import { SITE_URL } from "@/config/officeConfig";
 export default function robots(): MetadataRoute.Robots {
   const baseUrl = SITE_URL.replace(/\/+$/, "");
 
+  const aiBots = [
+    "GPTBot",
+    "ChatGPT-User",
+    "PerplexityBot",
+    "ClaudeBot",
+    "anthropic-ai",
+    "Google-Extended",
+    "Applebot-Extended",
+    "Bytespider",
+    "CCBot",
+    "cohere-ai",
+    "Meta-ExternalAgent",
+  ];
+
+  const searchBots = [
+    "Googlebot",
+    "Googlebot-Image",
+    "Bingbot",
+    "Applebot",
+    "Yandex",
+  ];
+
   return {
     rules: [
       {
@@ -11,18 +33,14 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: ["/api/", "/_next/"],
       },
-      {
-        userAgent: "Googlebot",
+      ...searchBots.map((agent) => ({
+        userAgent: agent,
         allow: "/",
-      },
-      {
-        userAgent: "Bingbot",
+      })),
+      ...aiBots.map((agent) => ({
+        userAgent: agent,
         allow: "/",
-      },
-      {
-        userAgent: "Applebot",
-        allow: "/",
-      },
+      })),
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
     host: baseUrl,

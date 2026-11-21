@@ -31,6 +31,122 @@ export async function generateStaticParams() {
   }));
 }
 
+const serviceSeoKeywords: Record<string, string[]> = {
+  "building-license": [
+    "إصدار رخصة بناء",
+    "رخصة بناء بلدي",
+    "مكتب هندسي لرخص البناء",
+    "شروط رخصة البناء السكني والتجاري",
+    "كود البناء السعودي رخص",
+    "مخططات معمارية وإنشائية معتمدة",
+    "استخراج رخصة بناء فيلا",
+    "مكتب هندسي معتمد بالرياض",
+    "عقد مقاولة وإشراف هندسي بلدي",
+    "تأمين العيوب الخفية رخصة بناء",
+    "تكلفة إصدار رخصة البناء في السعودية",
+    "منصة بلدي رخص بناء",
+  ],
+  "land-fencing-license": [
+    "رخصة تسوير أرض فضاء",
+    "تسوير الأراضي الفضاء بلدي",
+    "غرامة عدم تسوير الأرض الفضاء",
+    "مخطط تسوير واجهات معتمد",
+    "شروط تسوير الأراضي الفضاء",
+    "مكتب هندسي تسوير أراضي",
+    "إصدار رخصة تسوير فورية بلدي",
+    "تسوير أراضي الرياض والمناطق",
+    "لائحة تسوير الأراضي وزارة البلديات",
+  ],
+  "cadastral-report": [
+    "إصدار تقرير مساحي",
+    "تقرير مساحي بلدي إلكتروني",
+    "تقرير مساحي لفرز أرض",
+    "تقرير مساحي لدمج عقار",
+    "سعر التقرير المساحي بلدي",
+    "مكتب مساحة معتمد بلدي",
+    "استخراج تقرير مساحي بالرياض",
+    "الرفع المساحي لإصدار رخصة بناء",
+    "تقرير مساحي بصك إلكتروني",
+  ],
+  "land-surveying": [
+    "رفع مساحي",
+    "مكتب رفع مساحي معتمد",
+    "رفع مساحي طبوغرافي",
+    "جهاز GPS RTK مساحة",
+    "مسح أراضي ومخططات",
+    "حساب كميات الحفر والردم",
+    "مهندس مساحة الرياض",
+    "مخططات كنتورية وطبوغرافية",
+    "شبكات الرصد المساحي",
+  ],
+  "survey-benchmarks": [
+    "تثبيت ركائز الأرض",
+    "تحديد حدود الأرض المساحية",
+    "ركائز مساحية معتمدة",
+    "تحديد زوايا وأركان الأرض",
+    "إحداثيات الأرض الرسمية",
+    "منع التعدي على حدود العقار",
+    "مكتب مساحة لتثبيت الركائز بالرياض",
+  ],
+  "occupancy-certificate": [
+    "شهادة إتمام بناء",
+    "شهادة إشغال بلدي",
+    "إطلاق التيار الكهربائي",
+    "شروط شهادة إتمام البناء",
+    "كشف هندسي لإتمام البناء",
+    "شهادة إشغال سكني وتجاري",
+    "مكتب هندسي لإصدار شهادة الإتمام",
+    "كهرباء المبنى الجديد بلدي",
+    "مطابقة كود البناء لإشغال العقار",
+  ],
+  "renew-building-license": [
+    "تجديد رخصة بناء",
+    "رخصة بناء منتهية الصلاحية",
+    "طريقة تجديد رخصة البناء بلدي",
+    "رسوم تجديد رخصة البناء",
+    "تمديد رخصة بناء منتهية",
+    "مكتب هندسي لتجديد الرخص في السعودية",
+  ],
+  "modify-building-license": [
+    "تعديل رخصة بناء",
+    "إضافة دور في رخصة البناء",
+    "تعديل المخططات الهندسية المعمارية",
+    "إضافة ملحق علوي أو أرضي",
+    "تعديل واجهات رخصة البناء",
+    "كود البناء لتعديل الرخص",
+  ],
+  "deed-update": [
+    "تحديث الصكوك الورقية",
+    "تحديث صك قديم ناجز",
+    "تحويل الصك الورقي إلى إلكتروني",
+    "مطابقة صك الملكية بالواقع الميداني",
+    "تحديث الصكوك البورصة العقارية",
+    "إثبات مساحة وأبعاد الصك القديم",
+  ],
+  "correct-building-status": [
+    "تصحيح وضع مبنى قائم",
+    "تصحيح الارتدادات البلدية",
+    "رخصة مبنى بدون ترخيص",
+    "تقرير السلامة الإنشائية للمباني",
+    "تسوية مخالفات البناء بلدي",
+    "مكتب هندسي لتصحيح وضع عقار قائم",
+  ],
+  "residential-to-commercial": [
+    "تحويل من سكني إلى تجاري",
+    "تحويل رخصة بناء لسكني تجاري",
+    "شروط فتح نشاط تجاري في عقار سكني",
+    "مواقف السيارات للاستخدام التجاري",
+    "تعديل استخدام العقار بلدي",
+  ],
+  "civil-defense-services": [
+    "مخططات الدفاع المدني سلامة",
+    "ترخيص الدفاع المدني للمنشآت",
+    "اعتماد مخطط السلامة والوقاية من الحريق",
+    "مكتب هندسي معتمد للدفاع المدني",
+    "شبكات الإطفاء والإنذار سلامة",
+  ],
+};
+
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
   const { slug } = await params;
   const service = getServiceBySlug(slug);
@@ -42,20 +158,61 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   }
 
   const baseUrl = SITE_URL.replace(/\/+$/, "");
+  const keywords = serviceSeoKeywords[slug] || [
+    service.title,
+    "مكتب هندسي معتمد",
+    "كود البناء السعودي",
+    "منصة بلدي",
+    "أحمد راضي للاستشارات الهندسية",
+  ];
+
+  const fullTitle = `${service.title} في السعودية | ${officeConfig.brandName}`;
 
   return {
-    title: service.metaTitle,
+    title: {
+      absolute: fullTitle,
+    },
     description: service.metaDescription,
+    keywords,
     alternates: {
       canonical: `${baseUrl}/services/${service.slug}`,
     },
     openGraph: {
-      title: service.metaTitle,
+      title: fullTitle,
       description: service.metaDescription,
       url: `${baseUrl}/services/${service.slug}`,
       siteName: officeConfig.brandName,
       locale: "ar_SA",
       type: "article",
+      images: [
+        {
+          url: `${baseUrl}/logo-clean.webp`,
+          width: 800,
+          height: 800,
+          alt: fullTitle,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: fullTitle,
+      description: service.metaDescription,
+      images: [`${baseUrl}/logo-clean.webp`],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+    },
+    other: {
+      "geo.region": "SA",
+      "geo.placename": "Saudi Arabia",
     },
   };
 }
@@ -117,6 +274,18 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           "name": "Saudi Arabia"
         }
       },
+      ...(service.processSteps && service.processSteps.length > 0 ? [{
+        "@type": "HowTo",
+        "name": `خطوات وإجراءات ${service.title} في السعودية`,
+        "description": service.shortDescription,
+        "step": service.processSteps.map((step) => ({
+          "@type": "HowToStep",
+          "position": step.stepNumber,
+          "name": step.title,
+          "text": `${step.actor}: ${step.description}`,
+          "url": `${baseUrl}/services/${service.slug}#step-${step.stepNumber}`
+        }))
+      }] : []),
       ...(service.faqs && service.faqs.length > 0 ? [{
         "@type": "FAQPage",
         "mainEntity": service.faqs.map(faq => ({
@@ -378,6 +547,25 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                     الأسئلة الشائعة حول {service.title}
                   </h2>
                   <FaqAccordion items={service.faqs} />
+                </div>
+              )}
+
+              {/* High-Intent Search Tags for SEO & Context */}
+              {serviceSeoKeywords[service.slug] && (
+                <div className="bg-slate-50 rounded-xl p-5 border border-slate-200/80">
+                  <span className="text-[11px] font-bold text-slate-500 block mb-2.5">
+                    الكلمات والمصطلحات البلدية الأكثر بحثاً في قوقل لهذه الخدمة:
+                  </span>
+                  <div className="flex flex-wrap gap-2">
+                    {serviceSeoKeywords[service.slug].map((kw, kIdx) => (
+                      <span
+                        key={kIdx}
+                        className="inline-flex items-center text-[11px] font-medium bg-white px-2.5 py-1 rounded-md border border-slate-200 text-slate-700 shadow-2xs"
+                      >
+                        #{kw.replace(/\s+/g, "_")}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               )}
 

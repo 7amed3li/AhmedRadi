@@ -9,27 +9,87 @@ import { WhatsAppIcon } from "@/components/Icons";
 const baseUrl = SITE_URL.replace(/\/+$/, "");
 
 export const metadata: Metadata = {
-  title: "دليل الخدمات الهندسية والمساحية في السعودية",
+  title: {
+    absolute: "دليل الخدمات الهندسية والمساحية في السعودية | مكتب أحمد راضي معتمد",
+  },
   description:
-    "دليل شامل لخدمات مكتب أحمد راضي للاستشارات الهندسية: رخص البناء، تسوير الأراضي الفضاء، شهادات الإشغال، التقارير المساحية، والرفع وتحديث الصكوك وفق كود البناء السعودي.",
+    "الدليل الشامل للخدمات الهندسية والمساحية المعتمدة في المملكة العربية السعودية: رخص البناء، رخص تسوير الأراضي الفضاء، التقارير والرفوعات المساحية، شهادات الإشغال، وتحديث الصكوك عبر منصة بلدي وكود البناء السعودي.",
+  keywords: [
+    "مكتب هندسي معتمد",
+    "استشارات هندسية ومساحية السعودية",
+    "إصدار رخصة بناء بلدي",
+    "رخصة تسوير أرض فضاء",
+    "تقرير مساحي بلدي إلكتروني",
+    "رفع مساحي طبوغرافي GPS",
+    "تثبيت ركائز الأرض",
+    "شهادة إتمام بناء وإشغال",
+    "تجديد رخصة بناء",
+    "تعديل رخصة بناء",
+    "تحديث الصكوك الورقية ناجز",
+    "تصحيح أوضاع المباني",
+    "كود البناء السعودي SBC",
+    "مكتب هندسي الرياض",
+  ],
   alternates: {
     canonical: `${baseUrl}/services`,
   },
   openGraph: {
-    title: "دليل الخدمات الهندسية والمساحية في السعودية | مكتب أحمد راضي",
-    description: "دليل شامل لخدمات رخص البناء والتسوير والتقارير المساحية وشهادات الإشغال.",
+    title: "دليل الخدمات الهندسية والمساحية في السعودية | مكتب أحمد راضي معتمد",
+    description: "الدليل الشامل لكافة خدمات رخص البناء والتسوير والتقارير المساحية وشهادات الإشغال.",
     url: `${baseUrl}/services`,
     siteName: officeConfig.brandName,
     locale: "ar_SA",
     type: "website",
+    images: [
+      {
+        url: `${baseUrl}/logo-clean.webp`,
+        width: 800,
+        height: 800,
+        alt: officeConfig.brandName,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "دليل الخدمات الهندسية والمساحية في السعودية | مكتب أحمد راضي",
+    description: "الدليل الشامل لكافة خدمات رخص البناء والتسوير والتقارير المساحية وشهادات الإشغال.",
+    images: [`${baseUrl}/logo-clean.webp`],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 
 export default function ServicesIndexPage() {
   const allServices = getAllServices();
 
+  const listJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "دليل الخدمات الهندسية والمساحية في السعودية",
+    "description": "قائمة الخدمات الهندسية والمساحية المعتمدة عبر منصة بلدي وكود البناء السعودي بمكتب أحمد راضي",
+    "itemListElement": allServices.map((srv, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 1,
+      "name": srv.title,
+      "url": `${baseUrl}/services/${srv.slug}`
+    }))
+  };
+
   return (
     <div className="bg-[#F8FAFC] min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(listJsonLd) }}
+      />
       
       {/* Header */}
       <section className="bg-gradient-to-br from-[#0A1628] via-[#0F2038] to-[#162846] text-white pt-12 pb-16 border-b border-slate-800">
