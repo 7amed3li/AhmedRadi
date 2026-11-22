@@ -550,24 +550,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 </div>
               )}
 
-              {/* High-Intent Search Tags for SEO & Context */}
-              {serviceSeoKeywords[service.slug] && (
-                <div className="bg-slate-50 rounded-xl p-5 border border-slate-200/80">
-                  <span className="text-[11px] font-bold text-slate-500 block mb-2.5">
-                    الكلمات والمصطلحات البلدية الأكثر بحثاً في قوقل لهذه الخدمة:
-                  </span>
-                  <div className="flex flex-wrap gap-2">
-                    {serviceSeoKeywords[service.slug].map((kw, kIdx) => (
-                      <span
-                        key={kIdx}
-                        className="inline-flex items-center text-[11px] font-medium bg-white px-2.5 py-1 rounded-md border border-slate-200 text-slate-700 shadow-2xs"
-                      >
-                        #{kw.replace(/\s+/g, "_")}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
+              
 
             </div>
 
