@@ -108,10 +108,10 @@ export default function ServiceShowcase() {
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200/90 shadow-xs p-4 sm:p-8 lg:p-10 space-y-6 sm:space-y-10">
-      
+    <div className="bg-white rounded-[1.75rem] border border-slate-200/80 shadow-card p-4 sm:p-8 lg:p-10 space-y-6 sm:space-y-10">
+
       {/* Category Tab Selector Buttons */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-200 scrollbar-none">
+      <div className="flex items-center gap-2 overflow-x-auto pb-3 border-b border-slate-100 scrollbar-none">
         {tabs.map((tab) => {
           const isActive = tab.id === activeTab.id;
           return (
@@ -119,10 +119,10 @@ export default function ServiceShowcase() {
               key={tab.id}
               type="button"
               onClick={() => setActiveTab(tab)}
-              className={`px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-md text-xs sm:text-sm font-bold whitespace-nowrap transition-all focus:outline-none ${
+              className={`px-4 sm:px-5 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-300 focus:outline-none ${
                 isActive
-                  ? "bg-[#070B14] text-white shadow-xs"
-                  : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900"
+                  ? "bg-ink-900 text-white shadow-chip"
+                  : "bg-mist text-slate-600 hover:bg-brass-50 hover:text-ink-900"
               }`}
             >
               {tab.label}
@@ -132,8 +132,8 @@ export default function ServiceShowcase() {
       </div>
 
       {/* Dynamic Interactive Split Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-        
+      <div key={activeTab.id} className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center animate-slide-in">
+
         {/* Visual Architectural CAD Illustration */}
         <div className="lg:col-span-6 order-2 lg:order-1">
           {activeTab.visualComponent}
@@ -141,11 +141,11 @@ export default function ServiceShowcase() {
 
         {/* Technical Specifications & Direct CTA */}
         <div className="lg:col-span-6 space-y-6 order-1 lg:order-2 text-right">
-          <span className="text-[11px] font-bold text-[#C5A059] uppercase tracking-wider block">
+          <span className="eyebrow">
             المواصفات الفنية والمخرجات
           </span>
 
-          <h3 className="text-2xl sm:text-3xl font-black text-[#070B14] leading-snug">
+          <h3 className="text-2xl sm:text-3xl font-black text-ink-900 leading-snug">
             {activeTab.title}
           </h3>
 
@@ -154,10 +154,12 @@ export default function ServiceShowcase() {
           </p>
 
           <div className="space-y-3 pt-2">
-            <span className="text-xs font-bold text-[#070B14] block">المخرجات والخدمات المشمولة:</span>
+            <span className="text-xs font-bold text-ink-900 block">المخرجات والخدمات المشمولة:</span>
             {activeTab.deliverables.map((item, idx) => (
               <div key={idx} className="flex items-start gap-3 text-xs text-slate-700">
-                <CheckCircleIcon size={16} className="text-[#C5A059] shrink-0 mt-0.5" />
+                <span className="w-6 h-6 rounded-full bg-brass-500/12 flex items-center justify-center shrink-0">
+                  <CheckCircleIcon size={14} className="text-brass-600" />
+                </span>
                 <span className="font-medium leading-relaxed">{item}</span>
               </div>
             ))}
@@ -166,19 +168,19 @@ export default function ServiceShowcase() {
           <div className="pt-4 flex flex-wrap items-center gap-3">
             <Link
               href={`/services/${activeTab.slug}`}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-md text-xs font-bold bg-[#070B14] text-white hover:bg-slate-800 transition"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold bg-ink-900 text-white hover:bg-ink-800 transition shadow-chip group"
             >
               <span>تفاصيل الخدمة والاشتراطات</span>
-              <ArrowLeftIcon size={13} />
+              <ArrowLeftIcon size={13} className="text-brass-400 transition-transform group-hover:-translate-x-1" />
             </Link>
 
             <a
               href={buildWhatsAppLink(`السلام عليكم مهندس أحمد، أود الاستفسار عن ${activeTab.title}.`)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-md text-xs font-bold bg-slate-100 text-slate-900 hover:bg-slate-200 transition"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold bg-mist text-slate-900 hover:bg-slate-200/80 transition"
             >
-              <WhatsAppIcon size={15} className="text-[#C5A059]" />
+              <WhatsAppIcon size={15} className="text-brass-600" />
               <span>استفسار واتساب</span>
             </a>
           </div>

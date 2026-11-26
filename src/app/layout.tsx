@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cairo } from "next/font/google";
+import { Cairo, IBM_Plex_Sans_Arabic } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -10,6 +10,13 @@ const cairo = Cairo({
   subsets: ["arabic", "latin"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-cairo",
+  display: "swap",
+});
+
+const plex = IBM_Plex_Sans_Arabic({
+  subsets: ["arabic", "latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-plex",
   display: "swap",
 });
 
@@ -188,14 +195,14 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="ar" dir="rtl" className={`scroll-smooth ${cairo.variable}`}>
+    <html lang="ar" dir="rtl" className={`scroll-smooth ${cairo.variable} ${plex.variable}`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-cairo min-h-screen flex flex-col bg-[#F8FAFC] text-[#0F172A] antialiased selection:bg-[#C5A059]/20 selection:text-[#050811]">
+      <body className="font-sans min-h-screen flex flex-col bg-paper text-slate-800 antialiased">
         <Navbar />
         <main className="flex-1 pb-16 md:pb-0">{children}</main>
         <MobileStickyBar />

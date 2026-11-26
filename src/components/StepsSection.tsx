@@ -30,14 +30,14 @@ export default function StepsSection() {
   ];
 
   return (
-    <section id="process" className="py-16 lg:py-20 bg-white border-t border-slate-200">
+    <section id="process" className="py-16 lg:py-24 bg-white border-t border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="max-w-3xl mx-auto text-center mb-14 space-y-2">
-          <span className="text-xs font-bold text-[#C5A059] tracking-wider uppercase">
+          <span className="eyebrow justify-center">
             مسار العمل الهندسي
           </span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A]">
+          <h2 className="text-2xl sm:text-3xl font-black text-ink-900">
             آلية تنفيذ المعاملات الهندسية والمساحية
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 font-normal">
@@ -51,19 +51,19 @@ export default function StepsSection() {
             return (
               <div
                 key={idx}
-                className="bg-slate-50 p-6 rounded-xl border border-slate-200 hover:border-slate-300 transition-colors flex flex-col justify-between"
+                className="group bg-paper p-6 rounded-3xl border border-slate-200/80 shadow-chip hover:shadow-lift hover:-translate-y-1 hover:border-brass-500/40 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-mono font-bold text-slate-400">
+                    <span className="num-editorial font-display text-lg font-black text-brass-500/70">
                       {st.number}
                     </span>
-                    <div className="w-9 h-9 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-700 shadow-xs">
+                    <div className="w-10 h-10 rounded-xl bg-ink-900 border border-ink-900 flex items-center justify-center text-brass-400 shadow-chip">
                       <Icon size={18} />
                     </div>
                   </div>
 
-                  <h3 className="font-bold text-[#0F172A] text-sm mb-2">
+                  <h3 className="font-bold text-ink-900 text-sm mb-2">
                     {st.title}
                   </h3>
 
@@ -72,7 +72,7 @@ export default function StepsSection() {
                   </p>
                 </div>
 
-                <div className="mt-6 pt-3 border-t border-slate-200/70 text-[11px] font-medium text-slate-500">
+                <div className="mt-6 pt-3 border-t border-slate-200/80 text-[11px] font-medium text-slate-500">
                   المرحلة {idx + 1} من 4
                 </div>
               </div>

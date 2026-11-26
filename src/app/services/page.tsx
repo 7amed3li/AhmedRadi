@@ -85,27 +85,30 @@ export default function ServicesIndexPage() {
   };
 
   return (
-    <div className="bg-[#F8FAFC] min-h-screen">
+    <div className="bg-paper min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(listJsonLd) }}
       />
       
       {/* Header */}
-      <section className="bg-gradient-to-br from-[#0A1628] via-[#0F2038] to-[#162846] text-white pt-12 pb-16 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+      <section className="relative overflow-hidden bg-gradient-to-br from-ink-950 via-ink-850 to-ink-800 text-white pt-14 pb-20">
+        <div className="absolute inset-0 blueprint-grid-dark opacity-40 pointer-events-none" />
+        <div className="absolute -bottom-32 -left-24 w-96 h-96 rounded-full bg-brass-500/10 blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 inset-x-0 gold-rule" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
           <nav aria-label="مسار التنقل" className="flex items-center gap-2 text-xs text-slate-300 mb-6">
             <Link href="/" className="hover:text-white transition">الرئيسية</Link>
             <span>/</span>
-            <span className="text-[#C5A059] font-semibold">دليل الخدمات</span>
+            <span className="text-brass-400 font-semibold">دليل الخدمات</span>
           </nav>
 
           <div className="max-w-3xl space-y-3">
-            <span className="text-xs font-bold text-[#C5A059] tracking-wider uppercase">
+            <span className="eyebrow eyebrow-light">
               الدليل الشامل للخدمات (12 خدمة بلدية ومساحية)
             </span>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+            <h1 className="text-3xl sm:text-[2.75rem] font-black text-white leading-tight">
               الخدمات الهندسية والمساحية في السعودية
             </h1>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
@@ -126,16 +129,16 @@ export default function ServicesIndexPage() {
           return (
             <div key={cat.id} id={cat.id} className="space-y-6">
               
-              <div className="border-r-3 border-[#C5A059] pr-4 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+              <div className="border-r-[3px] border-brass-500 pr-4 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
                 <div>
-                  <h2 className="text-lg sm:text-xl font-bold text-[#0A1628]">
+                  <h2 className="text-lg sm:text-xl font-bold text-ink-900">
                     {cat.title}
                   </h2>
                   <p className="text-xs sm:text-sm text-slate-500 mt-0.5 max-w-2xl font-normal">
                     {cat.description}
                   </p>
                 </div>
-                <span className="text-xs font-semibold text-slate-600 bg-white border border-slate-200 px-3 py-1 rounded-md shrink-0">
+                <span className="text-xs font-semibold text-slate-600 bg-white border border-slate-200 px-3 py-1 rounded-full shrink-0 shadow-chip">
                   {catServices.length} خدمات
                 </span>
               </div>
@@ -152,9 +155,9 @@ export default function ServicesIndexPage() {
       </section>
 
       {/* Direct Contact Callout */}
-      <section className="py-12 bg-white border-t border-slate-200">
+      <section className="py-14 bg-white border-t border-slate-200/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
-          <h2 className="text-xl sm:text-2xl font-bold text-[#0A1628]">
+          <h2 className="text-xl sm:text-2xl font-black text-ink-900">
             هل تبحث عن معاملة مخصصة لموقعك؟
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 font-normal">
@@ -165,7 +168,7 @@ export default function ServicesIndexPage() {
               href={buildWhatsAppLink("السلام عليكم مهندس أحمد، لدي استفسار عن معاملة خاصة.")}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-xs font-bold bg-[#C5A059] text-[#0A1628] hover:bg-[#D4AF37] transition shadow-md"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-xs font-bold bg-gradient-to-b from-brass-400 to-brass-500 text-ink-950 hover:from-brass-300 hover:to-brass-400 transition shadow-gold"
             >
               <WhatsAppIcon size={16} />
               <span>محادثة واتساب مباشرة</span>

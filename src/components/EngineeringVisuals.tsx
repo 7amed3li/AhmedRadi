@@ -9,7 +9,7 @@ interface VisualProps {
  */
 export function BuildingLicenseVisual({ className = "w-full h-44" }: VisualProps) {
   return (
-    <div className={`relative bg-[#050811] rounded-xl overflow-hidden p-4 flex items-center justify-center border border-slate-800 ${className}`}>
+    <div className={`relative bg-ink-950 rounded-3xl overflow-hidden p-4 flex items-center justify-center border border-ink-800 shadow-lift ${className}`}>
       {/* Blueprint background grid */}
       <div className="absolute inset-0 blueprint-grid-dark opacity-40 pointer-events-none" />
       
@@ -60,7 +60,7 @@ export function BuildingLicenseVisual({ className = "w-full h-44" }: VisualProps
  */
 export function SurveyingVisual({ className = "w-full h-44" }: VisualProps) {
   return (
-    <div className={`relative bg-[#050811] rounded-xl overflow-hidden p-4 flex items-center justify-center border border-slate-800 ${className}`}>
+    <div className={`relative bg-ink-950 rounded-3xl overflow-hidden p-4 flex items-center justify-center border border-ink-800 shadow-lift ${className}`}>
       <div className="absolute inset-0 blueprint-grid-dark opacity-40 pointer-events-none" />
       
       <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full relative z-10">
@@ -107,7 +107,7 @@ export function SurveyingVisual({ className = "w-full h-44" }: VisualProps) {
  */
 export function FencingVisual({ className = "w-full h-44" }: VisualProps) {
   return (
-    <div className={`relative bg-[#050811] rounded-xl overflow-hidden p-4 flex items-center justify-center border border-slate-800 ${className}`}>
+    <div className={`relative bg-ink-950 rounded-3xl overflow-hidden p-4 flex items-center justify-center border border-ink-800 shadow-lift ${className}`}>
       <div className="absolute inset-0 blueprint-grid-dark opacity-40 pointer-events-none" />
       
       <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full relative z-10">
@@ -150,7 +150,7 @@ export function FencingVisual({ className = "w-full h-44" }: VisualProps) {
  */
 export function OccupancyVisual({ className = "w-full h-44" }: VisualProps) {
   return (
-    <div className={`relative bg-[#050811] rounded-xl overflow-hidden p-4 flex items-center justify-center border border-slate-800 ${className}`}>
+    <div className={`relative bg-ink-950 rounded-3xl overflow-hidden p-4 flex items-center justify-center border border-ink-800 shadow-lift ${className}`}>
       <div className="absolute inset-0 blueprint-grid-dark opacity-40 pointer-events-none" />
       
       <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full relative z-10">
@@ -199,7 +199,7 @@ export function OccupancyVisual({ className = "w-full h-44" }: VisualProps) {
  */
 export function DeedUpdateVisual({ className = "w-full h-44" }: VisualProps) {
   return (
-    <div className={`relative bg-[#050811] rounded-xl overflow-hidden p-4 flex items-center justify-center border border-slate-800 ${className}`}>
+    <div className={`relative bg-ink-950 rounded-3xl overflow-hidden p-4 flex items-center justify-center border border-ink-800 shadow-lift ${className}`}>
       <div className="absolute inset-0 blueprint-grid-dark opacity-40 pointer-events-none" />
       
       <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full relative z-10">
@@ -244,7 +244,7 @@ export function DeedUpdateVisual({ className = "w-full h-44" }: VisualProps) {
  */
 export function CivilDefenseVisual({ className = "w-full h-44" }: VisualProps) {
   return (
-    <div className={`relative bg-[#050811] rounded-xl overflow-hidden p-4 flex items-center justify-center border border-slate-800 ${className}`}>
+    <div className={`relative bg-ink-950 rounded-3xl overflow-hidden p-4 flex items-center justify-center border border-ink-800 shadow-lift ${className}`}>
       <div className="absolute inset-0 blueprint-grid-dark opacity-40 pointer-events-none" />
       
       <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full relative z-10">

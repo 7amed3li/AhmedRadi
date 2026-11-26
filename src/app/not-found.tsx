@@ -4,10 +4,11 @@ import { ArrowLeftIcon } from "@/components/Icons";
 
 export default function NotFound() {
   return (
-    <div className="min-h-[70vh] flex items-center justify-center bg-[#FAF8F5] px-4 py-16 text-center">
-      <div className="max-w-md mx-auto space-y-6">
-        <span className="text-5xl font-black text-[#C5A059] block">404</span>
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-[#070B14]">
+    <div className="relative min-h-[70vh] flex items-center justify-center bg-paper px-4 py-16 text-center overflow-hidden">
+      <div className="absolute inset-0 bg-grid-blueprint opacity-40 pointer-events-none" />
+      <div className="relative max-w-md mx-auto space-y-6">
+        <span className="num-editorial font-display text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-brass-400 to-brass-600 block">404</span>
+        <h1 className="text-2xl sm:text-3xl font-black text-ink-900">
           الصفحة المطلوبة غير موجودة
         </h1>
         <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -16,14 +17,14 @@ export default function NotFound() {
         <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#070B14] text-white text-xs font-bold hover:bg-slate-800 transition"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-ink-900 text-white text-xs font-bold hover:bg-ink-800 transition shadow-chip group"
           >
             <span>الصفحة الرئيسية</span>
-            <ArrowLeftIcon size={14} className="text-[#C5A059]" />
+            <ArrowLeftIcon size={14} className="text-brass-400 transition-transform group-hover:-translate-x-1" />
           </Link>
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white border border-slate-300 text-slate-800 text-xs font-bold hover:bg-slate-50 transition"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-slate-300 text-slate-800 text-xs font-bold hover:bg-mist transition shadow-chip"
           >
             <span>دليل الخدمات</span>
           </Link>

@@ -49,12 +49,12 @@ export default function InquiryForm({ defaultServiceSlug = "" }: InquiryFormProp
   };
 
   return (
-    <div id="contact-form" className="bg-white rounded-2xl p-8 sm:p-12 border border-slate-200/90 shadow-xs">
+    <div id="contact-form" className="bg-white rounded-[1.75rem] p-7 sm:p-12 border border-slate-200/80 shadow-card">
       <div className="mb-8 space-y-2 text-right">
-        <span className="text-xs font-bold text-[#C5A059] uppercase tracking-wider block">
+        <span className="eyebrow">
           استفسار مباشر
         </span>
-        <h3 className="text-2xl sm:text-3xl font-black text-[#070B14]">
+        <h3 className="text-2xl sm:text-3xl font-black text-ink-900">
           طلب مراجعة معاملة هندسية
         </h3>
         <p className="text-xs sm:text-sm text-slate-500 font-light">
@@ -63,11 +63,11 @@ export default function InquiryForm({ defaultServiceSlug = "" }: InquiryFormProp
       </div>
 
       {submitted ? (
-        <div className="bg-slate-50 border border-slate-200 rounded-xl p-8 text-center space-y-3">
-          <div className="w-12 h-12 mx-auto rounded-xl bg-[#070B14] flex items-center justify-center text-[#C5A059]">
+        <div className="bg-paper border border-slate-200/90 rounded-3xl p-8 text-center space-y-3">
+          <div className="w-14 h-14 mx-auto rounded-2xl bg-ink-900 flex items-center justify-center text-brass-400 shadow-chip">
             <CheckCircleIcon size={24} />
           </div>
-          <h4 className="text-lg font-bold text-[#070B14]">تم استلام استفسارك بنجاح</h4>
+          <h4 className="text-lg font-bold text-ink-900">تم استلام استفسارك بنجاح</h4>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
             شكراً لتواصلك يا أستاذ {formData.fullName}. جاري فتح محادثة واتساب لتأكيد الاستفسار وإرفاق صورة الصك.
           </p>
@@ -75,7 +75,7 @@ export default function InquiryForm({ defaultServiceSlug = "" }: InquiryFormProp
             <button
               type="button"
               onClick={() => setSubmitted(false)}
-              className="text-xs text-slate-800 underline hover:text-[#070B14]"
+              className="text-xs text-slate-800 underline hover:text-ink-900"
             >
               إرسال استفسار آخر
             </button>
@@ -101,7 +101,7 @@ export default function InquiryForm({ defaultServiceSlug = "" }: InquiryFormProp
               placeholder="الاسم الثلاثي"
               value={formData.fullName}
               onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-              className="w-full px-4 py-3 rounded-md border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-[#070B14] transition-colors"
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-paper/60 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-brass-500 focus:ring-4 focus:ring-brass-500/15 focus:bg-white transition-all"
             />
           </div>
 
@@ -117,7 +117,7 @@ export default function InquiryForm({ defaultServiceSlug = "" }: InquiryFormProp
               placeholder="05xxxxxxxx"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className="w-full px-4 py-3 rounded-md border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-[#070B14] transition-colors text-right"
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-paper/60 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-brass-500 focus:ring-4 focus:ring-brass-500/15 focus:bg-white transition-all text-right"
             />
           </div>
 
@@ -131,7 +131,7 @@ export default function InquiryForm({ defaultServiceSlug = "" }: InquiryFormProp
               placeholder="مثال: الرياض"
               value={formData.city}
               onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-              className="w-full px-4 py-3 rounded-md border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-[#070B14] transition-colors"
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-paper/60 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-brass-500 focus:ring-4 focus:ring-brass-500/15 focus:bg-white transition-all"
             />
           </div>
 
@@ -143,9 +143,9 @@ export default function InquiryForm({ defaultServiceSlug = "" }: InquiryFormProp
               id="serviceSlug"
               value={formData.serviceSlug}
               onChange={(e) => setFormData({ ...formData, serviceSlug: e.target.value })}
-              className="w-full px-4 py-3 rounded-md border border-slate-200 text-sm text-slate-900 bg-white focus:outline-none focus:border-[#070B14] transition-colors"
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-paper/60 text-sm text-slate-900 focus:outline-none focus:border-brass-500 focus:ring-4 focus:ring-brass-500/15 focus:bg-white transition-all"
             >
-              <option value="">-- اختر الخدمة أو استشارة عامة --</option>
+              <option value="">اختر الخدمة أو استشارة عامة</option>
               {services.map((svc) => (
                 <option key={svc.slug} value={svc.slug}>
                   {svc.title}
@@ -164,7 +164,7 @@ export default function InquiryForm({ defaultServiceSlug = "" }: InquiryFormProp
               placeholder="مثال: لدي رخصة بناء منتهية وأرغب في تجديدها..."
               value={formData.notes}
               onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-              className="w-full px-4 py-3 rounded-md border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-[#070B14] transition-colors"
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-paper/60 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-brass-500 focus:ring-4 focus:ring-brass-500/15 focus:bg-white transition-all"
             ></textarea>
           </div>
 
@@ -174,7 +174,7 @@ export default function InquiryForm({ defaultServiceSlug = "" }: InquiryFormProp
 
           <button
             type="submit"
-            className="w-full py-4 px-6 rounded-md font-bold text-sm bg-[#070B14] text-white hover:bg-slate-800 transition-colors shadow-sm"
+            className="w-full py-4 px-6 rounded-full font-bold text-sm bg-ink-900 text-white hover:bg-ink-800 active:scale-[0.99] transition-all shadow-chip"
           >
             إرسال ومتابعة عبر واتساب
           </button>

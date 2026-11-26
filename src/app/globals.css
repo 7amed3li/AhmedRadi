@@ -1,64 +1,182 @@
 @import "tailwindcss";
 
-:root {
-  --font-cairo: "Cairo", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  
-  /* Luxury Architectural Monograph Palette */
-  --ink-950: #070B14;
-  --ink-900: #0A1120;
-  --ink-800: #121F38;
-  
-  --brass-500: #C5A059;
-  --brass-600: #A8833B;
-  --brass-400: #D8B775;
-  --brass-100: #F7F3E9;
-  
-  --canvas-pure: #FFFFFF;
-  --canvas-warm: #FAFBFD;
-  --canvas-muted: #F1F4F8;
-  
-  --hairline: rgba(15, 23, 42, 0.08);
-  --hairline-dark: rgba(255, 255, 255, 0.12);
+@theme {
+  /* Typography — Cairo for display, IBM Plex Sans Arabic for text */
+  --font-sans: var(--font-plex), "IBM Plex Sans Arabic", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: var(--font-cairo), "Cairo", "IBM Plex Sans Arabic",
+    -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Ink — deep architectural navy */
+  --color-ink-950: #05080f;
+  --color-ink-900: #070b14;
+  --color-ink-850: #0a1120;
+  --color-ink-800: #101b31;
+  --color-ink-700: #1b2a47;
+  --color-ink-600: #2a3d63;
+  --color-ink-100: #dce4f0;
+
+  /* Brass — refined gold accent */
+  --color-brass-700: #86662c;
+  --color-brass-600: #a8833b;
+  --color-brass-500: #c5a059;
+  --color-brass-400: #d8b775;
+  --color-brass-300: #e7cd94;
+  --color-brass-100: #f3ecdb;
+  --color-brass-50: #fbf8f1;
+
+  /* Canvas — warm paper neutrals */
+  --color-paper: #faf8f4;
+  --color-mist: #f2f4f7;
+
+  /* Elevation */
+  --shadow-card: 0 1px 2px rgb(7 11 20 / 0.04),
+    0 10px 30px -14px rgb(7 11 20 / 0.14);
+  --shadow-lift: 0 2px 4px rgb(7 11 20 / 0.05),
+    0 24px 48px -18px rgb(7 11 20 / 0.24);
+  --shadow-gold: 0 12px 32px -12px rgb(197 160 89 / 0.55);
+  --shadow-chip: 0 1px 2px rgb(7 11 20 / 0.05),
+    0 4px 14px -6px rgb(7 11 20 / 0.12);
+
+  /* Motion */
+  --animate-marquee: marquee 38s linear infinite;
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(50%);
+    }
+  }
+  --animate-slide-in: slide-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  @keyframes slide-in {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 
-body {
-  font-family: var(--font-cairo), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background-color: var(--canvas-pure);
-  color: #1E293B;
-  direction: rtl;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-paper);
+    color: #1e293b;
+    direction: rtl;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background-color: rgb(197 160 89 / 0.28);
+    color: var(--color-ink-950);
+  }
 }
 
+/* Legacy display-font utility (kept for compatibility) */
 .font-cairo {
-  font-family: var(--font-cairo), sans-serif;
+  font-family: var(--font-display);
 }
 
-/* Editorial Minimal Hairlines */
+/* Section eyebrow label */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-brass-600);
+  text-transform: uppercase;
+}
+.eyebrow::before {
+  content: "";
+  width: 1.75rem;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to left,
+    var(--color-brass-500),
+    var(--color-brass-300)
+  );
+}
+.eyebrow-light {
+  color: var(--color-brass-300);
+}
+
+/* Editorial hairlines */
 .hairline-b {
-  border-bottom: 1px solid var(--hairline);
+  border-bottom: 1px solid rgb(15 23 42 / 0.08);
 }
-
 .hairline-t {
-  border-top: 1px solid var(--hairline);
+  border-top: 1px solid rgb(15 23 42 / 0.08);
 }
 
 /* Architectural typography numbers */
 .num-editorial {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", monospace;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums lining-nums;
+  letter-spacing: -0.03em;
 }
 
-/* Smooth row hover transitions */
+/* Blueprint grids (light + dark surfaces) */
+.bg-grid-blueprint {
+  background-image:
+    linear-gradient(to left, rgb(10 17 32 / 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(10 17 32 / 0.055) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+.blueprint-grid-dark {
+  background-image:
+    linear-gradient(to left, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+/* Fine gold rule used under dark hero headers */
+.gold-rule {
+  background: linear-gradient(
+    to left,
+    transparent,
+    rgb(197 160 89 / 0.65),
+    transparent
+  );
+  height: 1px;
+}
+
+/* Smooth editorial row hover */
 .editorial-row {
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
 .editorial-row:hover {
-  background-color: rgba(248, 250, 252, 0.8);
+  background-color: rgb(248 250 252 / 0.8);
   padding-right: 1.5rem;
   padding-left: 1.5rem;
+}
+
+/* Marquee pause on hover */
+.marquee-track:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+/* Hide scrollbars for tab rails */
+.scrollbar-none {
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }
 
 /* Custom subtle scrollbar */
@@ -66,12 +184,19 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #FFFFFF;
+  background: #ffffff;
 }
 ::-webkit-scrollbar-thumb {
-  background: #E2E8F0;
+  background: #d8dee8;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94A3B8;
+  background: var(--color-brass-500);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
 }
