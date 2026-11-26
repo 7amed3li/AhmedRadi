@@ -4,7 +4,9 @@ import { SITE_URL } from "@/config/officeConfig";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_URL.replace(/\/+$/, "");
-  const currentDate = new Date().toISOString().split("T")[0];
+  // Honest, stable lastmod: bump ONLY when page content actually changes.
+  // Stamping "today" on every build teaches Google to distrust the sitemap.
+  const currentDate = "2026-11-21";
   const services = getAllServices();
 
   const serviceUrls = services.map((service) => ({
